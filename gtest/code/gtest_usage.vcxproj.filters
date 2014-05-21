@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Sources\std">
+      <UniqueIdentifier>{7c2fc41e-4714-4d49-9f90-3bc6379d5d5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\std\test">
+      <UniqueIdentifier>{bfffaf92-1906-43b5-adb4-c61ddc706af6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\etc">
+      <UniqueIdentifier>{2a15799e-9766-4881-b443-bbe1dcd34bf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\etc\test">
+      <UniqueIdentifier>{ec29e0f9-c645-4443-9f83-77a0605effa7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="std\test\string_TEST.h">
+      <Filter>Sources\std\test</Filter>
+    </ClInclude>
+    <ClInclude Include="etc\test\fib_TEST.h">
+      <Filter>Sources\etc\test</Filter>
+    </ClInclude>
+    <ClInclude Include="etc\test\intro_TEST.h">
+      <Filter>Sources\etc\test</Filter>
+    </ClInclude>
+    <ClInclude Include="std\test\queue_TEST.h">
+      <Filter>Sources\std\test</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
