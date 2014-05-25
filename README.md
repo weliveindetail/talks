@@ -1,4 +1,4 @@
 talks
 =====
 
-Slides and code example from talks and lectures I gave
+Slides and code examples from talks and lectures I gave
