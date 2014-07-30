@@ -1,0 +1,690 @@
+﻿<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>The Google Test Framework</title>
+
+		<meta name="description" content="Introduction into the Google Test Framework">
+		<meta name="author" content="Stefan Gränitz">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/custom.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body style="background-color: #ffffff;">
+		<div class="reveal">
+			<div class="slides">
+		
+				<section id="landing-page" data-background="img/reveal-parallax-2.jpg";>
+					<div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<h3 style="text-align: right;">NI Tech Talks</h3>
+					<h2 style="text-align: right;">Google C++ Testing Framework</h2>
+					<br>
+					<br>
+					<br>
+          <h4 style="font-family: Courier New; text-align: right;">
+          // Stefan Gränitz, Reaktor Dev Team, Berlin 2014 05 20
+          </h4>
+					</div>
+					
+					<aside class="notes">
+						<pre style="font-size: 28px;">
+* thanks to joachim for intro
+* nice to see so many of you here, introduce myself
+* talk is about Google test and possibilities of automated testing
+* two points before we start:
+  > like everytime when we do something: estimations first (1 hour)
+  > don't understand? questions? anything to add? invite everyone to contribute, 
+    but please wait for the respective slide to finish, otherwise lose track..
+						</pre>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Quick Facts</h2>
+					<ul class="wide" style="margin-left:150px;">
+						<li><i>Google C++ Testing Framework</i>, <i>Google Test</i> or <i>gtest</i></li>
+						<li>unit-testing of C/C++ code with minimal source modification</li>
+						<li>development started in 2005, initial release in 2008</li>
+						<li>open source under 3-clause BSD license</li>
+						<li>xUnit architecture</li>
+						<li>cross-platform</li>
+						<li><b>all we need for automated testing?!</b></li>
+					</ul>
+					
+					<aside class="notes">
+						<pre style="font-size: 28px;">
+* 3-clause BSD: keep copyright and disclaimer in headers + don't try to sell the sources
+* xUnit: widely used architectue for test frameworks - did not reinvent the wheel
+						</pre>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Overview</h2>
+					<ol>
+						<li>Terminology</li>
+						<li>Pros and Cons for Google Test</li>
+						<li>Basic Concepts</li>
+						<li>Test Fixtures</li>
+						<li>Advanced Concepts</li>
+						<li>Notes on Automated Testing</li>
+						<li>Automated vs. Interactive Testing</li>
+						<li>Conclusion</li>
+					</ol>
+          <br>
+          <br>
+          <p class="fragment" data-fragment-index="1">
+						<b>But first of all let's have a look at some code!</b>
+					</p>
+				</section>
+
+				<section>
+					<h2>Basic Example</h2>
+					
+					<p class="listing-title" style="margin-left:-198px;">In your production code:</p>
+<pre style='padding:10px; color:#000; background:#fff; width:600px;'>
+<span style='color:#800000; font-weight:bold;'>int</span> Factorial<span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>int</span> n<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span> <span style='color:#696969; '>// Returns the factorial of n</span></pre>
+
+					<p class="listing-title" style="margin-left:-100px;">In your test code:
+<pre style='padding:10px; color:#000; background:#fff; width:600px;'>
+<span style='color:#696969; '>// Tests factorial of 0.</span>
+TEST<span style='color:#808030; '>(</span>FactorialTest<span style='color:#808030; '>,</span> HandlesZeroInput<span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+  EXPECT_EQ<span style='color:#808030; '>(</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>,</span> Factorial<span style='color:#808030; '>(</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span>
+
+<span style='color:#696969; '>// Tests factorial of positive numbers.</span>
+TEST<span style='color:#808030; '>(</span>FactorialTest<span style='color:#808030; '>,</span> HandlesPositiveInput<span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+  EXPECT_EQ<span style='color:#808030; '>(</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>,</span> Factorial<span style='color:#808030; '>(</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  EXPECT_EQ<span style='color:#808030; '>(</span><span style='color:#008c00; '>2</span><span style='color:#808030; '>,</span> Factorial<span style='color:#808030; '>(</span><span style='color:#008c00; '>2</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  EXPECT_EQ<span style='color:#808030; '>(</span><span style='color:#008c00; '>6</span><span style='color:#808030; '>,</span> Factorial<span style='color:#808030; '>(</span><span style='color:#008c00; '>3</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  EXPECT_EQ<span style='color:#808030; '>(</span><span style='color:#008c00; '>40320</span><span style='color:#808030; '>,</span> Factorial<span style='color:#808030; '>(</span><span style='color:#008c00; '>8</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span></pre>
+					</p>
+					
+					<aside class="notes">
+						RUN EXAMPLE!!!
+					</aside>
+				</section>
+		
+				<section>
+          <h2>Terminology</h2>
+          
+          <section>
+            <dl style="margin-top:-30px;">
+              <dt>test case</dt>
+                <dd>group of related tests</dd>
+              <dt>unit test</dt>
+                <dd>set of independent test cases covering all aspects of a code unit</dd>
+              <dt>regression test</dt>
+                <dd>tests applied frequently to verify existing functionality</dd>
+              <dt>smoke test</dt>
+                <dd>a few unit tests for key parts of the system that execute automatically (ideally for every compilation)</dd>
+							<dt>flaky test</dt>
+								<dd>test that is non-deterministic, because of environmental-, code- or test-code-issues</dd>
+            </dl>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+* term. can be hard sometimes, esp. when it comes to expr. used in wide range of domains
+* seems to be common understanding, but meaning/semantics varies between single domains
+
+* group of tests: not so much about granularity, it's more about aggregation of related things
+* flaky test: can be many reasons because of environmental-, code- or test-code-issues
+              can cause subsequent tests to fail
+              it's actually a shame because cannot unroll commits autom. but we won't get rid of them
+							</pre>
+            </aside>
+          </section>
+			
+          <section>
+            <dl>
+              <dt>white-box testing</dt>
+                <dd>knowledge of code under test is used when designing a test</dd>
+              <dt>Test-Driven Development</dt>
+                <dd>small development cycles of write test, write minimal implementation, refactor</dd>
+							<!--<dt>dogfooding</dt>
+                <dd>forcing those who design products to actually use and rely on them</dd>-->
+            </dl>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+* white-box: opposite of black-box, implies only dev can write the test
+* dogfooding: only indirectly relates to testing
+							</pre>
+            
+            </aside>
+          </section>
+        </section>
+		
+				<section>
+          <h2>Pros and Cons for Google Test</h2>
+          
+          <section>
+            <h3>Pros</h3>
+            <p>
+              lightweight, widely used, debug support<br><br>
+              under active development<br>
+              <sup><a href="https://code.google.com/p/googletest/source/list">https://code.google.com/p/googletest/source/list</a></sup><br>
+              documentation is quite good<br>
+              <sup><a href="https://code.google.com/p/googletest/wiki/Primer">https://code.google.com/p/googletest/wiki/Primer</a></sup><br>
+            </p>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+On the positive side there is:
+* lightweight: edit compile run cycle
+* widely used -> google stats picture
+* further points like little pre-conditions to env (no exceptions, no RTTI)
+							</pre>
+            </aside>
+          </section>
+          <section>
+            <h3>Cons</h3>
+            <p>
+              extensive usage of preprocessor macros<br><br>						
+              not available for Objectiv-C and iOS<br><br>
+              ..anything else?
+            </p>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+On the negative side we have...
+* macros always undermine the capabilities of the IDE (esp. syntax errors are rather hard to find)
+* how many iOs/ObjC devs? probably no showstopper (btw. there is a separate Andriod port)
+							</pre>
+            </aside>
+          </section>
+          <section>
+            <h3>Alternatives</h3>
+            <p>
+              Boost Test<br>
+              <sup><a href="http://www.boost.org/doc/libs/1_55_0/libs/test/doc/html">
+                http://www.boost.org/doc/libs/1_55_0/libs/test/doc/html</a></sup><br>
+                
+              CppUnit<br>
+              <sup><a href="http://cppunit.sourceforge.net/doc/lastest/cppunit_cookbook.html">
+                http://cppunit.sourceforge.net/doc/lastest/cppunit_cookbook.html</a></sup><br><br>
+
+              a whole jungle of small developments and domain-specific libraries<br>
+              <sup><a href="http://gamesfromwithin.com/exploring-the-c-unit-testing-framework-jungle">
+                http://gamesfromwithin.com/exploring-the-c-unit-testing-framework-jungle</a></sup>
+            </p>
+            <aside class="notes">
+							<pre>
+Boost Test: no active dev since 6 months, not really lightweight
+CppUnit: light weight, Objective-C support, not widely used, not under active dev since 2012
+							</pre>
+            </aside>
+          </section>
+        </section>
+
+				<section>
+          <h2>Basic Concepts</h2>
+
+          <section>
+            <p class="listing-title" style="margin-left:-70px; padding-top:15px;">Your main.cpp:</p>
+<pre>
+<span style='color:#004a43; '>#</span><span style='color:#004a43; '>include </span><span style='color:#800000; '>"</span><span style='color:#40015a; '>this/package/test/foo_TEST.h</span><span style='color:#800000; '>"</span>
+<span style='color:#004a43; '>#</span><span style='color:#004a43; '>include </span><span style='color:#800000; '>"</span><span style='color:#40015a; '>that/package/test/bar_TEST.h</span><span style='color:#800000; '>"</span>
+<span style='color:#004a43; '>#</span><span style='color:#004a43; '>include </span><span style='color:#800000; '>"</span><span style='color:#40015a; '>gtest/gtest.h</span><span style='color:#800000; '>"</span>
+
+<span style='color:#800000; font-weight:bold; '>int</span> <span style='color:#400000; '>main</span><span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>int</span> argc<span style='color:#808030; '>,</span> <span style='color:#800000; font-weight:bold; '>char</span> <span style='color:#808030; '>*</span><span style='color:#808030; '>*</span>argv<span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+  <span style='color:#800080; '>::</span>testing<span style='color:#800080; '>::</span>InitGoogleTest<span style='color:#808030; '>(</span><span style='color:#808030; '>&amp;</span>argc<span style='color:#808030; '>,</span> argv<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  <span style='color:#800000; font-weight:bold; '>return</span> RUN_ALL_TESTS<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span></pre>
+
+            <ul class="dense" style="margin:0px -210px 0px 0px; width:750px;">
+              <li>put it to a separate test project</li>
+              <li>include all relevant header files for test code</li>
+              <li>link to gtest.lib + all relevant production code libs</li>
+              <li>compile to console executable</li>
+            </ul>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+* imagine you're a visual studio dev
+* separate project or solution? depends on solution size + number of tests
+* test code header files should theirselves include the headers from production code under test
+							</pre>
+            </aside>
+          </section>
+          
+          <section>
+            <p class="listing-title" style="margin-left:-128px; padding-top:15px;">Single test skeleton:</p>
+<pre>
+TEST<span style='color:#808030; '>(</span>test_case_name<span style='color:#808030; '>,</span> test_name<span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+ <span style='color:#808030; '>.</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span> test body <span style='color:#808030; '>.</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span>
+<span style='color:#800080; '>}</span></pre>
+            <ul style="margin:0px -110px 0px 0px; width:650px;">
+              <li>organize test code in test cases and single tests</li>
+							<li>tests should be independent and repeatable</li>
+              <li>automatic test discovery: no need to register tests manually</li>
+            </ul>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+							</pre>
+            </aside>
+          </section>
+          
+          <section>
+						<table style="padding: 0px 50px; margin-top:-30px;">
+							<tr>
+								<td>
+									<p>Non-Fatal Assertions</p>
+<pre style='width:350px;'>
+EXPECT_TRUE<span style='color:#808030; '>(</span>condition<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+EXPECT_FALSE<span style='color:#808030; '>(</span>condition<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+EXPECT_EQ<span style='color:#808030; '>(</span>expected<span style='color:#808030; '>,</span> actual<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+EXPECT_NE<span style='color:#808030; '>(</span>expected<span style='color:#808030; '>,</span> actual<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+EXPECT_LT<span style='color:#808030; '>(</span>val1<span style='color:#808030; '>,</span> val2<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+EXPECT_LE<span style='color:#808030; '>(</span>val1<span style='color:#808030; '>,</span> val2<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+EXPECT_GT<span style='color:#808030; '>(</span>val1<span style='color:#808030; '>,</span> val2<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+EXPECT_GE<span style='color:#808030; '>(</span>val1<span style='color:#808030; '>,</span> val2<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span></pre>
+								</td>
+								<td style="width:80px;">
+								</td>
+								<td>
+									<p>Fatal Assertions</p>
+<pre style='width:350px;'>
+ASSERT_TRUE<span style='color:#808030; '>(</span>condition<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+ASSERT_FALSE<span style='color:#808030; '>(</span>condition<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+ASSERT_EQ<span style='color:#808030; '>(</span>expected<span style='color:#808030; '>,</span> actual<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+ASSERT_NE<span style='color:#808030; '>(</span>expected<span style='color:#808030; '>,</span> actual<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+ASSERT_LT<span style='color:#808030; '>(</span>val1<span style='color:#808030; '>,</span> val2<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+ASSERT_LE<span style='color:#808030; '>(</span>val1<span style='color:#808030; '>,</span> val2<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+ASSERT_GT<span style='color:#808030; '>(</span>val1<span style='color:#808030; '>,</span> val2<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+ASSERT_GE<span style='color:#808030; '>(</span>val1<span style='color:#808030; '>,</span> val2<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span></pre>
+								</td>
+							</tr>
+						</table>
+            <ul style="margin:0px -110px 0px 0px; width:900px;">
+              <li>use <i>expect</i> by default: test execution continues after failture</li>
+              <li>use <i>assert</i> for hard pre-conditions on remaining test body:<br>
+							test execution <b>does not</b> continue after failture &mdash; this may also affect clean-up code!</li>
+              <li>both offer well-structured error descriptions in system console and IDE out of the box</li>
+            </ul>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+* EXPECT_EQ is probably the most commonly used macro
+* take care of the order of arguments for EXPECT_EQ and EXPECT_NE
+* IDE output even offers a link to source code location of the failture
+* to illustrate how those things work out, let's have a look on a basic example
+							</pre>
+            </aside>
+          </section>
+        </section>
+
+				<section>
+          <h2>Test Fixtures</h2>
+					          
+          <section>
+						<div style="margin-top:-20px;">							
+<pre style='padding:10px; color:#000; background:#fff; width:600px;'>
+<span style='color:#800000; font-weight:bold; '>class</span> TestFixtureClass <span style='color:#800080; '>:</span> <span style='color:#800000; font-weight:bold; '>public</span> <span style='color:#800080; '>::</span>testing<span style='color:#800080; '>::</span>Test
+<span style='color:#800080; '>{</span>
+<span style='color:#800000; font-weight:bold; '>protected</span><span style='color:#e34adc; '>:</span>
+  <span style='color:#800000; font-weight:bold; '>void</span> SetUp<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#800000; font-weight:bold; '>override</span> <span style='color:#800080; '>{</span>
+    <span style='color:#696969; '>// called before each test is run</span>
+  <span style='color:#800080; '>}</span>
+
+  <span style='color:#800000; font-weight:bold; '>void</span> TearDown<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#800000; font-weight:bold; '>override</span> <span style='color:#800080; '>{</span>
+    <span style='color:#696969; '>// called after each test is run</span>
+  <span style='color:#800080; '>}</span>
+	
+  <span style='color:#696969; '>// declare members your tests want to use</span>
+
+<span style='color:#800000; font-weight:bold; '>private</span><span style='color:#e34adc; '>:</span>
+  <span style='color:#696969; '>// declare internal members</span>
+<span style='color:#800080; '>}</span><span style='color:#800080; '>;</span>
+
+TEST_F<span style='color:#808030; '>(</span>TestFixtureClass<span style='color:#808030; '>,</span> TestName<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  <span style='color:#696969; '>// you can access protected members </span>
+  <span style='color:#696969; '>// from TestFixtureClass here</span>
+<span style='color:#800080; '>}</span></pre>
+						</div>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+* each test gets own fresh instance of TestFixtureClass
+* prefer SetUp() and TearDown() over constructor and destructor (except for resource alloc+dealloc)
+  -> throwing exceptions from destructor can cause undefined behavior 
+     e.g. termination if another exception is already propagating)
+* make sure to use C++11 override keyword to avoid common mistakes 
+  like misspelling SetUp() as Setup(), which is indeed a common issue
+							</pre>
+            </aside>
+          </section>
+					
+					<section>						
+						<ul class="wide" style="margin:-20px 0px 0px 100px;">
+							<li>each <span class="code">TEST_F</span> gets a fresh instance of <span class="code">TestFixtureClass</span></li>
+							<li>order of invokation:<br>
+							&nbsp; → <span class="code">TestFixtureClass()</span><br>
+							&nbsp; → <span class="code">SetUp()</span> → test body → <span class="code">TearDown()</span><br>
+							&nbsp; → <span class="code">~TestFixtureClass()</span></li>
+							<li>prefer <span class="code">SetUp()</span> / <span class="code">TearDown()</span> over constructor / destructor for anything but resource allocation / deallocation</li>
+							<li>if possible use the C++11 <span class="code">override</span> keyword to avoid common mistakes like misspelling <span class="code">SetUp()</span> as <span class="code">Setup()</span></li>
+						</ul>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+* summary written down
+* let's have a look on an example for that thing
+							</pre>
+            </aside>
+          </section>
+        </section>
+
+				<section>
+          <h2>Advanced Concepts</h2>
+					
+          <section>
+						<div style="width:850px; text-align:left; margin-left:50px;">
+							<p>Improve error messages:</p>
+<pre style='padding:10px; color:#000; background:#fff; width:100%;'>
+ASSERT_EQ<span style='color:#808030; '>(</span>x<span style='color:#808030; '>.</span>size<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#808030; '>,</span> y<span style='color:#808030; '>.</span>size<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>&lt;</span><span style='color:#808030; '>&lt;</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>Vectors x and y are of unequal length</span><span style='color:#800000; '>"</span><span style='color:#800080; '>;</span>
+
+<span style='color:#800000; font-weight:bold; '>for</span> <span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>int</span> i <span style='color:#808030; '>=</span> <span style='color:#008c00; '>0</span><span style='color:#800080; '>;</span> i <span style='color:#808030; '>&lt;</span> x<span style='color:#808030; '>.</span>size<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span> i<span style='color:#808030; '>++</span><span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+  EXPECT_EQ<span style='color:#808030; '>(</span>x<span style='color:#808030; '>[</span>i<span style='color:#808030; '>]</span><span style='color:#808030; '>,</span> y<span style='color:#808030; '>[</span>i<span style='color:#808030; '>]</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>&lt;</span><span style='color:#808030; '>&lt;</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>Vectors x and y differ at index </span><span style='color:#800000; '>"</span> <span style='color:#808030; '>&lt;</span><span style='color:#808030; '>&lt;</span> i<span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span></pre>
+						</div>
+            <ul class="wide" style="margin:0px -110px 0px 0px; width:900px;">
+              <li>provide <b>additional</b> information using the stream-in operator</li>
+							<li>works in the same way as for <span class="code">std::cout</span></li>
+            </ul>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+* this can be helpful for simple situations
+* but sometimes you want to test a complex thing with many different parametrizations -> next
+							</pre>
+            </aside>
+          </section>
+					
+          <section>
+							<h5 style="margin-top:-30px;">The problem with subroutines..</h5>
+            <p class="listing-title" style="margin-left:-137px;">Function under Test:</p>
+<pre style='padding:10px; color:#000; background:#fff; width:600px;'>
+<span style='color:#800000; font-weight:bold; '>int</span> fib<span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>int</span> n<span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+  <span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#808030; '>(</span>n <span style='color:#808030; '>&lt;</span> <span style='color:#008c00; '>2</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>?</span> n <span style='color:#800080; '>:</span> <span style='color:#808030; '>(</span>fib<span style='color:#808030; '>(</span>n <span style='color:#808030; '>-</span> <span style='color:#008c00; '>1</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>+</span> fib<span style='color:#808030; '>(</span>n <span style='color:#808030; '>-</span> <span style='color:#008c00; '>2</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span></pre>
+
+            <p class="listing-title" style="margin-left:-80px;">Helper function:</p>
+<pre style='padding:10px; color:#000; background:#fff; width:600px;'>
+<span style='color:#800000; font-weight:bold; '>bool</span> isEven<span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>int</span> n<span style='color:#808030; '>)</span> 
+<span style='color:#800080; '>{</span>
+  <span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#808030; '>(</span>n <span style='color:#808030; '>%</span> <span style='color:#008c00; '>2</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>=</span><span style='color:#808030; '>=</span> <span style='color:#008c00; '>0</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span></pre>
+
+            <p class="listing-title">Test code:</p>
+<pre style='padding:10px; color:#000; background:#fff; width:600px;'>
+TEST<span style='color:#808030; '>(</span>Fibonacci<span style='color:#808030; '>,</span> eachThirdIsEven<span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+  EXPECT_TRUE<span style='color:#808030; '>(</span>isEven<span style='color:#808030; '>(</span>fib<span style='color:#808030; '>(</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  EXPECT_TRUE<span style='color:#808030; '>(</span>isEven<span style='color:#808030; '>(</span>fib<span style='color:#808030; '>(</span><span style='color:#008c00; '>3</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  EXPECT_TRUE<span style='color:#808030; '>(</span>isEven<span style='color:#808030; '>(</span>fib<span style='color:#808030; '>(</span><span style='color:#008c00; '>4</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span> <span style='color:#696969; '>//&lt; this fails</span>
+  EXPECT_TRUE<span style='color:#808030; '>(</span>isEven<span style='color:#808030; '>(</span>fib<span style='color:#808030; '>(</span><span style='color:#008c00; '>6</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span></pre>
+
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+* problem: on the one hand you wanna use helper functions to avoid code duplication
+* but on the other hand they'll make it hard to understand test results
+							</pre>
+            </aside>
+          </section>
+          
+          <section>
+							<h5 style="margin-top:-30px;">..solved using SCOPED_TRACE</h5>
+
+							<p class="listing-title" style="margin-left:-20px;">Helper macro:</p>
+<pre style='padding:10px; color:#000; background:#fff; width:550px;'>
+<span style='color:#800000; font-weight:bold; '>#define</span><span style='color:#004a43; '> M_CALL_SCOPE_TRACED</span><span style='color:#808030; '>(</span><span style='color:#004a43; '>statement</span><span style='color:#808030; '>)</span><span style='color:#004a43; '><span style='color:#808030; '> {</span> \</span>
+<span style='color:#004a43; '>&#xa0;&#xa0;</span><span style='color:#004a43; '>SCOPED_TRACE</span><span style='color:#808030; '>(</span><span style='color:#800000; '>"in "</span><span style='color:#004a43; '> </span><span style='color:#808030; '>#</span><span style='color:#004a43; '>statement</span><span style='color:#808030; '>)</span><span style='color:#808030; '>;</span><span style='color:#004a43; '> statement</span><span style='color:#808030; '>;</span><span style='color:#004a43; '> </span><span style='color:#808030; '>}</span></pre>
+
+							<p class="listing-title" style="margin-left:-47px;">Helper function:</p>
+<pre style='padding:10px; color:#000; background:#fff; width:550px;'>
+<span style='color:#800000; font-weight:bold; '>void</span> isEven<span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>int</span> n<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  EXPECT_EQ<span style='color:#808030; '>(</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>,</span> n <span style='color:#808030; '>%</span> <span style='color:#008c00; '>2</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span></pre>
+
+							<p class="listing-title" style="margin-left:-88px;">Modified test code:</p>
+<pre style='padding:10px; color:#000; background:#fff; width:550px;'>
+TEST<span style='color:#808030; '>(</span>Fibonacci<span style='color:#808030; '>,</span> eachThirdIsEven<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  M_CALL_SCOPE_TRACED<span style='color:#808030; '>(</span>isEven<span style='color:#808030; '>(</span>fib<span style='color:#808030; '>(</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  M_CALL_SCOPE_TRACED<span style='color:#808030; '>(</span>isEven<span style='color:#808030; '>(</span>fib<span style='color:#808030; '>(</span><span style='color:#008c00; '>3</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  M_CALL_SCOPE_TRACED<span style='color:#808030; '>(</span>isEven<span style='color:#808030; '>(</span>fib<span style='color:#808030; '>(</span><span style='color:#008c00; '>4</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  M_CALL_SCOPE_TRACED<span style='color:#808030; '>(</span>isEven<span style='color:#808030; '>(</span>fib<span style='color:#808030; '>(</span><span style='color:#008c00; '>6</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span></pre>
+
+						<ul class="dense" style="margin-left:240px; width:700px;">
+							<li>affects helper function and invoking test code</li>
+							<li>requires another preprocessor macro</li>
+						</ul>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+* btw: braces in macro definition are necessary to actually have a distinct scope to be logged
+							</pre>
+            </aside>
+          </section>
+          
+          <section>
+						<h5 style="margin-top:-30px;">..solved using AssertionResult</h5>
+						
+						<div style="margin-left:120px; text-align:left; width:700px;">
+							<p>Modified helper function:</p>
+<pre style='padding:10px; color:#000; background:#fff; width:100%;'>
+<span style='color:#800080; '>::</span>testing<span style='color:#800080; '>::</span>AssertionResult isEven<span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>int</span> n<span style='color:#808030; '>)</span> 
+<span style='color:#800080; '>{</span>
+  <span style='color:#800000; font-weight:bold; '>if</span> <span style='color:#808030; '>(</span><span style='color:#808030; '>(</span>n <span style='color:#808030; '>%</span> <span style='color:#008c00; '>2</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>=</span><span style='color:#808030; '>=</span> <span style='color:#008c00; '>0</span><span style='color:#808030; '>)</span>
+    <span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#800080; '>::</span>testing<span style='color:#800080; '>::</span>AssertionSuccess<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  <span style='color:#800000; font-weight:bold; '>else</span>
+    <span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#800080; '>::</span>testing<span style='color:#800080; '>::</span>AssertionFailure<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>&lt;</span><span style='color:#808030; '>&lt;</span> n <span style='color:#808030; '>&lt;</span><span style='color:#808030; '>&lt;</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '> is odd</span><span style='color:#800000; '>"</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span></pre>
+
+							<ul class="wide" style="margin-left:40px; width:700px;">
+								<li>affects only helper function itself, invoking test code remains unchanged</li>
+							</ul>
+						</div>
+            <aside class="notes">
+							<pre style="font-size: 28px;">
+* show RXGTEST examples to give an impression on how automated tests can look like in reality
+							</pre>
+            </aside>
+          </section>
+				</section>
+				
+				<section>
+					<h2>Notes on Automated Testing</h2>
+
+					<ul class="wide" style="margin-left:180px; margin-right:120px;">
+            <li class="fragment" data-fragment-index="1">
+							avoid dependencies between single tests</li>
+						<li class="fragment" data-fragment-index="2">
+							test code should be distinct: commit to a single issue per test</li>
+            <li class="fragment" data-fragment-index="3">
+							work for full coverage of the issue and no coverage of anything else</li>
+            <li class="fragment" data-fragment-index="4">
+							advoid execution of unrelated production code</li>
+            <li class="fragment" data-fragment-index="5">
+							write maintainable tests and maintain them!</li>
+          </ul>
+				
+					<aside class="notes">
+						<pre style="font-size: 28px;">
+* don't wanna call it guidelines, more a collection of things I observed
+  in writing tests and read other peoples tests
+* ...
+* in terms of jira priorities, test code quality is not a blocker but it's still kind of major
+						</pre>
+					</aside>
+        </section>
+
+				<section>
+          <h2>Automated vs. Interactive Testing</h2>
+          
+					<section>
+						<p>Or: Why would we need automated tests,<br>when we have a reliable QA that finds bugs?</p>
+						<br>
+						<div class="fragment" data-fragment-index="1">
+							<p><b>Because it's not the same thing at all!</b></p>
+							<br>
+							<table style="width:1050px;">
+								<tr>
+									<td>
+										Automated tests..
+										<ul>
+											<li>reflect the developer's perspective</li>
+											<li>detect bugs in the internal logic of the code</li>
+										</ul>
+									</td>
+									<td>
+										QA..
+										<ul>
+											<li>reflects the user's perspective</li>
+											<li>reports bugs in design, UI, compatibility, interaction, etc.</li>
+										</ul>
+									</td>
+								</tr>
+							</table>
+						</div>
+						
+						<aside class="notes">
+							<pre style="font-size: 28px;">
+* the more automated test we have the easier it gets to narrow down the bugs that QA reports!
+* it's a tool for <b>us</b> that helps isolating issues and breaking the system down into pieces
+* this is the point where we need to talk about our production code!
+* because probably the biggest challenge we're facing for automated testing is writing code that is testable
+							</pre>
+						</aside>
+					</section>
+        </section>
+
+				<section>
+					<h2>Notes on Testing &mdash; revised</h2>
+					<br>
+          <p><b>Production code must be written in a way that supports testing!</b></p>
+					<br>
+					<ul class="wide" style="margin-left:180px; margin-right:120px;">
+						<li class="fragment" data-fragment-index="1">
+							think about testing opportunities when writing code, because getting rid of dependencies is hard</li>
+            <li class="fragment" data-fragment-index="2">
+							testing needs real object-oriented design in the production code</li>
+          </ul>
+					<br><br><br>
+					<p class="fragment" data-fragment-index="3">But there's good news: <b>testable code is good code!</b></p>
+
+					<aside class="notes">
+						<pre style="font-size: 28px;">
+* once dependencies exist, getting rid of them is hard
+* it needs isolated subsystems that don't depend on global state, 
+  it needs leaf functions that don't call anything else
+* the worst code for testing is probably procedural code
+* ..
+* good code in terms of maintainability, reliability, readability and so on
+* all the things that are good for our code <b>and for us</b>, because we are those who will 
+  maintain, fix and last but not least read the code every day!
+						</pre>
+					</aside>
+        </section>
+				
+				<section>
+					<br>
+					<br>
+					<br>
+					<h2>Thanks for your attention!</h2>
+					<br>
+					<br>
+					<h2>Questions?</h2>
+				</section>
+
+				<section>
+					<h2>Literature &amp; further reading</h2>
+					<br>
+					<p>
+						Google Test Advanced Guide<br>
+						<sup><a href="https://code.google.com/p/googletest/wiki/AdvancedGuide">
+							https://code.google.com/p/googletest/wiki/AdvancedGuide</a></sup><br>
+
+						Google Test Automation Conference<br>
+						<sup><a href="https://developers.google.com/google-test-automation-conference">
+							https://developers.google.com/google-test-automation-conference</a></sup><br>
+
+						Google Test Automation Conference 2013 Keynote<br>
+						<sup><a href="http://www.youtube.com/watch?v=nyOHJ4GR4iU">
+							http://www.youtube.com/watch?v=nyOHJ4GR4iU</a></sup><br>
+
+						The Clean Code Talks - Unit Testsing<br>
+						/* Thanks Timur! */<br>
+						<sup><a href="http://www.youtube.com/watch?v=wEhu57pih5w">
+							http://www.youtube.com/watch?v=wEhu57pih5w</a></sup><br>
+					</p>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false, //true,
+
+				// available themes are in /css/theme
+				theme: Reveal.getQueryHash().theme || 'custom',
+				
+				// default/cube/page/concave/zoom/linear/fade/none
+				transition: Reveal.getQueryHash().transition || 'linear', 
+				
+				// default/fast/slow
+				transitionSpeed: 'default',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
