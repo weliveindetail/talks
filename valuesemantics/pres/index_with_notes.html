@@ -1,0 +1,570 @@
+﻿<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Value Semantics in C++ :: A Pragmatic Intro</title>
+
+		<meta name="description" content="Lightning Talk on Value Semantics in Practice">
+		<meta name="author" content="Stefan Gränitz">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/custom.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body style="background-color: #ffffff;">
+		<div class="reveal">
+			<div class="slides">
+		
+				<section id="landing-page" data-background="img/reveal-parallax-2.jpg";>
+					<div>
+						<br>
+						<br>
+						<br>
+						<br>
+						<h3 style="text-align: right;">NI Tech Talks</h3>
+						<h2 style="text-align: right;">Value Semantics</h2>
+						<br>
+						<br>
+						<br>
+						<h4 style="font-family: Courier New; text-align: right;">
+							// Stefan Gränitz, Reaktor Dev Team, Berlin 2014 09 09
+						</h4>
+					</div>
+					
+					<aside class="notes">
+						<pre style="font-size: 28px;">
+* ...
+						</pre>
+					</aside>
+				</section>
+
+				<section>
+					<h2>overview</h2>
+					<ol>
+						<li>theory</li>
+						<li>objective</li>
+						<li>usage</li>
+						<li>implementation</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>theory</h2>
+				</section>
+
+				<section>
+					<h3>what is a value?</h3>
+					<br>
+					<br>
+					proposals
+					<br>
+					<aside class="notes">
+						<pre style="font-size: 28px;">
+* before answering this lets have a look on a related question
+						</pre>
+					</aside>
+				</section>
+
+				<section>
+					<table>
+						<tr>
+							<td>
+								<h3>what is an object?</h3>
+								<ul class="fragment" data-fragment-index="1">
+									<li>in c++ an object is defined as a range of memory</li>
+									<li>with corresponding to a unique part of memory, objects implicitly define <i>identity</i></li>
+									<li><b>physical entity</b></li>
+									<li>btw: different in other langs like Java, where an object is something that "has methods"</li>
+								</ul>
+							</td>
+							<td>
+								<h3>what is a value?</h3>
+		 						<ul class="fragment" data-fragment-index="2">
+		 							<li>value is the abstract interpretation of what an object represents</li>
+		 							<!--<li>a value is always bound to a specific context</li>-->
+		 							<li>the underlying representation is not relevant for a value</li>
+		 							<li>so for values identity doesn't matter, what we care about is <i>equivalence</i></li>
+		 							<li><b>logical entity</b></li>
+		 						<ul>
+							</td>
+						</tr>
+					</table>
+					<aside class="notes">
+						<pre style="font-size: 28px;">
+* we are all familiar with the concept of objects
+* btw: "objects always correspond to a unique part of memory" is also the reason for sizeof(T) > 0 ∀ T
+* so when this is what we understand as an object, what does a value mean then?
+* ..
+* we obviously reach a higher level of abstraction when dealing with values
+* analogy: data vs. information? http://www.diffen.com/difference/Data_vs_Information
+						</pre>
+					</aside>
+				</section>
+
+				<section>
+					<h3>intuitive examples</h3>
+
+					<section>
+						<div class="fragment" data-fragment-index="0" 
+						     style="width: 600px; text-align: left; margin: 30px auto;">
+							<pre>int a = 1; int b = 1;</pre>
+							<p>&rArr; a == b (equivalent)<br>&rArr; &amp;a != &amp;b (not identical)</p>
+						</div>
+						<div class="fragment" data-fragment-index="1"
+						     style="width: 600px; text-align: left; margin: 30px auto;">
+							<pre>char a = 1; int b = 1;</pre>
+							<p>&rArr; a == b (equivalent)<br>&rArr; &amp;a != &amp;b (not identical)</p>
+						</div>
+						<div class="fragment" data-fragment-index="2"
+						     style="width: 600px; text-align: left; margin: 30px auto;">
+							<pre>const char *c = "ab"; std::string s = "ab";</pre>
+							<p>&rArr; c == s (equivalent)<br>&rArr; &amp;c != &amp;s (not identical)</p>
+						</div>
+
+						<aside class="notes">
+							<pre style="font-size: 28px;">
+* objects may use different representations for the same value
+* last example things get interesting
+* &amp;c ?? -> pointer is also value
+							</pre>
+						</aside>
+					</section>
+
+					<section>
+						<p style="text-align: left;">obviously:</p>
+						<ul>
+							<li>equality is less restrictive than identity<br>
+							    identity &rArr; equality, but not the other way around</li>
+							<li>equality does not necessarily depend on the objects underlying physical representation<br>
+							    (equality can be defined between instances of different types)</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h3>what do we mean with value semantics?</h3>
+					<br>
+					<p style="text-align: left;">
+						a programming style.. 
+					</p>
+					<ul>
+						<li>
+							where we focus on values that are represented by objects rather than objects themselves 
+							<span class="fragment" data-fragment-index="1" style="color: red;">&larr; design-wise</span>
+						</li>
+						<li>
+							where we pass around values instead of objects whenever we don't need to refer to a special instance
+							<span class="fragment" data-fragment-index="1" style="color: red;">&larr; usage-wise</span>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>example: value vs. object</h3>
+					<br>
+<pre>void scale(std::vector<double> &v, const double &x)
+{
+  for (size_t i = 0; i != v.size(); ++i)
+    v[i] /= x;
+}</pre>
+
+					<section>
+						<p>
+							what do we really want here?<br>
+							modify <span class="code">v</span> by scaling each of it's elements by some factor <span class="code">x</span>
+						</p>
+
+						<ul>
+							<li>of cause we don't want to modify a local copy, so we get <span class="code">v</span> by reference 
+							    and modify whatever instance it refers to</li>
+							<li>but what is the reason for getting <span class="code">x</span> by reference?
+								<span class="fragment" data-fragment-index="1">probably someone intended to suppress a spare copy?</span></li>
+						</ul>
+					</section>
+
+					<section>
+						<p>
+							is it even correct to get <span class="code">x</span> by reference?
+						</p>
+						<br>
+						<p style="text-align: left; margin-left: 170px;">
+							what if we called it that way: 
+							<pre>scale(v, v[0])</pre>
+						</p>
+						- explanation -
+					</section>
+
+					<section>
+						<p>
+							passing <span class="code">x</span> by reference introduced a hidden <b>dependency</b>, causing a side-effect in our example
+						</p>
+						<p class="fragment" data-fragment-index="1"></p>
+						<p>
+							this is what references do by definition. by referring to a "remote" object, they make the code more complicated.
+						</p>
+						<br>
+						<p class="fragment" data-fragment-index="1">references prohibit local reasoning</p>
+						<p class="fragment" data-fragment-index="2"><b>That's where we go much easier with values!</b></p>
+					</section>
+				</section>
+
+				<!--
+				<section>
+					<h3>example: value vs. object</h3>
+					<br>
+				</section>
+
+				<section>
+					<p>
+						e.g. passing params to functions by value, returning results by value, value member variables (instead of pointer to member)
+					</p>
+
+					<section>
+						<h3>when to use value semantics?</h3>
+						<br>
+						<ul>
+							<li>of cause, whenever we don't care about object identity</li>
+							<li>AND we don't need explicit control over runtime efficiency</li>
+						</ul>
+						<p>
+							Key Point: with value semantics we can write efficient programs without the need to optimize manually!
+						</p>
+					</section>
+				</section>
+
+						<ul>
+							<li>not every object has a "natural" value, even if it has a state (examples John Lakos, page 152) - e.g. widgets</li>
+							<li>naturally stack variables (somehow like pointer vs. reference)</li>
+						</ul>
+				-->
+
+				<section>
+					<h2>objective</h2>
+					<section>
+						<h3>why leveraging value semantics?</h3>
+	 					<ul>
+	 						<li>it results in simpler code, because we don't need the need to manage object identity<br>
+	 						    → improve locality<br>
+	 						    → avoid unnecessary dependencies
+	 						<li>going towards saying what we want instead of specifying how it is done</li>
+	 					</ul>
+	 				</section>
+
+					<section>
+						<h3>why do we tend to use references,<br> even if semantically there is no need to?</h3>
+						<br>
+						<p class="fragment" data-fragment-index="1"><b>because references were always known<br>to be more efficient</b></p>
+						<p class="fragment" data-fragment-index="1">&rarr; c++ devs are used to optimize their code manually</p>
+						<p class="fragment" data-fragment-index="1">&rarr; sometimes on the cost of code simplicity</p>
+					</section>
+
+					<section>
+						<p style="text-align: left; margin-left: 50px;">
+							the interesting point is:
+						</p>
+						<ul>
+							<li><p class="fragment" data-fragment-index="1">
+								with using a reference we declared identity, where we olny needed equivalence!</p></li>
+							<li><p class="fragment" data-fragment-index="2">
+								for the compiler this means our declaration is more restrictive! it has less freedom to optimize</p></li>
+						</ul>
+						<br>
+						<br>
+						<p class="fragment" data-fragment-index="2">
+						    "tell the compiler that you are interested in values rather than objects, 
+						    and the compiler chooses the best tool to implement your intentions" (Andrzej)
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>in practice: automatic optimization</h2>
+					<section>
+						<p>copy elision: <i>When certain criteria are met, an implementation is allowed to omit the copy/move construction of a class object, even if the copy/move constructor and/or destructor for the object have side effects.</i></p>
+						<br>
+						<p>copies are made “in principle”, the compiler is actually allowed to perform arbitrary optimizations as long as it results in the same behavior &rarr; "as-is rule"</p>
+					</section>
+
+					<section>
+						<h3>example: return by value</h3>
+						<p>...</p>
+					</section>
+
+					<section>
+						<h3>example: passing a temporary by value</h3>
+						<p>...</p>
+					</section>
+
+					<section>
+						<h3>furthermore..</h3>
+						<ul>
+							<li>returning objects from functions, passing as readonly args and passing rvalue-refs as sink arguments doesn't require copying!</li>
+							<li>for reasonable-sized data structures it's also acceptable to make copies, when performance is not a total must</li>
+							<li>but make sure your type supports value semantics!<br>
+							    &rarr; make first steps with stl types</li>
+						</ul>
+					</section>
+
+					<aside class="notes">
+						<pre style="font-size: 28px;">
+						</pre>
+					</aside>
+				</section>
+
+				<section>
+					<h2>implementation</h2>
+
+					<section>
+						<p>
+							things are easy as long as we deal with unique values (like arithmetic values, dates)
+							<br>
+							<br>
+							..examples..pictures?
+						</p>
+					</section>
+
+					<aside class="notes">
+						<pre style="font-size: 28px;">
+						</pre>
+					</aside>
+				</section>
+
+				<section>
+					<h3>requirements for an abstract data type to support value semantics?</h3>
+					<ul>
+						<li class="fragment" data-fragment-index="1">assignable (&rArr; copyable and/or movable)</li>
+						<li class="fragment" data-fragment-index="2">equality-comparable</li>
+						<li class="fragment" data-fragment-index="3">default-constructible</li>
+					</ul>
+					<br><br>
+					<div class="fragment" data-fragment-index="4">
+						<p>&rarr; try to model your own types as <b>regular types</b></p>
+						<br>
+						<p>
+							<i>A regular type is one that is a model of Assignable, DefaultConstructible, EqualityComparable, and one in which these expressions interact in the expected way. For example, after x = y, we may assume that x == y is true.</i>
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>how to compare for equivalence?</h3>
+					<p>(when we don't have unique values)</p>
+					<br>
+
+					<section>
+						<p>in math what we talk about is called an <i>equivalence relation</i>:</p>
+						<ul>
+							<li>a == a  (reflexive)</li>
+							<li>a == b &amp;&amp; b == a (symmetric)</li>
+							<li>a == b &amp;&amp; b == c &nbsp;&rArr;&nbsp; a == c  (transitive)</li>
+						</ul>
+						<br>
+						<br>
+						<p>
+							obviously <span class="code">operator==</span> must define an equivalence relation
+						</p>
+						<br>
+						<p>
+							<span style="color: red;">symmetry &rArr; it's best to define <span class="code">operator==</span> free-standing!</span><br>
+							<sup>for a more technical explanation see: John Lakos, "Value Semantics" (2014), p. 193 ff</sup>
+						</p>
+					</section>
+
+					<section>
+						<p>given two <span class="code">std::vector</span>'s differing only in their <span class="code">capacity()</span></p>
+						<br>
+						<p class="fragment" data-fragment-index="1"><b>are they equivalent?</b></p>
+						<br>
+						<p class="fragment" data-fragment-index="2">..let's have a look at some simpler examples first..</p>
+					</section>
+				</section>
+
+				<!--<ul>
+					<li>"Time" example, John Lakos page 95</li>
+					<li>an objects value is defined by a reasonable subset of it's observable state (e.g. std::vector size vs. capacity)</li>
+					<li>sometimes referred to as "Salient Attributes"</li>
+					<li>analogy: like considering member variables to be declared mutable (e.g. for caching → not salient)</li>
+					<li>this works recursively!
+					<li>examples: car? (wheels + body) and/or box? (origin + size)
+					<li>transition to copyable (usually we don't need to write copy ctors!)
+				</ul>-->
+
+
+				<section>
+					<h3>example: point</h3>
+<pre style="width: 700px;">class point_t {
+public:
+  int x() const;
+  int y() const;
+
+private:
+  ...
+};
+
+bool operator==(const point_t &amp;lhs, const point_t &amp;rhs)
+{
+  return lhs.x() == rhs.x() &amp;&amp; lhs.y() == rhs.y();
+}</pre>
+					<br>
+					<p>&rarr; <span class="code">x</span> and <span class="code">y</span> are sometimes referred to as <i>Salient Attributes</i></p>
+				</section>
+
+				<section>
+					<h3>example: box</h3>
+<pre style="width: 700px;">class box_t {
+public:
+  point_t origin() const;
+  int width() const;
+  int height() const;
+
+private:
+  ...
+};
+
+bool operator==(const box_t &amp;lhs, const box_t &amp;rhs)
+{
+  return lhs.width() == rhs.width() &amp;&amp; 
+         lhs.height() == rhs.height() &amp;&amp;
+         lhs.origin() == rhs.origin();
+}</pre>
+					<br>
+					<p>&rarr; in most cases objects are equal if all their <i>Salient Attributes</i> are equal</p>
+					<p>&rarr; recursion is useful here!</p>
+				</section>
+
+				<section>
+					<h3>example: rational number</h3>
+
+					<section>
+<pre style="width: 700px;">class rational_t {
+public:
+  int numerator() const { return m_numerator; }
+  int denominator() const  { return m_denominator; }
+
+private:
+  int m_numerator;
+  int m_denominator;
+};
+
+bool operator==(const rational_t &amp;lhs, const rational_t &amp;rhs)
+{
+  <i>&lt; implementation? &gt;</i>
+}</pre>
+						<br>
+						<p style="text-align:left;">
+							&rarr; what's the Salient Attributes here? <span class="fragment" data-fragment-index="1" style="color:red;">&rarr; that's not really the question</span><br>
+							&rarr; how to implement <span class="code">operator==</span> ?
+						</p>
+					</section>
+
+					<section>
+						<p>how is equality defined here?</p>
+						<span class="code">
+							n<sub>1</sub> / d<sub>1</sub> == n<sub>2</sub> / d<sub>2</sub>
+						</span>
+						<br>
+						<br>
+						<p>so probably we should go with something like:</p>
+						<span class="code">
+							n<sub>1</sub> * d<sub>2</sub> == n<sub>2</sub> * d<sub>1</sub>
+						</span>
+					</section>
+				</section>
+
+				<section>
+					todo
+<pre>if (a == b) {
+  op<sub>1</sub>(a); op<sub>1</sub>(b); assert(a == b);
+  op<sub>2</sub>(a); op<sub>2</sub>(b); assert(a == b);
+  op<sub>3</sub>(a); op<sub>3</sub>(b); assert(a == b);
+  op<sub>4</sub>(a); op<sub>4</sub>(b); assert(a == b);
+}</pre>
+				</section>
+
+				<section>
+					<ul>
+						<li>copying</li>
+						<li>rule of zero</li>
+						<li>etc.?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>in practice: advanced class design for value semantics</h2>
+					<section>
+						... history example ...
+					</section>
+				</section>
+
+				<section>
+					<h2>Literature &amp; further reading</h2>
+					<br>
+					<p>
+						title<br>
+						<sup><a href="link">
+							link</a></sup><br>
+					</p>
+        		</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false, //true,
+
+				// available themes are in /css/theme
+				theme: Reveal.getQueryHash().theme || 'custom',
+				
+				// default/cube/page/concave/zoom/linear/fade/none
+				transition: Reveal.getQueryHash().transition || 'linear', 
+				
+				// default/fast/slow
+				transitionSpeed: 'default',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});			
+		</script>
+
+	</body>
+</html>
