@@ -29,15 +29,18 @@ body {
 .reveal .slides section dd {
   text-align: left;
   margin: 0px 0px 30px 40px; }
-  
-.reveal .slides section ul {
-  margin: 0px 10%; }
-  
-.reveal .slides section ol {
-  margin: 0px 10%; }
-	
-.reveal .slides section ol li {
+
+.reveal .slides section .overview {
+  width: 600px; 
+  margin: 0 0 0 20%; }
+
+.reveal .slides section .overview li {
   padding: 5px; }
+
+.reveal .slides section ul {
+  margin: 0 0 0 10%; }
+	
+.reveal .slides section ol li { }
   
 .reveal .slides section li {
   padding: 10px; }
@@ -53,7 +56,13 @@ body {
 
 .reveal .slides section sub {
   font-size: 18px; }
+
+.reveal .slides section .small-font {
+  font-size: 18px; }
   
+.reveal .slides section .medium-font {
+  font-size: 24px; }
+
 .reveal .slides section pre {
   font-size: 20px;
   padding: 10px;
