@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{cf7c59e5-98df-4fce-818d-25438718bc00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\log_create_copy_move.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="src\regular_type.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="src\restricted_regular_type.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\test_regular_type.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\test_return_by_value.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\test_pass_by_value.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="src\history_example.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+</Project>

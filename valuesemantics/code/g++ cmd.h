@@ -1,0 +1,1 @@
+g++ -std=c++11 -o gcc_build.exe main.cpp
