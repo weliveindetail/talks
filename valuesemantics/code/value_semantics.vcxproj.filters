@@ -31,6 +31,9 @@
     <ClInclude Include="src\history_example.h">
       <Filter>Sources</Filter>
     </ClInclude>
+    <ClInclude Include="src\function_example.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

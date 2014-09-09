@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\function_example.h" />
     <ClInclude Include="src\history_example.h" />
     <ClInclude Include="src\log_create_copy_move.h" />
     <ClInclude Include="src\regular_type.h" />

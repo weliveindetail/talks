@@ -486,16 +486,16 @@
 							(like arithmetic values, dates, etc.)
 						</p>
 						<br>
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							e.g. we have a lot of different representations of the decimal integer 5:<br>
-							<img src="img/math_value_5.png" alt="encodings for 5" />
-							<br>
-							<ul>
-								<li>the value itself is a logical entity</li>
-								<li>it's independent of which physical representation is used</li>
-								<li>think of a c++ object as just another representation!</li>
-							</ul>
+							<img src="img/math_value_5.png" alt="encodings for 5">
 						</p>
+						<br>
+						<ul class="fragment" data-fragment-index="3">
+							<li>the value itself is a logical entity</li>
+							<li>it's independent of which physical representation is used</li>
+							<li>think of a c++ object as just another representation!</li>
+						</ul>
 
 						<aside class="notes">
 							<pre style="font-size: 28px;">
@@ -635,7 +635,7 @@ bool operator==(const box_t &amp;lhs, const box_t &amp;rhs)
 }</pre>
 					<br>
 					<p>&rarr; typically compound objects are equal<br> if all their components are equal</p>
-					<p>&rarr; recursion definition</p>
+					<p>&rarr; recursive definition</p>
 
 					<aside class="notes">
 						<pre style="font-size: 28px;">
@@ -680,6 +680,7 @@ bool operator==(const rational_t &amp;lhs, const rational_t &amp;rhs)
 								</span>
 							</p>
 						</div>
+
 						<aside class="notes">
 							<pre style="font-size: 28px;">
 * what we really have is a slightly more complex definition of equality
@@ -780,7 +781,8 @@ bool operator==(const rational_t &amp;lhs, const rational_t &amp;rhs)
 					<br>
 					<p class="fragment" data-fragment-index="1">
 						not every type defines equality<br>
-						&rarr; e.g. graphs, they define isomorphy which is structural equivalence
+						&rarr; e.g. graphs, they define isomorphy which is structural equivalence<br>
+						&rarr; <span class="code">std::function</span> objects cannot be compared for equality at all
 					</p>
 					<br>
 					<p class="fragment" data-fragment-index="2">
@@ -794,6 +796,7 @@ bool operator==(const rational_t &amp;lhs, const rational_t &amp;rhs)
   but most likely different people expect different defs and be supprised by behavior
 * probably not so obvious for the non-math-freaks, but isomorph means structural equivalence,
   where order of nodes and adjacency lists is not important!
+* std::function deletes operator== explicitly - that leads to next open question..
 						</pre>
 					</aside>
 				</section>
@@ -803,7 +806,7 @@ bool operator==(const rational_t &amp;lhs, const rational_t &amp;rhs)
 
 					<section>
 						<p>
-							there is one issue with working with values all the time..
+							there is one issue when working with values all the time..
 						</p>
 						<br>
 						<p class="fragment" data-fragment-index="1">
@@ -834,9 +837,25 @@ bool operator==(const rational_t &amp;lhs, const rational_t &amp;rhs)
 					<h2>Literature &amp; further reading</h2>
 					<br>
 					<p>
-						title<br>
-						<sup><a href="link">
-							link</a></sup><br>
+						John Lakos - Value Samentics (2014)<br>
+						<sup><a href="https://rawgit.com/boostcon/cppnow_presentations_2014/master/files/accu2015.140518.pdf">
+							https://rawgit.com/boostcon/cppnow_presentations_2014/master/files/accu2015.140518.pdf</a></sup><br>
+
+						Sean Parent - Value Semantics and Concept Based Polymorphism<br>
+						<sup><a href="https://parasol.tamu.edu/people/bs/622-GP/value-semantics.pdf">
+							https://parasol.tamu.edu/people/bs/622-GP/value-semantics.pdf</a></sup><br>
+
+						Andrzej Krzemieński - Comprehensie Blog Post on Value Semantics<br>
+						<sup><a href="http://akrzemi1.wordpress.com/2012/02/03/value-semantics/">
+							http://akrzemi1.wordpress.com/2012/02/03/value-semantics/</a></sup><br>
+
+						Martinho Fernandes - The Rule of Zero<br>
+						<sup><a href="http://flamingdangerzone.com/cxx11/2012/08/15/rule-of-zero.html">
+							http://flamingdangerzone.com/cxx11/2012/08/15/rule-of-zero.html</a></sup><br>
+
+						Scott Meyers - The Rule of.. Five Defaults?<br>
+						<sup><a href="http://scottmeyers.blogspot.de/2014/03/a-concern-about-rule-of-zero.html">
+							http://scottmeyers.blogspot.de/2014/03/a-concern-about-rule-of-zero.html</a></sup><br>
 					</p>
         		</section>
 			</div>
