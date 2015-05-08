@@ -1,0 +1,184 @@
+
+html, body
+{
+  height: 100%;
+  margin: 0px;
+}
+
+div#calendar
+{
+  width: 100%;
+  height: 100%;
+
+  background-image: url('wallpaper.jpg');
+  background-position: center;
+  background-size: 100% auto; /* css3 */
+}
+
+div#calendar div
+{
+  position: absolute;
+}
+
+/* door sizes */
+div#calendar div.door-small
+{
+  width: 102px;
+  height: 73px;
+}
+
+div#calendar div.door-medium
+{
+  width: 150px;
+  height: 107px;
+}
+
+div#calendar div.door-large
+{
+  width: 200px;
+  height: 143px;
+}
+
+/* door number */
+div#calendar div.number
+{
+  right: 0px;
+  bottom: 0px;
+  
+  padding: 10px;
+  padding-right: 15px;
+  
+  font: italic 1.5em Georgia;
+  text-shadow: 3px 2px 1px #000000;
+}
+
+/* door background */
+div#calendar div.door-small div.picture
+{
+  left: 28px;
+  top: 20px;
+  width: 70px;
+  height: 50px;
+  
+  background-size: 100% 100%;
+}
+
+div#calendar div.door-medium div.picture
+{
+  left: 42px;
+  top: 30px;
+  width: 105px;
+  height: 75px;
+  
+  background-size: 100% 100%;
+}
+
+div#calendar div.door-large div.picture
+{
+  left: 56px;
+  top: 40px;
+  width: 140px;
+  height: 100px;
+  
+  background-size: 100% 100%;
+}
+
+/* colors for numbers */
+div#calendar div.red { color: #f0d0d0; }
+div#calendar div.gold { color: #ffe951; }
+div#calendar div.green { color: #d0f0d0; }
+div#calendar div.blue { color: #d0d0f0; }
+
+div.dialog
+{
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  right: 30%;
+  bottom: 30%;
+
+  display: none;
+  background-color: #ffffff;
+
+  text-align: center;
+  vertical-align: middle;
+}
+
+p#dialog-message
+{
+  color: #000000;
+  font: 2.25em Tangerine;
+  margin: 5%;
+}
+
+div.dialog-background
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  
+  background-color: #000000;
+  opacity: 0.4;
+  
+  display: none;
+}
+  
+/* dynamic properties */
+
+div#calendar div.door-large-open
+{
+  background-image: url('door_large_open.png');
+}
+
+div#calendar div.door-large-closed
+{
+  background-image: url('door_large_closed.png');
+}
+
+div#calendar div.door-large-openable:hover
+{
+  background-image: url('door_large_closed_hover.png');
+}
+
+div#calendar div.door-medium-open
+{
+  background-image: url('door_medium_open.png');
+}
+
+div#calendar div.door-medium-closed
+{
+  background-image: url('door_medium_closed.png');
+}
+
+div#calendar div.door-medium-openable:hover
+{
+  background-image: url('door_medium_closed_hover.png');
+}
+
+div#calendar div.door-small-open {
+  background-image: url('door_small_open.png');
+}
+
+div#calendar div.door-small-closed {
+  background-image: url('door_small_closed.png');
+}
+
+div#calendar div.door-small-openable:hover {
+  background-image: url('door_small_closed_hover.png');
+}
+
+div#calendar div.door-small-open div.number { display: none; }
+div#calendar div.door-medium-open div.number { display: none; }
+div#calendar div.door-large-open div.number { display: none; }
+div#calendar div.door-small-open div.picture { display: block; }
+div#calendar div.door-medium-open div.picture { display: block; }
+div#calendar div.door-large-open div.picture { display: block; }
+
+div#calendar div.door-small-closed div.number { display: block; }
+div#calendar div.door-medium-closed div.number { display: block; }
+div#calendar div.door-large-closed div.number { display: block; }
+div#calendar div.door-small-closed div.picture { display: none; }
+div#calendar div.door-medium-closed div.picture { display: none; }
+div#calendar div.door-large-closed div.picture { display: none; }

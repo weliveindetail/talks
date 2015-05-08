@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TG-08 Web Remote Ctrl</title>
+
+	<link href="res/main.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Handlee">
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/flick/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+	<style>
+	  #board { margin: 0 auto; }
+		#playing { font-family: Handlee; font-size: 1.4em; text-align: center; }
+	
+		.simple_list { float:left; list-style-type: none; margin: 0; padding: 0; width: 30%; font-family: Handlee; font-size: 1.4em; }
+		.simple_list li { margin: 3px; padding: 0.4em; padding-top: 0.5em; line-height: 0.8; }
+		
+		.simple_list .ui-selected { background: #F39814; color: white; }
+  </style>
+
+  <script>
+		var banks = 0;
+		var snapshots = 0;
+		
+		function updateName() {
+			$.ajax({
+				url: "./current/name",
+				type: "GET"
+			}).done(function(msg) {
+				$("#current").text(msg);
+			});
+		}
+
+		$(function() {
+			$( "#select_bank" ).selectable({
+			  create: function( event, ui ) {
+					$('#select_bank').children("li").each(function() {
+					  $(this).attr("value", banks++);
+					});
+				},
+				selected: function( event, ui ) {
+				  var value = $('#select_bank .ui-selected').attr('value');
+					$.ajax({ url: "./select/bank/" + value, type: "GET" })
+					 .done(function(msg) { updateName() });
+				}
+			});
+
+			$( "#select_snapshot" ).selectable({
+			  create: function( event, ui ) {
+					$('#select_snapshot').children("li").each(function() {
+					  $(this).attr("value", snapshots++);
+					});
+				},
+				selected: function( event, ui ) {
+				  var value = $('#select_snapshot .ui-selected').attr('value');
+					$.ajax({ url: "./select/snapshot/" + value, type: "GET" })
+					 .done(function(msg) { updateName() });
+				}
+			});
+			
+			updateName();
+		});
+  </script>
+</head>
+<body>
+	<p id="playing">
+		Currently playing: <span id="current"></span>
+	</p>
+  <div id="board">
+		<ol class="simple_list" id="select_bank">
+			<li class="ui-widget-content">Bank 1</li>
+			<li class="ui-widget-content">Bank 2</li>
+			<li class="ui-widget-content">Bank 3</li>
+		</ol>
+		<ol class="simple_list" id="select_snapshot">
+			<li class="ui-widget-content">Snapshot 1</li>
+			<li class="ui-widget-content">Snapshot 2</li>
+			<li class="ui-widget-content">Snapshot 3</li>
+			<li class="ui-widget-content">Snapshot 4</li>
+			<li class="ui-widget-content">Snapshot 5</li>
+			<li class="ui-widget-content">Snapshot 6</li>
+			<li class="ui-widget-content">Snapshot 7</li>
+			<li class="ui-widget-content">Snapshot 8</li>
+			<li class="ui-widget-content">Snapshot 9</li>
+			<li class="ui-widget-content">Snapshot 10</li>
+		</ol>
+	</div>
+</body>
+</html>
