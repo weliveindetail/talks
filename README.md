@@ -3,6 +3,9 @@
 Slides and code examples from talks and lectures I gave. 
 Please find the slides linked in the overview below. Have a look in the respective subdirectories for material and code examples.
 
+* 2018, May 31st: ThinLTO Summaries for Incremental JIT Compilation — [PDF Slides](https://github.com/weliveindetail/talks/raw/master/ThinLtoJit.pdf)<br>
+  LLVM Social Berlin
+  
 * 2017, September 19th: Rich Polymorphic Error Handling with llvm::Expected&lt;T&gt; — [PDF Slides](https://github.com/weliveindetail/talks/raw/master/Expectify.pdf)<br>
   C++ User Group Berlin
 
