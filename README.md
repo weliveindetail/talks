@@ -1,25 +1,23 @@
 # Talks
 
-Slides and code examples from talks and lectures I gave. Please find slides linked below and further materials in the subdirectories.
+Slides and code examples from talks and lectures I gave. Please find further materials in the subdirectories.
 
-* 2018, October 17th: ThinLTO Summaries in JIT Compilation — [PDF Slides](https://github.com/weliveindetail/talks/raw/master/ThinLtoSummariesInJitCompilation.pdf)<br>
-  LLVM Developers' Meeting, San Jose
+* 2022, October 26: LLVM Essentials - A practical introduction to TableGen @ LLVM Meetup Berlin<br>[PDF Slides](https://github.com/weliveindetail/talks/raw/master/BerlinMeetup22-TableGen.pdf)
 
-* 2018, May 31st: ThinLTO Summaries for Incremental JIT Compilation — [PDF Slides](https://github.com/weliveindetail/talks/raw/master/ThinLtoJit.pdf)<br>
-  LLVM Social Berlin
+* 2022, May 11th: ez-clang C++ REPL for bare-metal embedded devices @ EuroLLVM, London<br>[PDF Slides](https://github.com/weliveindetail/talks/raw/master/EuroLLVM22-ez-clang.pdf) | [Video Recording](https://www.youtube.com/watch?v=_qYqEYh1nHE)
 
-* 2017, September 19th: Rich Polymorphic Error Handling with llvm::Expected&lt;T&gt; — [PDF Slides](https://github.com/weliveindetail/talks/raw/master/Expectify.pdf)<br>
-  C++ User Group Berlin
+* 2018, October 17th: ThinLTO Summaries in JIT Compilation @ LLVM Developers' Meeting, San Jose<br>[PDF Slides](https://github.com/weliveindetail/talks/raw/master/ThinLtoSummariesInJitCompilation.pdf) | [Video Recording](https://www.youtube.com/watch?v=ZCnHxRhQmvs)
 
-* 2016 November 4th: Behind the Scenes of the Projucer C++ Live-Build Engine — [PDF Slides](https://github.com/weliveindetail/talks/raw/master/adc16/stefan-graenitz-projucer-cpp-live-builds.pdf)<br>
-  Audio Developer Conference, London
+* 2017, September 19th: Rich Polymorphic Error Handling with llvm::Expected&lt;T&gt; @ C++ User Group Berlin<br>[PDF Slides](https://github.com/weliveindetail/talks/raw/master/Expectify.pdf)<br>
 
-* 2015, May 9th: NI Reaktor and Beyond @ MIDIHack 2015 — [sublime text slides](https://rawgit.com/weliveindetail/talks/master/midihack/slides.txt)
+* 2016, November 4th: Behind the Scenes of the Projucer C++ Live-Build Engine @ Audio Developer Conference, London<br>[PDF Slides](https://github.com/weliveindetail/talks/raw/master/adc16/stefan-graenitz-projucer-cpp-live-builds.pdf)
 
-* 2015, April 28th: NI Reaktor - The Ez Parts — [sublime text slides](https://rawgit.com/weliveindetail/talks/master/nireaktor/slides.txt)
+* 2015, May 9th: NI Reaktor and Beyond @ MIDIHack 2015, Berlin<br>[sublime text slides](https://rawgit.com/weliveindetail/talks/master/midihack/slides.txt)
 
-* 2014, September 9th: Value Semantics in C++11 — [reveal.js slides](https://rawgit.com/weliveindetail/talks/master/valuesemantics/pres/index_with_notes.html)
+* 2015, April 28th: NI Reaktor - The Ez Parts<br>[sublime text slides](https://rawgit.com/weliveindetail/talks/master/nireaktor/slides.txt)
 
-* 2014, June 17th: Return Type Covariance in C++ — [reveal.js slides](https://rawgit.com/weliveindetail/talks/master/covariance/pres/index.html)
+* 2014, September 9th: Value Semantics in C++11<br>[reveal.js slides](https://rawgit.com/weliveindetail/talks/master/valuesemantics/pres/index_with_notes.html)
 
-* 2014, May 20th: Google C++ Testing Framework — [reveal.js slides](https://rawgit.com/weliveindetail/talks/master/gtest/pres/index.html)
+* 2014, June 17th: Return Type Covariance in C++<br>[reveal.js slides](https://rawgit.com/weliveindetail/talks/master/covariance/pres/index.html)
+
+* 2014, May 20th: Google C++ Testing Framework<br>[reveal.js slides](https://rawgit.com/weliveindetail/talks/master/gtest/pres/index.html)
