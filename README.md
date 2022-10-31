@@ -2,7 +2,7 @@
 
 Slides and code examples from talks and lectures I gave. Please find further materials in the subdirectories.
 
-* 2022, October 26: LLVM Essentials - A practical introduction to TableGen @ LLVM Meetup Berlin<br>[PDF Slides](https://github.com/weliveindetail/talks/raw/master/BerlinMeetup22-TableGen.pdf)
+* 2022, October 26: LLVM Essentials - A practical introduction to TableGen @ LLVM Meetup Berlin<br>[PDF Slides](https://github.com/weliveindetail/talks/raw/master/berlin-meetup/2022-tablegen/slides.pdf)
 
 * 2022, May 11th: ez-clang C++ REPL for bare-metal embedded devices @ EuroLLVM, London<br>[PDF Slides](https://github.com/weliveindetail/talks/raw/master/EuroLLVM22-ez-clang.pdf) | [Video Recording](https://www.youtube.com/watch?v=_qYqEYh1nHE)
 
