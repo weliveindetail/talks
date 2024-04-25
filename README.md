@@ -2,6 +2,8 @@
 
 Slides and code examples from talks and lectures I gave. Please find further materials in the subdirectories.
 
+* 2024, April 24: **Hacking Sema for clang-repl** @ LLVM Meetup Berlin<br>[PDF Slides](https://github.com/weliveindetail/talks/raw/master/berlin-meetup/2024-clang-repl/slides.pdf)
+
 * 2023, December 13: **From Zero to Rust-JIT** @ LLVM Meetup Berlin<br>[Markdown Slides](https://github.com/weliveindetail/talks/blob/master/berlin-meetup/2023-zero-to-rust-jit/slides.md)
 
 * 2023, May 10: **Extending the LLVM  AArch32 JITLink backend** @ EuroLLVM, Glasgow<br>[PDF Slides](https://github.com/weliveindetail/talks/raw/master/EuroLLVM23-jitlink-aarch32.pdf) | [Video Recording](https://www.youtube.com/watch?v=9jFXNRzDSf0)
