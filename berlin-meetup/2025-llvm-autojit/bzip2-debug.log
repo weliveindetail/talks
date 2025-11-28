@@ -1,0 +1,43 @@
+> lldb -- build_autojit_shlib/bzip2
+(lldb) target create "build_autojit_shlib/bzip2"
+(lldb) b bzip2.c:1864
+Breakpoint 1: no locations (pending).
+WARNING:  Unable to resolve breakpoint to any actual locations.
+(lldb) b main
+Breakpoint 2: where = bzip2`main, address = 0x0000000000002210
+(lldb) run --compress outputs/test_autojit.txt
+Process 2527475 launched: 'build_autojit_shlib/bzip2' (x86_64)
+Process 2527475 stopped
+* thread #1, name = 'bzip2', stop reason = breakpoint 2.1
+    frame #0: 0x0000555555556210 bzip2`main
+bzip2`main:
+->  0x555555556210 <+0>: push   rbp
+    0x555555556211 <+1>: mov    rbp, rsp
+    0x555555556214 <+4>: sub    rsp, 0x20
+    0x555555556218 <+8>: mov    dword ptr [rbp - 0x14], edi
+(lldb) bt
+* thread #1, name = 'bzip2', stop reason = breakpoint 3.1
+  * frame #0: 0x0000555555556210 bzip2`main
+    frame #1: 0x00007ffff5829d90 libc.so.6`__libc_start_call_main(...) at libc_start_call_main.h:58:16
+    frame #2: 0x00007ffff5829e40 libc.so.6`__libc_start_main_impl(...) at libc-start.c:392:3
+    frame #3: 0x00005555555560e5 bzip2`_start + 37
+(lldb) c
+Process 2527475 resuming
+1 location added to breakpoint 1
+1 location added to breakpoint 2
+Process 2527475 stopped
+* thread #1, name = 'bzip2', stop reason = breakpoint 1.1 2.2
+    frame #0: 0x00007ffff7f59087 JIT(0x7ffff57d4000)`main(argc=3, argv=0x00007fffffffd8f8) at bzip2.c:1864:28
+   1861       configError();
+   1862
+   1863    /*-- Initialise --*/
+-> 1864    outputHandleJustInCase  = NULL;
+   1865    smallMode               = False;
+   1866    keepInputFiles          = False;
+   1867    forceOverwrite          = False;
+(lldb) bt
+* thread #1, name = 'bzip2', stop reason = breakpoint 1.1 2.2
+  * frame #0: 0x00007ffff7f59087 JIT(0x7ffff57d4000)`main(argc=3, argv=0x00007fffffffd8f8) at bzip2.c:1864:28
+    frame #1: 0x00007ffff5829d90 libc.so.6`__libc_start_call_main(...) at libc_start_call_main.h:58:16
+    frame #2: 0x00007ffff5829e40 libc.so.6`__libc_start_main_impl(...) at libc-start.c:392:3
+    frame #3: 0x00005555555560e5 bzip2`_start + 37

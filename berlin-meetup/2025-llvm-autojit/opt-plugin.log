@@ -1,0 +1,18 @@
+> AUTOJIT_DEBUG=On opt --load-pass-plugin=/usr/local/lib/autojit.so -passes=AutoJIT -disable-output bzip2/compress.ll
+autojit-plugin: /tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll (source: bzip2/compress.ll)
+autojit-plugin: Processing module bzip2/compress.ll
+autojit-plugin: Keep variable stderr
+autojit-plugin: Keep variable .str
+autojit-plugin: Keep variable .str.1
+autojit-plugin: Keep variable .str.2
+autojit-plugin: Keep variable .str.3
+autojit-plugin: Keep variable .str.4
+autojit-plugin: Keep variable .str.5
+autojit-plugin: Keep variable .str.6
+autojit-plugin: Keep variable .str.7
+autojit-plugin: Keep variable .str.8
+autojit-plugin: Keep variable .str.9
+autojit-plugin: Keep variable .str.10
+autojit-plugin: /tmp/autojit_4f0e030a358521399cbed216e6c35c26.ll (source: bzip2/compress.ll)
+autojit-plugin: Lazify function BZ2_compressBlock as __autojit_fn_13853860483258788042
+autojit-plugin: /tmp/autojit_4f0e030a358521399cbed216e6c35c26_static.ll (source: bzip2/compress.ll)
