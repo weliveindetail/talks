@@ -1,0 +1,46 @@
+build-external-llvm21/install/benchmark/tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a.ll:
+  190: define dso_local ptr @fopen_output_safely(ptr noundef %0, ptr noundef %1) #0 !dbg !570 {
+  247: define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 !dbg !604 {
+
+build-external-llvm21/install/benchmark/tmp/autojit_4f0e030a358521399cbed216e6c35c26.ll:
+  31: define dso_local void @BZ2_bsInitWrite(ptr noundef %0) #0 !dbg !76 {
+  47: define dso_local void @BZ2_compressBlock(ptr noundef %0, i8 noundef zeroext %1) #0 !dbg !179 {
+
+build-external-llvm21/install/benchmark/tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9.ll:
+  30: define dso_local void @BZ2_blockSort(ptr noundef %0) #0 !dbg !71 {
+
+build-external-llvm21/install/benchmark/tmp/autojit_a67b8472f07710730b1a65a68ac67bd7.ll:
+    81: define dso_local void @BZ2_bz__AssertH__fail(i32 noundef %0) #0 !dbg !231 {
+   109: define dso_local ptr @BZ2_bzlibVersion() #0 !dbg !249 {
+   119: define dso_local i32 @BZ2_bzCompressInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 !dbg !255 {
+   589: define dso_local i32 @BZ2_bzCompress(ptr noundef %0, i32 noundef %1) #0 !dbg !586 {
+  1098: define dso_local i32 @BZ2_bzCompressEnd(ptr noundef %0) #0 !dbg !861 {
+  1223: define dso_local i32 @BZ2_bzDecompressInit(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 !dbg !906 {
+  1389: define dso_local i32 @BZ2_indexIntoF(i32 noundef %0, ptr noundef %1) #0 !dbg !1094 {
+  1449: define dso_local i32 @BZ2_bzDecompress(ptr noundef %0) #0 !dbg !1135 {
+  4098: define dso_local i32 @BZ2_bzDecompressEnd(ptr noundef %0) #0 !dbg !2108 {
+  4223: define dso_local ptr @BZ2_bzWriteOpen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 !dbg !2151 {
+  4513: define dso_local void @BZ2_bzWrite(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 !dbg !2290 {
+  4856: define dso_local void @BZ2_bzWriteClose(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 !dbg !2450 {
+  4884: define dso_local void @BZ2_bzWriteClose64(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 !dbg !2471 {
+  5339: define dso_local ptr @BZ2_bzReadOpen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #0 !dbg !2701 {
+  5670: define dso_local void @BZ2_bzReadClose(ptr noundef %0, ptr noundef %1) #0 !dbg !2870 {
+  5786: define dso_local i32 @BZ2_bzRead(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 !dbg !2915 {
+  6267: define dso_local void @BZ2_bzReadGetUnused(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 !dbg !3131 {
+  6420: define dso_local i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 !dbg !3196 {
+  6588: define dso_local i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 !dbg !3304 {
+  6744: define dso_local ptr @BZ2_bzopen(ptr noundef %0, ptr noundef %1) #0 !dbg !3405 {
+  7024: define dso_local ptr @BZ2_bzdopen(i32 noundef %0, ptr noundef %1) #0 !dbg !3563 {
+  7040: define dso_local i32 @BZ2_bzread(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 !dbg !3574 {
+  7097: define dso_local i32 @BZ2_bzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 !dbg !3609 {
+  7135: define dso_local i32 @BZ2_bzflush(ptr noundef %0) #0 !dbg !3631 {
+  7145: define dso_local void @BZ2_bzclose(ptr noundef %0) #0 !dbg !3637 {
+  7217: define dso_local ptr @BZ2_bzerror(ptr noundef %0, ptr noundef %1) #0 !dbg !3684 {
+
+build-external-llvm21/install/benchmark/tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d.ll:
+   12: define dso_local void @BZ2_hbMakeCodeLengths(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 !dbg !14 {
+  666: define dso_local void @BZ2_hbAssignCodes(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 !dbg !277 {
+  760: define dso_local void @BZ2_hbCreateDecodeTables(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 !dbg !338 {
+
+build-external-llvm21/install/benchmark/tmp/autojit_f0812a417b5cdc8410f463180e95be2d.ll:
+  17: define dso_local i32 @BZ2_decompress(ptr noundef %0) #0 !dbg !35 {

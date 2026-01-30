@@ -1,0 +1,336 @@
+[autojit-runtime] Registering module /tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a.ll
+[autojit-runtime] Registering module /tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9.ll
+[autojit-runtime] Registering module /tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d.ll
+[autojit-runtime] Registering module /tmp/autojit_4f0e030a358521399cbed216e6c35c26.ll
+[autojit-runtime] Registering module /tmp/autojit_f0812a417b5cdc8410f463180e95be2d.ll
+[autojit-runtime] Registering module /tmp/autojit_a67b8472f07710730b1a65a68ac67bd7.ll
+[autojit-runtime] Scheduling module for materialization /tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a.ll (source: bzip2.c)
+[autojit-runtime] Import fopen_output_safely as __autojit_fn_4347410223156403214
+[autojit-runtime] Import main as __autojit_fn_15718096533338779913
+[autojit-runtime] Keep mySIGSEGVorSIGBUScatcher (local definition)
+[autojit-runtime] Keep copyFileName (local definition)
+[autojit-runtime] Keep addFlagsFromEnvVar (local definition)
+[autojit-runtime] Keep snocString (local definition)
+[autojit-runtime] Keep license (local definition)
+[autojit-runtime] Keep usage (local definition)
+[autojit-runtime] Keep redundant (local definition)
+[autojit-runtime] Keep mySignalCatcher (local definition)
+[autojit-runtime] Keep compress (local definition)
+[autojit-runtime] Keep uncompress (local definition)
+[autojit-runtime] Keep setExit (local definition)
+[autojit-runtime] Keep testf (local definition)
+[autojit-runtime] Keep showFileNames (local definition)
+[autojit-runtime] Keep cleanUpAndFail (local definition)
+[autojit-runtime] Keep cadvise (local definition)
+[autojit-runtime] Keep mkCell (local definition)
+[autojit-runtime] Keep myMalloc (local definition)
+[autojit-runtime] Keep outOfMemory (local definition)
+[autojit-runtime] Keep panic (local definition)
+[autojit-runtime] Keep containsDubiousChars (local definition)
+[autojit-runtime] Keep fileExists (local definition)
+[autojit-runtime] Keep hasSuffix (local definition)
+[autojit-runtime] Keep notAStandardFile (local definition)
+[autojit-runtime] Keep countHardLinks (local definition)
+[autojit-runtime] Keep saveInputFileMetaInfo (local definition)
+[autojit-runtime] Keep pad (local definition)
+[autojit-runtime] Keep compressStream (local definition)
+[autojit-runtime] Keep applySavedMetaInfoToOutputFile (local definition)
+[autojit-runtime] Keep ioError (local definition)
+[autojit-runtime] Keep myfeof (local definition)
+[autojit-runtime] Keep uInt64_from_UInt32s (local definition)
+[autojit-runtime] Keep uInt64_to_double (local definition)
+[autojit-runtime] Keep uInt64_toAscii (local definition)
+[autojit-runtime] Keep configError (local definition)
+[autojit-runtime] Keep uInt64_qrm10 (local definition)
+[autojit-runtime] Keep uInt64_isZero (local definition)
+[autojit-runtime] Keep mapSuffix (local definition)
+[autojit-runtime] Keep uncompressStream (local definition)
+[autojit-runtime] Keep crcError (local definition)
+[autojit-runtime] Keep compressedStreamEOF (local definition)
+[autojit-runtime] Keep testStream (local definition)
+[autojit-runtime] Keep definiton for .str (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.1 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.2 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.3 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration zSuffix
+[autojit-runtime] Keep definiton for .str.4 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.5 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration unzSuffix
+[autojit-runtime] Turn into declaration outputHandleJustInCase
+[autojit-runtime] Turn into declaration smallMode
+[autojit-runtime] Turn into declaration keepInputFiles
+[autojit-runtime] Turn into declaration forceOverwrite
+[autojit-runtime] Turn into declaration noisy
+[autojit-runtime] Turn into declaration verbosity
+[autojit-runtime] Turn into declaration blockSize100k
+[autojit-runtime] Turn into declaration testFailsExist
+[autojit-runtime] Turn into declaration unzFailsExist
+[autojit-runtime] Turn into declaration numFileNames
+[autojit-runtime] Turn into declaration numFilesProcessed
+[autojit-runtime] Turn into declaration workFactor
+[autojit-runtime] Turn into declaration deleteOutputOnInterrupt
+[autojit-runtime] Turn into declaration exitValue
+[autojit-runtime] Turn into declaration inName
+[autojit-runtime] Keep definiton for .str.6 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration outName
+[autojit-runtime] Turn into declaration progNameReally
+[autojit-runtime] Turn into declaration progName
+[autojit-runtime] Keep definiton for .str.7 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.8 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration longestFileName
+[autojit-runtime] Keep definiton for .str.9 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration srcMode
+[autojit-runtime] Turn into declaration opMode
+[autojit-runtime] Keep definiton for .str.10 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.11 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.12 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.13 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.14 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.15 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration stderr
+[autojit-runtime] Keep definiton for .str.16 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.17 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.18 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.19 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.20 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.21 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.22 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.23 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.24 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.25 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.26 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.27 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.28 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.29 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.30 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.31 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.32 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.33 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.34 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.35 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration tmpName
+[autojit-runtime] Keep definiton for .str.36 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.37 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.38 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.39 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.40 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.41 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.42 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.43 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.44 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.45 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.46 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.47 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.48 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.49 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.50 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.51 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.52 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.53 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.54 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.55 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.56 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.57 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.58 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.59 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.60 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.61 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.62 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.63 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration stdin
+[autojit-runtime] Turn into declaration stdout
+[autojit-runtime] Keep definiton for .str.64 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.65 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.66 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.67 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.68 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.69 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.70 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.71 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration fileMetaInfo_autojit_module_2d1387ca92e7b83c7aa238c36b76c79a
+[autojit-runtime] Keep definiton for .str.72 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.73 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.74 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.75 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.76 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.77 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.78 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.79 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.80 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.81 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.82 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.83 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.84 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.85 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.86 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.87 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.88 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.89 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.90 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.91 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.92 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.93 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.94 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.95 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.96 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.97 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.98 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.99 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.100 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.101 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.102 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.103 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.104 (local copy of unnamed_addr)
+[autojit-runtime] Scheduling module for materialization /tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9.ll (source: blocksort.c)
+[autojit-runtime] Import BZ2_blockSort as __autojit_fn_6629654963298571461
+[autojit-runtime] Keep fallbackSort (local definition)
+[autojit-runtime] Keep mainSort (local definition)
+[autojit-runtime] Keep fallbackQSort3 (local definition)
+[autojit-runtime] Keep fallbackSimpleSort (local definition)
+[autojit-runtime] Keep mainQSort3 (local definition)
+[autojit-runtime] Keep mainSimpleSort (local definition)
+[autojit-runtime] Keep mmed3 (local definition)
+[autojit-runtime] Keep mainGtU (local definition)
+[autojit-runtime] Turn into declaration stderr
+[autojit-runtime] Keep definiton for .str (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.1 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.2 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.3 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.4 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.5 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.6 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.7 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.8 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration incs_autojit_module_2868f90adcbf0268b9c7bff1285a8ae9
+[autojit-runtime] Scheduling module for materialization /tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d.ll (source: huffman.c)
+[autojit-runtime] Import BZ2_hbMakeCodeLengths as __autojit_fn_9246276824078239321
+[autojit-runtime] Import BZ2_hbAssignCodes as __autojit_fn_4501320808800066321
+[autojit-runtime] Import BZ2_hbCreateDecodeTables as __autojit_fn_17332681578286304014
+[autojit-runtime] Scheduling module for materialization /tmp/autojit_4f0e030a358521399cbed216e6c35c26.ll (source: compress.c)
+[autojit-runtime] Import BZ2_bsInitWrite as __autojit_fn_2510588735418252777
+[autojit-runtime] Import BZ2_compressBlock as __autojit_fn_13853860483258788042
+[autojit-runtime] Keep bsPutUChar (local definition)
+[autojit-runtime] Keep bsPutUInt32 (local definition)
+[autojit-runtime] Keep bsW (local definition)
+[autojit-runtime] Keep generateMTFValues (local definition)
+[autojit-runtime] Keep sendMTFValues (local definition)
+[autojit-runtime] Keep bsFinishWrite (local definition)
+[autojit-runtime] Keep makeMaps_e (local definition)
+[autojit-runtime] Turn into declaration stderr
+[autojit-runtime] Keep definiton for .str (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.1 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.2 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.3 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.4 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.5 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.6 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.7 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.8 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.9 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.10 (local copy of unnamed_addr)
+[autojit-runtime] Scheduling module for materialization /tmp/autojit_f0812a417b5cdc8410f463180e95be2d.ll (source: decompress.c)
+[autojit-runtime] Import BZ2_decompress as __autojit_fn_11502730063071858751
+[autojit-runtime] Keep makeMaps_d (local definition)
+[autojit-runtime] Turn into declaration stderr
+[autojit-runtime] Keep definiton for .str (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.1 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration BZ2_rNums
+[autojit-runtime] Scheduling module for materialization /tmp/autojit_a67b8472f07710730b1a65a68ac67bd7.ll (source: bzlib.c)
+[autojit-runtime] Import BZ2_bz__AssertH__fail as __autojit_fn_18443519768259505962
+[autojit-runtime] Import BZ2_bzlibVersion as __autojit_fn_4364279684691675085
+[autojit-runtime] Import BZ2_bzCompressInit as __autojit_fn_2955341414002248116
+[autojit-runtime] Keep bz_config_ok (local definition)
+[autojit-runtime] Keep default_bzalloc (local definition)
+[autojit-runtime] Keep default_bzfree (local definition)
+[autojit-runtime] Keep init_RL (local definition)
+[autojit-runtime] Keep prepare_new_block (local definition)
+[autojit-runtime] Import BZ2_bzCompress as __autojit_fn_18112044744406512933
+[autojit-runtime] Keep handle_compress (local definition)
+[autojit-runtime] Keep isempty_RL (local definition)
+[autojit-runtime] Import BZ2_bzCompressEnd as __autojit_fn_7492901234580991795
+[autojit-runtime] Import BZ2_bzDecompressInit as __autojit_fn_8830962154303357271
+[autojit-runtime] Import BZ2_indexIntoF as __autojit_fn_14090018610010780571
+[autojit-runtime] Import BZ2_bzDecompress as __autojit_fn_11018070812236736101
+[autojit-runtime] Keep unRLE_obuf_to_output_SMALL (local definition)
+[autojit-runtime] Keep unRLE_obuf_to_output_FAST (local definition)
+[autojit-runtime] Import BZ2_bzDecompressEnd as __autojit_fn_5896136371949372678
+[autojit-runtime] Import BZ2_bzWriteOpen as __autojit_fn_4284608645312911136
+[autojit-runtime] Import BZ2_bzWrite as __autojit_fn_4916840667439368584
+[autojit-runtime] Import BZ2_bzWriteClose as __autojit_fn_11437950937747539094
+[autojit-runtime] Import BZ2_bzWriteClose64 as __autojit_fn_1522661247684859730
+[autojit-runtime] Import BZ2_bzReadOpen as __autojit_fn_7338612040747971307
+[autojit-runtime] Import BZ2_bzReadClose as __autojit_fn_9640477245337809255
+[autojit-runtime] Import BZ2_bzRead as __autojit_fn_4880401171639127485
+[autojit-runtime] Keep myfeof_ (local definition)
+[autojit-runtime] Import BZ2_bzReadGetUnused as __autojit_fn_2055401656495128884
+[autojit-runtime] Import BZ2_bzBuffToBuffCompress as __autojit_fn_4574284923786367950
+[autojit-runtime] Import BZ2_bzBuffToBuffDecompress as __autojit_fn_16638549454360825449
+[autojit-runtime] Import BZ2_bzopen as __autojit_fn_16778519136545410890
+[autojit-runtime] Keep bzopen_or_bzdopen (local definition)
+[autojit-runtime] Import BZ2_bzdopen as __autojit_fn_14257543549432112478
+[autojit-runtime] Import BZ2_bzread as __autojit_fn_14593161937150225180
+[autojit-runtime] Import BZ2_bzwrite as __autojit_fn_4242229565524937818
+[autojit-runtime] Import BZ2_bzflush as __autojit_fn_15529528174571146467
+[autojit-runtime] Import BZ2_bzclose as __autojit_fn_11300387190488943409
+[autojit-runtime] Import BZ2_bzerror as __autojit_fn_14612142479893565889
+[autojit-runtime] Keep copy_output_until_stop (local definition)
+[autojit-runtime] Keep copy_input_until_stop (local definition)
+[autojit-runtime] Keep flush_RL (local definition)
+[autojit-runtime] Keep add_pair_to_block (local definition)
+[autojit-runtime] Turn into declaration stderr
+[autojit-runtime] Keep definiton for .str (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.1 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.2 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.3 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.4 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.5 (local copy of unnamed_addr)
+[autojit-runtime] Turn into declaration stdin
+[autojit-runtime] Turn into declaration stdout
+[autojit-runtime] Turn into declaration bzerrorstrings_autojit_module_a67b8472f07710730b1a65a68ac67bd7
+[autojit-runtime] Turn into declaration BZ2_crc32Table
+[autojit-runtime] Turn into declaration BZ2_rNums
+[autojit-runtime] Keep definiton for .str.6 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.7 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.8 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.9 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.10 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.11 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.12 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.13 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.14 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.15 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.16 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.17 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.18 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.19 (local copy of unnamed_addr)
+[autojit-runtime] Keep definiton for .str.20 (local copy of unnamed_addr)
+[autojit-runtime] Materialized __autojit_fn_15718096533338779913 at address 0x00007cce45da3070
+[autojit-runtime] Materialized __autojit_fn_4364279684691675085 at address 0x00007cce45d85070
+bzip2, a block-sorting file compressor.  Version 1.0.3, 15-Feb-2005.
+
+   usage: bzip2 [flags and input files in any order]
+
+   -h --help           print this message
+   -d --decompress     force decompression
+   -z --compress       force compression
+   -k --keep           keep (don't delete) input files
+   -f --force          overwrite existing output files
+   -t --test           test compressed file integrity
+   -c --stdout         output to standard out
+   -q --quiet          suppress noncritical error messages
+   -v --verbose        be verbose (a 2nd -v gives more)
+   -L --license        display software version & license
+   -V --version        display software version & license
+   -s --small          use less memory (at most 2500k)
+   -1 .. -9            set block size to 100k .. 900k
+   --fast              alias for -1
+   --best              alias for -9
+
+   If invoked as `bzip2', default action is to compress.
+              as `bunzip2',  default action is to decompress.
+              as `bzcat', default action is to decompress to stdout.
+
+   If no file names are given, bzip2 compresses or decompresses
+   from standard input to standard output.  You can combine
+   short flags, so `-v -4' means the same as -v4 or -4v, &c.
+

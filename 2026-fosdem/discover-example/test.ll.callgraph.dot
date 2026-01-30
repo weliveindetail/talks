@@ -1,0 +1,7 @@
+digraph "Call graph: test.ll" {
+	label="Call graph: test.ll";
+
+	Node0x132a09fe0 [shape=record,label="{sub1}"];
+	Node0x132a09960 [shape=record,label="{main}"];
+	Node0x132a09960 -> Node0x132a09fe0;
+}

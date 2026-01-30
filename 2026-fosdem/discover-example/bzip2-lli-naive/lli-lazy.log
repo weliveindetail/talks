@@ -1,0 +1,1500 @@
+#!/usr/bin/env bash
+
+rm bzip2/outputs/test_autojit.txt.bz2
+cp inputs/data1.txt bzip2/outputs/test_autojit.txt
+
+/home/ez/Develop/llvm-project-main/build/bin/lli -jit-kind=orc-lazy -per-module-lazy --debug-only=orc \
+       --extra-module=tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll \
+       --extra-module=tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll \
+       --extra-module=tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll \
+       --extra-module=tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll \
+       --extra-module=tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll \
+       --extra-module=tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll \
+       --extra-module=tmp/autojit_f0812a417b5cdc8410f463180e95be2d_incoming.ll \
+                   tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll --compress bzip2/outputs/test_autojit.txt
+Preparing to create LLJIT instance...
+  JITTargetMachineBuilder is   {
+    Triple = "x86_64-pc-linux-gnu"
+    CPU = ""
+    Features = ""
+    Options = <not-printable>
+    Relocation Model = unspecified (will use target default)
+    Code Model = unspecified (will use target default)
+    Optimization Level = Default
+  }
+  Pre-constructed ExecutionSession: No
+  DataLayout: e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128
+  Custom object-linking-layer creator: No
+  Custom compile-function creator: No
+  Custom platform-setup function: No
+  Support concurrent compilation: No (defaulted based on ES / EPC / NumCompileThreads)
+  Number of compile threads: 0
+ExecutorProcessControl not specified, Creating SelfExecutorProcessControl instance
+Creating default Process JD setup function
+Setting up GenericLLVMIRPlatform support for LLJIT
+Enabled eh-frame support.
+Defining MU <Absolute Symbols> for <Platform> (tracker: 0x0, default will be used)
+  { ("__lljit.cxa_atexit_helper", [Data][Hidden]), ("__lljit.platform_support_instance", [Data]) }
+Defining MU <Absolute Symbols> for <Platform> (tracker: 0x0, default will be used)
+  { ("__lljit.run_atexits_helper", [Data][Hidden]), ("__lljit.atexit_helper", [Data][Hidden]) }
+Defining MU __standard_lib for <Platform> (tracker: default)  { ("__lljit_run_atexits", [Callable][Hidden]), ("__dso_handle", [Data]), ("atexit", [Callable][Hidden]) }
+Defining MU __standard_lib for <Platform> (tracker: default)  { ("__cxa_atexit", [Callable]) }
+Defining MU <Absolute Symbols> for main (tracker: 0x0, default will be used)
+  { ("__lljit.run_atexits_helper", [Data][Hidden]), ("__lljit.atexit_helper", [Data][Hidden]) }
+Defining MU __standard_lib for main (tracker: default)  { ("__lljit_run_atexits", [Callable][Hidden]), ("__dso_handle", [Data]), ("atexit", [Callable][Hidden]) }
+Writing resolver code to 0x702fcdfbb000
+Defining MU tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll for main (tracker: default)  { ("outputHandleJustInCase", [Data]), ("workFactor", [Data]), ("verbosity", [Data]), ("fopen_output_safely", [Callable]), ("unzFailsExist", [Data]), ("deleteOutputOnInterrupt", [Data]), ("forceOverwrite", [Data]), ("exitValue", [Data]), ("unzSuffix", [Data]), ("smallMode", [Data]), ("zSuffix", [Data]), ("progNameReally", [Data]), ("main", [Callable]), ("noisy", [Data]), ("opMode", [Data]), ("testFailsExist", [Data]), ("outName", [Data]), ("numFileNames", [Data]), ("inName", [Data]), ("srcMode", [Data]), ("blockSize100k", [Data]), ("tmpName", [Data]), ("numFilesProcessed", [Data]), ("longestFileName", [Data]), ("keepInputFiles", [Data]), ("progName", [Data]) }
+Defining MU tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll for main (tracker: default)  { ("BZ2_blockSort", [Callable]) }
+Defining MU tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll for main (tracker: default)  { ("BZ2_rNums", [Data]) }
+Defining MU tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll for main (tracker: default)  { ("BZ2_compressBlock", [Callable]), ("BZ2_bsInitWrite", [Callable]) }
+Defining MU tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll for main (tracker: default)  { ("BZ2_bzDecompressInit", [Callable]), ("BZ2_bz__AssertH__fail", [Callable]), ("BZ2_bzlibVersion", [Callable]), ("BZ2_bzCompressInit", [Callable]), ("BZ2_bzDecompress", [Callable]), ("BZ2_bzerror", [Callable]), ("BZ2_bzBuffToBuffCompress", [Callable]), ("BZ2_bzopen", [Callable]), ("BZ2_bzclose", [Callable]), ("BZ2_bzCompress", [Callable]), ("BZ2_bzBuffToBuffDecompress", [Callable]), ("BZ2_bzflush", [Callable]), ("BZ2_bzWriteClose", [Callable]), ("BZ2_bzWriteClose64", [Callable]), ("BZ2_bzCompressEnd", [Callable]), ("BZ2_bzRead", [Callable]), ("BZ2_bzReadClose", [Callable]), ("BZ2_bzWriteOpen", [Callable]), ("BZ2_indexIntoF", [Callable]), ("BZ2_bzWrite", [Callable]), ("BZ2_bzReadOpen", [Callable]), ("BZ2_bzwrite", [Callable]), ("BZ2_bzread", [Callable]), ("BZ2_bzDecompressEnd", [Callable]), ("BZ2_bzReadGetUnused", [Callable]), ("BZ2_bzdopen", [Callable]) }
+Defining MU tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll for main (tracker: default)  { ("BZ2_hbAssignCodes", [Callable]), ("BZ2_hbMakeCodeLengths", [Callable]), ("BZ2_hbCreateDecodeTables", [Callable]) }
+Defining MU tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll for main (tracker: default)  { ("BZ2_crc32Table", [Data]) }
+Defining MU tmp/autojit_f0812a417b5cdc8410f463180e95be2d_incoming.ll for main (tracker: default)  { ("BZ2_decompress", [Callable]) }
+LLJIT running initializers for JITDylib "main"
+GenericLLVMIRPlatformSupport getting initializers to run
+Issuing init-symbol lookup:
+JITDylib init order is [ "<Process Symbols>" "<Platform>" "main" ]
+Looking up init functions:
+Issuing init-symbol lookup:
+GenericLLVMIRPlatformSupport running initializers
+Looking up { (main, RequiredSymbol) } in [ ("main", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (main, RequiredSymbol) }
+  Definition generator candidates: { (main, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (main, RequiredSymbol) }:
+  First time visiting main, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (main, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (main, RequiredSymbol) }:
+  Attempting to match "main" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aacb6370 (tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll)
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main: Adding 1 MUs.
+No dependencies to register
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll in main
+Emitting, for main, MU@0x6040aacb6370 ("tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll", { })
+Defining MU tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll for main.impl (tracker: 0x0, default will be used)
+  { ("outputHandleJustInCase", [Data]), ("workFactor", [Data]), ("verbosity", [Data]), ("fopen_output_safely", [Callable]), ("unzFailsExist", [Data]), ("deleteOutputOnInterrupt", [Data]), ("forceOverwrite", [Data]), ("exitValue", [Data]), ("unzSuffix", [Data]), ("smallMode", [Data]), ("zSuffix", [Data]), ("progNameReally", [Data]), ("main", [Callable]), ("noisy", [Data]), ("opMode", [Data]), ("testFailsExist", [Data]), ("outName", [Data]), ("numFileNames", [Data]), ("inName", [Data]), ("srcMode", [Data]), ("blockSize100k", [Data]), ("tmpName", [Data]), ("numFilesProcessed", [Data]), ("longestFileName", [Data]), ("keepInputFiles", [Data]), ("progName", [Data]) }
+In main replacing symbols with MU@0x6040ab23ff10 ("<Reexports>", { ("outputHandleJustInCase", [Data]), ("workFactor", [Data]), ("verbosity", [Data]), ("unzFailsExist", [Data]), ("deleteOutputOnInterrupt", [Data]), ("forceOverwrite", [Data]), ("exitValue", [Data]), ("unzSuffix", [Data]), ("smallMode", [Data]), ("zSuffix", [Data]), ("progNameReally", [Data]), ("testFailsExist", [Data]), ("noisy", [Data]), ("opMode", [Data]), ("numFileNames", [Data]), ("outName", [Data]), ("inName", [Data]), ("srcMode", [Data]), ("blockSize100k", [Data]), ("tmpName", [Data]), ("numFilesProcessed", [Data]), ("longestFileName", [Data]), ("keepInputFiles", [Data]), ("progName", [Data]) })
+In main replacing symbols with MU@0x6040ab112dc0 ("<Lazy Reexports>", { ("fopen_output_safely", [Callable]), ("main", [Callable]) })
+Dispatching: Materialization task: <Lazy Reexports> in main
+In main replacing symbols with MU@0x6040ab2389e0 ("<Lazy Reexports>", { ("fopen_output_safely", [Callable]) })
+In main replacing symbols with MU@0x6040aafd4840 ("RedirectableSymbolMaterializationUnit", { ("main", [Callable]) })
+Dispatching: Materialization task: RedirectableSymbolMaterializationUnit in main
+In main resolving { ("main": 0x702fcdf7fff8 [Callable]) }
+In main emitting { ("main", [Callable]) }
+  Simplified dependencies:
+    Symbols: { main }, Dependencies: { }
+Dispatching: Execute query complete callback for { ("main": 0x702fcdf7fff8 [Callable]) }
+Finished emitting, for main, MU@0x6040aacb6370 ("<null module>", { })
+Done dispatching MaterializationUnits.
+Looking up { (main, RequiredSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (main, RequiredSymbol) }
+  Definition generator candidates: { (main, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (main, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (main, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (main, RequiredSymbol) }:
+  Attempting to match "main" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040ab23d1c0 (tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll)
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main.impl: Adding 1 MUs.
+No dependencies to register
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll in main.impl
+Emitting, for main.impl, MU@0x6040ab23d1c0 ("tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll", { })
+In main.impl replacing symbols with MU@0x6040aacb6370 ("tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll", { ("outputHandleJustInCase", [Data]), ("workFactor", [Data]), ("verbosity", [Data]), ("fopen_output_safely", [Callable]), ("unzFailsExist", [Data]), ("deleteOutputOnInterrupt", [Data]), ("forceOverwrite", [Data]), ("exitValue", [Data]), ("unzSuffix", [Data]), ("smallMode", [Data]), ("zSuffix", [Data]), ("progNameReally", [Data]), ("main", [Callable]), ("noisy", [Data]), ("opMode", [Data]), ("testFailsExist", [Data]), ("outName", [Data]), ("numFileNames", [Data]), ("inName", [Data]), ("srcMode", [Data]), ("blockSize100k", [Data]), ("tmpName", [Data]), ("numFilesProcessed", [Data]), ("longestFileName", [Data]), ("keepInputFiles", [Data]), ("progName", [Data]) })
+Dispatching: Materialization task: tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll in main.impl
+In main.impl defining materializing symbols { }
+In main.impl resolving { ("outputHandleJustInCase": 0x702fcdf79040 [Data]), ("workFactor": 0x702fcdf79060 [Data]), ("verbosity": 0x702fcdf7904c [Data]), ("fopen_output_safely": 0x702fcdf7b000 [Callable]), ("unzFailsExist": 0x702fcdf79055 [Data]), ("deleteOutputOnInterrupt": 0x702fcdf79064 [Data]), ("forceOverwrite": 0x702fcdf7904a [Data]), ("exitValue": 0x702fcdf79068 [Data]), ("unzSuffix": 0x702fcdf79020 [Data]), ("opMode": 0x702fcdf79cb0 [Data]), ("zSuffix": 0x702fcdf79000 [Data]), ("smallMode": 0x702fcdf79048 [Data]), ("main": 0x702fcdf7b070 [Callable]), ("noisy": 0x702fcdf7904b [Data]), ("tmpName": 0x702fcdf79cc0 [Data]), ("numFileNames": 0x702fcdf79058 [Data]), ("progNameReally": 0x702fcdf79890 [Data]), ("outName": 0x702fcdf79480 [Data]), ("testFailsExist": 0x702fcdf79054 [Data]), ("srcMode": 0x702fcdf79cac [Data]), ("inName": 0x702fcdf79070 [Data]), ("blockSize100k": 0x702fcdf79050 [Data]), ("numFilesProcessed": 0x702fcdf7905c [Data]), ("longestFileName": 0x702fcdf79ca8 [Data]), ("keepInputFiles": 0x702fcdf79049 [Data]), ("progName": 0x702fcdf79ca0 [Data]) }
+Looking up { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) } in [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ] (required state: Resolved)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) }
+  Definition generator candidates: { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) }:
+  First time visiting main, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (strncpy, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (__errno_location, RequiredSymbol), (utime, RequiredSymbol), (fwrite, RequiredSymbol), (stdin, RequiredSymbol), (stat, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (getenv, RequiredSymbol), (strcmp, RequiredSymbol), (exit, RequiredSymbol), (perror, RequiredSymbol), (close, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (strncpy, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (__errno_location, RequiredSymbol), (utime, RequiredSymbol), (fwrite, RequiredSymbol), (stdin, RequiredSymbol), (stat, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (getenv, RequiredSymbol), (strcmp, RequiredSymbol), (exit, RequiredSymbol), (perror, RequiredSymbol), (close, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) }:
+  First time visiting <Platform>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (strncpy, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (__errno_location, RequiredSymbol), (utime, RequiredSymbol), (fwrite, RequiredSymbol), (stdin, RequiredSymbol), (stat, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (getenv, RequiredSymbol), (strcmp, RequiredSymbol), (exit, RequiredSymbol), (perror, RequiredSymbol), (close, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) }:
+  First time visiting <Process Symbols>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (strncpy, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (__errno_location, RequiredSymbol), (utime, RequiredSymbol), (fwrite, RequiredSymbol), (stdin, RequiredSymbol), (stat, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (getenv, RequiredSymbol), (strcmp, RequiredSymbol), (exit, RequiredSymbol), (perror, RequiredSymbol), (close, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol) }
+  Running 1 remaining generators for 40 candidates
+  Attempting to generate { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (strncpy, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (__errno_location, RequiredSymbol), (utime, RequiredSymbol), (fwrite, RequiredSymbol), (stdin, RequiredSymbol), (stat, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (getenv, RequiredSymbol), (strcmp, RequiredSymbol), (exit, RequiredSymbol), (perror, RequiredSymbol), (close, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol) }
+EPCDynamicLibrarySearchGenerator trying to generate { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (strncpy, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (__errno_location, RequiredSymbol), (utime, RequiredSymbol), (fwrite, RequiredSymbol), (stdin, RequiredSymbol), (stat, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (getenv, RequiredSymbol), (strcmp, RequiredSymbol), (exit, RequiredSymbol), (perror, RequiredSymbol), (close, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol) }
+EPCDynamicLibrarySearchGenerator lookup returned { ("strcpy": 0x702fc45b1cd0 [Data]), ("fdopen": 0x702fc447ee50 [Data]), ("stdin": 0x702fc461b870 [Data]), ("fopen": 0x702fc447f630 [Data]), ("strerror": 0x702fc44a8600 [Data]), ("signal": 0x702fc4442420 [Data]), ("fileno": 0x702fc4487520 [Data]), ("strstr": 0x702fc44c4180 [Data]), ("rewind": 0x702fc4487f20 [Data]), ("chmod": 0x702fc45142c0 [Data]), ("fread": 0x702fc447fb30 [Data]), ("strlen": 0x702fc45b2120 [Data]), ("fflush": 0x702fc447f130 [Data]), ("lstat": 0x702fc4513d80 [Data]), ("ungetc": 0x702fc44817e0 [Data]), ("chown": 0x702fc4515ad0 [Data]), ("strncmp": 0x702fc45b2dc0 [Data]), ("fgetc": 0x702fc44879c0 [Data]), ("free": 0x702fc44a53e0 [Data]), ("strcmp": 0x702fc45b1860 [Data]), ("fprintf": 0x702fc4460630 [Data]), ("fclose": 0x702fc447ec70 [Data]), ("stdout": 0x702fc461b868 [Data]), ("perror": 0x702fc4460e70 [Data]), ("stderr": 0x702fc461b860 [Data]), ("strcat": 0x702fc45b0c00 [Data]), ("remove": 0x702fc4461e60 [Data]), ("malloc": 0x702fc44a50a0 [Data]), ("__ctype_b_loc": 0x702fc443a360 [Data]), ("exit": 0x702fc44455f0 [Data]), ("close": 0x702fc4514fc0 [Data]), ("open": 0x702fc4514550 [Data]), ("ferror": 0x702fc4487450 [Data]), ("stat": 0x702fc4513d20 [Data]), ("fwrite": 0x702fc447ff20 [Data]), ("getenv": 0x702fc4444b70 [Data]), ("isatty": 0x702fc4515fa0 [Data]), ("utime": 0x702fc4513c70 [Data]), ("strncpy": 0x702fc45b3330 [Data]), ("__errno_location": 0x702fc442a250 [Data]) }
+Defining MU <Absolute Symbols> for <Process Symbols> (tracker: 0x0, default will be used)
+  { ("strcpy", [Data]), ("fdopen", [Data]), ("stdin", [Data]), ("fopen", [Data]), ("strerror", [Data]), ("signal", [Data]), ("fileno", [Data]), ("strstr", [Data]), ("rewind", [Data]), ("chmod", [Data]), ("fread", [Data]), ("strlen", [Data]), ("fflush", [Data]), ("lstat", [Data]), ("ungetc", [Data]), ("chown", [Data]), ("strncmp", [Data]), ("fgetc", [Data]), ("free", [Data]), ("strcmp", [Data]), ("fprintf", [Data]), ("fclose", [Data]), ("stdout", [Data]), ("perror", [Data]), ("stderr", [Data]), ("strcat", [Data]), ("remove", [Data]), ("malloc", [Data]), ("__ctype_b_loc", [Data]), ("exit", [Data]), ("close", [Data]), ("open", [Data]), ("ferror", [Data]), ("stat", [Data]), ("fwrite", [Data]), ("getenv", [Data]), ("isatty", [Data]), ("utime", [Data]), ("strncpy", [Data]), ("__errno_location", [Data]) }
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 3
+  Lookup set: { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) }
+  Definition generator candidates: { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (strncpy, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (__errno_location, RequiredSymbol), (utime, RequiredSymbol), (fwrite, RequiredSymbol), (stdin, RequiredSymbol), (stat, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (getenv, RequiredSymbol), (strcmp, RequiredSymbol), (exit, RequiredSymbol), (perror, RequiredSymbol), (close, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) }:
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 4
+  Lookup set: { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (BZ2_bzRead, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (BZ2_bzWrite, RequiredSymbol), (utime, RequiredSymbol), (BZ2_bzReadGetUnused, RequiredSymbol), (stdin, RequiredSymbol), (BZ2_bzlibVersion, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (BZ2_bzWriteClose64, RequiredSymbol), (strcmp, RequiredSymbol), (BZ2_bzReadClose, RequiredSymbol), (perror, RequiredSymbol), (BZ2_bzWriteOpen, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol), (close, RequiredSymbol), (exit, RequiredSymbol), (getenv, RequiredSymbol), (BZ2_bzReadOpen, RequiredSymbol), (stat, RequiredSymbol), (fwrite, RequiredSymbol), (__errno_location, RequiredSymbol), (strncpy, RequiredSymbol) }:
+  Attempting to match "strcpy" (RequiredSymbol)... skipping: not present
+  Attempting to match "fdopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "strerror" (RequiredSymbol)... skipping: not present
+  Attempting to match "fread" (RequiredSymbol)... skipping: not present
+  Attempting to match "BZ2_bzRead" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040ab1b9110 (tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll)
+  Attempting to match "strncpy" (RequiredSymbol)... skipping: not present
+  Attempting to match "free" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+  Attempting to match "fclose" (RequiredSymbol)... skipping: not present
+  Attempting to match "stdout" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcat" (RequiredSymbol)... skipping: not present
+  Attempting to match "remove" (RequiredSymbol)... skipping: not present
+  Attempting to match "__ctype_b_loc" (RequiredSymbol)... skipping: not present
+  Attempting to match "open" (RequiredSymbol)... skipping: not present
+  Attempting to match "ferror" (RequiredSymbol)... skipping: not present
+  Attempting to match "BZ2_bzWrite" (RequiredSymbol)... matched, registering query  Attempting to match "__errno_location" (RequiredSymbol)... skipping: not present
+  Attempting to match "utime" (RequiredSymbol)... skipping: not present
+  Attempting to match "BZ2_bzReadGetUnused" (RequiredSymbol)... matched, registering query  Attempting to match "fwrite" (RequiredSymbol)... skipping: not present
+  Attempting to match "stdin" (RequiredSymbol)... skipping: not present
+  Attempting to match "BZ2_bzlibVersion" (RequiredSymbol)... matched, registering query  Attempting to match "stat" (RequiredSymbol)... skipping: not present
+  Attempting to match "fopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "signal" (RequiredSymbol)... skipping: not present
+  Attempting to match "fileno" (RequiredSymbol)... skipping: not present
+  Attempting to match "strstr" (RequiredSymbol)... skipping: not present
+  Attempting to match "rewind" (RequiredSymbol)... skipping: not present
+  Attempting to match "chmod" (RequiredSymbol)... skipping: not present
+  Attempting to match "strlen" (RequiredSymbol)... skipping: not present
+  Attempting to match "fflush" (RequiredSymbol)... skipping: not present
+  Attempting to match "lstat" (RequiredSymbol)... skipping: not present
+  Attempting to match "ungetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "chown" (RequiredSymbol)... skipping: not present
+  Attempting to match "strncmp" (RequiredSymbol)... skipping: not present
+  Attempting to match "fgetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "BZ2_bzWriteClose64" (RequiredSymbol)... matched, registering query  Attempting to match "BZ2_bzReadOpen" (RequiredSymbol)... matched, registering query  Attempting to match "getenv" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcmp" (RequiredSymbol)... skipping: not present
+  Attempting to match "BZ2_bzReadClose" (RequiredSymbol)... matched, registering query  Attempting to match "exit" (RequiredSymbol)... skipping: not present
+  Attempting to match "perror" (RequiredSymbol)... skipping: not present
+  Attempting to match "BZ2_bzWriteOpen" (RequiredSymbol)... matched, registering query  Attempting to match "close" (RequiredSymbol)... skipping: not present
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "malloc" (RequiredSymbol)... skipping: not present
+  Attempting to match "isatty" (RequiredSymbol)... skipping: not present
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (strncpy, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (__errno_location, RequiredSymbol), (utime, RequiredSymbol), (fwrite, RequiredSymbol), (stdin, RequiredSymbol), (stat, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (getenv, RequiredSymbol), (strcmp, RequiredSymbol), (exit, RequiredSymbol), (perror, RequiredSymbol), (close, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol) }:
+  Attempting to match "strcpy" (RequiredSymbol)... skipping: not present
+  Attempting to match "fdopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "strerror" (RequiredSymbol)... skipping: not present
+  Attempting to match "fread" (RequiredSymbol)... skipping: not present
+  Attempting to match "strncpy" (RequiredSymbol)... skipping: not present
+  Attempting to match "free" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+  Attempting to match "fclose" (RequiredSymbol)... skipping: not present
+  Attempting to match "stdout" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcat" (RequiredSymbol)... skipping: not present
+  Attempting to match "remove" (RequiredSymbol)... skipping: not present
+  Attempting to match "__ctype_b_loc" (RequiredSymbol)... skipping: not present
+  Attempting to match "open" (RequiredSymbol)... skipping: not present
+  Attempting to match "ferror" (RequiredSymbol)... skipping: not present
+  Attempting to match "__errno_location" (RequiredSymbol)... skipping: not present
+  Attempting to match "utime" (RequiredSymbol)... skipping: not present
+  Attempting to match "fwrite" (RequiredSymbol)... skipping: not present
+  Attempting to match "stdin" (RequiredSymbol)... skipping: not present
+  Attempting to match "stat" (RequiredSymbol)... skipping: not present
+  Attempting to match "fopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "signal" (RequiredSymbol)... skipping: not present
+  Attempting to match "fileno" (RequiredSymbol)... skipping: not present
+  Attempting to match "strstr" (RequiredSymbol)... skipping: not present
+  Attempting to match "rewind" (RequiredSymbol)... skipping: not present
+  Attempting to match "chmod" (RequiredSymbol)... skipping: not present
+  Attempting to match "strlen" (RequiredSymbol)... skipping: not present
+  Attempting to match "fflush" (RequiredSymbol)... skipping: not present
+  Attempting to match "lstat" (RequiredSymbol)... skipping: not present
+  Attempting to match "ungetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "chown" (RequiredSymbol)... skipping: not present
+  Attempting to match "strncmp" (RequiredSymbol)... skipping: not present
+  Attempting to match "fgetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "getenv" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcmp" (RequiredSymbol)... skipping: not present
+  Attempting to match "exit" (RequiredSymbol)... skipping: not present
+  Attempting to match "perror" (RequiredSymbol)... skipping: not present
+  Attempting to match "close" (RequiredSymbol)... skipping: not present
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "malloc" (RequiredSymbol)... skipping: not present
+  Attempting to match "isatty" (RequiredSymbol)... skipping: not present
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (strncpy, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (__errno_location, RequiredSymbol), (utime, RequiredSymbol), (fwrite, RequiredSymbol), (stdin, RequiredSymbol), (stat, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (getenv, RequiredSymbol), (strcmp, RequiredSymbol), (exit, RequiredSymbol), (perror, RequiredSymbol), (close, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol) }:
+  Attempting to match "strcpy" (RequiredSymbol)... skipping: not present
+  Attempting to match "fdopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "strerror" (RequiredSymbol)... skipping: not present
+  Attempting to match "fread" (RequiredSymbol)... skipping: not present
+  Attempting to match "strncpy" (RequiredSymbol)... skipping: not present
+  Attempting to match "free" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+  Attempting to match "fclose" (RequiredSymbol)... skipping: not present
+  Attempting to match "stdout" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcat" (RequiredSymbol)... skipping: not present
+  Attempting to match "remove" (RequiredSymbol)... skipping: not present
+  Attempting to match "__ctype_b_loc" (RequiredSymbol)... skipping: not present
+  Attempting to match "open" (RequiredSymbol)... skipping: not present
+  Attempting to match "ferror" (RequiredSymbol)... skipping: not present
+  Attempting to match "__errno_location" (RequiredSymbol)... skipping: not present
+  Attempting to match "utime" (RequiredSymbol)... skipping: not present
+  Attempting to match "fwrite" (RequiredSymbol)... skipping: not present
+  Attempting to match "stdin" (RequiredSymbol)... skipping: not present
+  Attempting to match "stat" (RequiredSymbol)... skipping: not present
+  Attempting to match "fopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "signal" (RequiredSymbol)... skipping: not present
+  Attempting to match "fileno" (RequiredSymbol)... skipping: not present
+  Attempting to match "strstr" (RequiredSymbol)... skipping: not present
+  Attempting to match "rewind" (RequiredSymbol)... skipping: not present
+  Attempting to match "chmod" (RequiredSymbol)... skipping: not present
+  Attempting to match "strlen" (RequiredSymbol)... skipping: not present
+  Attempting to match "fflush" (RequiredSymbol)... skipping: not present
+  Attempting to match "lstat" (RequiredSymbol)... skipping: not present
+  Attempting to match "ungetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "chown" (RequiredSymbol)... skipping: not present
+  Attempting to match "strncmp" (RequiredSymbol)... skipping: not present
+  Attempting to match "fgetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "getenv" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcmp" (RequiredSymbol)... skipping: not present
+  Attempting to match "exit" (RequiredSymbol)... skipping: not present
+  Attempting to match "perror" (RequiredSymbol)... skipping: not present
+  Attempting to match "close" (RequiredSymbol)... skipping: not present
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "malloc" (RequiredSymbol)... skipping: not present
+  Attempting to match "isatty" (RequiredSymbol)... skipping: not present
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { (strcpy, RequiredSymbol), (fdopen, RequiredSymbol), (strerror, RequiredSymbol), (fread, RequiredSymbol), (strncpy, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (strcat, RequiredSymbol), (remove, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (open, RequiredSymbol), (ferror, RequiredSymbol), (__errno_location, RequiredSymbol), (utime, RequiredSymbol), (fwrite, RequiredSymbol), (stdin, RequiredSymbol), (stat, RequiredSymbol), (fopen, RequiredSymbol), (signal, RequiredSymbol), (fileno, RequiredSymbol), (strstr, RequiredSymbol), (rewind, RequiredSymbol), (chmod, RequiredSymbol), (strlen, RequiredSymbol), (fflush, RequiredSymbol), (lstat, RequiredSymbol), (ungetc, RequiredSymbol), (chown, RequiredSymbol), (strncmp, RequiredSymbol), (fgetc, RequiredSymbol), (getenv, RequiredSymbol), (strcmp, RequiredSymbol), (exit, RequiredSymbol), (perror, RequiredSymbol), (close, RequiredSymbol), (stderr, RequiredSymbol), (malloc, RequiredSymbol), (isatty, RequiredSymbol) }:
+  Attempting to match "strcpy" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040ab3bbb50 (<Absolute Symbols>)
+  Attempting to match "isatty" (RequiredSymbol)... matched, registering query  Attempting to match "malloc" (RequiredSymbol)... matched, registering query  Attempting to match "stderr" (RequiredSymbol)... matched, registering query  Attempting to match "close" (RequiredSymbol)... matched, registering query  Attempting to match "perror" (RequiredSymbol)... matched, registering query  Attempting to match "exit" (RequiredSymbol)... matched, registering query  Attempting to match "strcmp" (RequiredSymbol)... matched, registering query  Attempting to match "getenv" (RequiredSymbol)... matched, registering query  Attempting to match "fgetc" (RequiredSymbol)... matched, registering query  Attempting to match "strncmp" (RequiredSymbol)... matched, registering query  Attempting to match "chown" (RequiredSymbol)... matched, registering query  Attempting to match "ungetc" (RequiredSymbol)... matched, registering query  Attempting to match "lstat" (RequiredSymbol)... matched, registering query  Attempting to match "fflush" (RequiredSymbol)... matched, registering query  Attempting to match "strlen" (RequiredSymbol)... matched, registering query  Attempting to match "chmod" (RequiredSymbol)... matched, registering query  Attempting to match "rewind" (RequiredSymbol)... matched, registering query  Attempting to match "strstr" (RequiredSymbol)... matched, registering query  Attempting to match "fileno" (RequiredSymbol)... matched, registering query  Attempting to match "signal" (RequiredSymbol)... matched, registering query  Attempting to match "fopen" (RequiredSymbol)... matched, registering query  Attempting to match "stat" (RequiredSymbol)... matched, registering query  Attempting to match "stdin" (RequiredSymbol)... matched, registering query  Attempting to match "fwrite" (RequiredSymbol)... matched, registering query  Attempting to match "utime" (RequiredSymbol)... matched, registering query  Attempting to match "__errno_location" (RequiredSymbol)... matched, registering query  Attempting to match "ferror" (RequiredSymbol)... matched, registering query  Attempting to match "open" (RequiredSymbol)... matched, registering query  Attempting to match "__ctype_b_loc" (RequiredSymbol)... matched, registering query  Attempting to match "remove" (RequiredSymbol)... matched, registering query  Attempting to match "strcat" (RequiredSymbol)... matched, registering query  Attempting to match "stdout" (RequiredSymbol)... matched, registering query  Attempting to match "fclose" (RequiredSymbol)... matched, registering query  Attempting to match "fprintf" (RequiredSymbol)... matched, registering query  Attempting to match "free" (RequiredSymbol)... matched, registering query  Attempting to match "strncpy" (RequiredSymbol)... matched, registering query  Attempting to match "fread" (RequiredSymbol)... matched, registering query  Attempting to match "strerror" (RequiredSymbol)... matched, registering query  Attempting to match "fdopen" (RequiredSymbol)... matched, registering queryStripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For <Process Symbols>: Adding 1 MUs.
+  For main: Adding 1 MUs.
+Registering dependencies
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll in main
+Emitting, for main, MU@0x6040ab1b9110 ("tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll", { })
+Defining MU tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll for main.impl (tracker: 0x0, default will be used)
+  { ("BZ2_bzDecompressInit", [Callable]), ("BZ2_bz__AssertH__fail", [Callable]), ("BZ2_bzlibVersion", [Callable]), ("BZ2_bzCompressInit", [Callable]), ("BZ2_bzDecompress", [Callable]), ("BZ2_bzerror", [Callable]), ("BZ2_bzBuffToBuffCompress", [Callable]), ("BZ2_bzopen", [Callable]), ("BZ2_bzclose", [Callable]), ("BZ2_bzCompress", [Callable]), ("BZ2_bzBuffToBuffDecompress", [Callable]), ("BZ2_bzflush", [Callable]), ("BZ2_bzWriteClose", [Callable]), ("BZ2_bzWriteClose64", [Callable]), ("BZ2_bzCompressEnd", [Callable]), ("BZ2_bzRead", [Callable]), ("BZ2_bzReadClose", [Callable]), ("BZ2_bzWriteOpen", [Callable]), ("BZ2_indexIntoF", [Callable]), ("BZ2_bzWrite", [Callable]), ("BZ2_bzReadOpen", [Callable]), ("BZ2_bzwrite", [Callable]), ("BZ2_bzread", [Callable]), ("BZ2_bzDecompressEnd", [Callable]), ("BZ2_bzReadGetUnused", [Callable]), ("BZ2_bzdopen", [Callable]) }
+In main replacing symbols with MU@0x6040aaf73030 ("<Lazy Reexports>", { ("BZ2_bzDecompressInit", [Callable]), ("BZ2_bz__AssertH__fail", [Callable]), ("BZ2_bzlibVersion", [Callable]), ("BZ2_bzCompressInit", [Callable]), ("BZ2_bzDecompress", [Callable]), ("BZ2_bzerror", [Callable]), ("BZ2_bzBuffToBuffCompress", [Callable]), ("BZ2_bzopen", [Callable]), ("BZ2_bzclose", [Callable]), ("BZ2_bzCompress", [Callable]), ("BZ2_bzBuffToBuffDecompress", [Callable]), ("BZ2_bzflush", [Callable]), ("BZ2_bzWriteClose", [Callable]), ("BZ2_bzWriteClose64", [Callable]), ("BZ2_bzCompressEnd", [Callable]), ("BZ2_bzRead", [Callable]), ("BZ2_bzReadClose", [Callable]), ("BZ2_bzWriteOpen", [Callable]), ("BZ2_indexIntoF", [Callable]), ("BZ2_bzWrite", [Callable]), ("BZ2_bzReadOpen", [Callable]), ("BZ2_bzwrite", [Callable]), ("BZ2_bzread", [Callable]), ("BZ2_bzDecompressEnd", [Callable]), ("BZ2_bzReadGetUnused", [Callable]), ("BZ2_bzdopen", [Callable]) })
+Dispatching: Materialization task: <Lazy Reexports> in main
+In main replacing symbols with MU@0x6040aae7fac0 ("<Lazy Reexports>", { ("BZ2_bzDecompressInit", [Callable]), ("BZ2_bz__AssertH__fail", [Callable]), ("BZ2_bzCompressInit", [Callable]), ("BZ2_bzDecompress", [Callable]), ("BZ2_bzerror", [Callable]), ("BZ2_bzBuffToBuffCompress", [Callable]), ("BZ2_bzopen", [Callable]), ("BZ2_bzclose", [Callable]), ("BZ2_bzCompress", [Callable]), ("BZ2_bzBuffToBuffDecompress", [Callable]), ("BZ2_bzflush", [Callable]), ("BZ2_bzWriteClose", [Callable]), ("BZ2_bzCompressEnd", [Callable]), ("BZ2_indexIntoF", [Callable]), ("BZ2_bzwrite", [Callable]), ("BZ2_bzread", [Callable]), ("BZ2_bzDecompressEnd", [Callable]), ("BZ2_bzdopen", [Callable]) })
+In main replacing symbols with MU@0x6040ab28de70 ("RedirectableSymbolMaterializationUnit", { ("BZ2_bzlibVersion", [Callable]), ("BZ2_bzWriteClose64", [Callable]), ("BZ2_bzRead", [Callable]), ("BZ2_bzReadClose", [Callable]), ("BZ2_bzWriteOpen", [Callable]), ("BZ2_bzWrite", [Callable]), ("BZ2_bzReadOpen", [Callable]), ("BZ2_bzReadGetUnused", [Callable]) })
+Dispatching: Materialization task: RedirectableSymbolMaterializationUnit in main
+In main resolving { ("BZ2_bzlibVersion": 0x702fcdf7ffe0 [Callable]), ("BZ2_bzWriteClose64": 0x702fcdf7ffd0 [Callable]), ("BZ2_bzRead": 0x702fcdf7ffd8 [Callable]), ("BZ2_bzReadClose": 0x702fcdf7fff0 [Callable]), ("BZ2_bzWriteOpen": 0x702fcdf7ffc0 [Callable]), ("BZ2_bzWrite": 0x702fcdf7ffc8 [Callable]), ("BZ2_bzReadOpen": 0x702fcdf7ffe8 [Callable]), ("BZ2_bzReadGetUnused": 0x702fcdf7ffb8 [Callable]) }
+In main emitting { ("BZ2_bzlibVersion", [Callable]), ("BZ2_bzWriteClose64", [Callable]), ("BZ2_bzRead", [Callable]), ("BZ2_bzReadClose", [Callable]), ("BZ2_bzWriteOpen", [Callable]), ("BZ2_bzWrite", [Callable]), ("BZ2_bzReadOpen", [Callable]), ("BZ2_bzReadGetUnused", [Callable]) }
+  Simplified dependencies:
+    Symbols: { BZ2_bzlibVersion BZ2_bzWriteClose64 BZ2_bzRead BZ2_bzReadClose BZ2_bzWriteOpen BZ2_bzWrite BZ2_bzReadOpen BZ2_bzReadGetUnused }, Dependencies: { }
+Finished emitting, for main, MU@0x6040ab1b9110 ("<null module>", { })
+  Dispatching "<Absolute Symbols>"
+Dispatching: Materialization task: <Absolute Symbols> in <Process Symbols>
+In <Process Symbols> resolving { ("strcpy": 0x702fc45b1cd0 [Data]), ("fdopen": 0x702fc447ee50 [Data]), ("stdin": 0x702fc461b870 [Data]), ("fopen": 0x702fc447f630 [Data]), ("strerror": 0x702fc44a8600 [Data]), ("signal": 0x702fc4442420 [Data]), ("fileno": 0x702fc4487520 [Data]), ("strstr": 0x702fc44c4180 [Data]), ("rewind": 0x702fc4487f20 [Data]), ("chmod": 0x702fc45142c0 [Data]), ("fread": 0x702fc447fb30 [Data]), ("strlen": 0x702fc45b2120 [Data]), ("fflush": 0x702fc447f130 [Data]), ("lstat": 0x702fc4513d80 [Data]), ("ungetc": 0x702fc44817e0 [Data]), ("chown": 0x702fc4515ad0 [Data]), ("strncmp": 0x702fc45b2dc0 [Data]), ("fgetc": 0x702fc44879c0 [Data]), ("free": 0x702fc44a53e0 [Data]), ("strcmp": 0x702fc45b1860 [Data]), ("fprintf": 0x702fc4460630 [Data]), ("fclose": 0x702fc447ec70 [Data]), ("stdout": 0x702fc461b868 [Data]), ("perror": 0x702fc4460e70 [Data]), ("stderr": 0x702fc461b860 [Data]), ("strcat": 0x702fc45b0c00 [Data]), ("remove": 0x702fc4461e60 [Data]), ("malloc": 0x702fc44a50a0 [Data]), ("__ctype_b_loc": 0x702fc443a360 [Data]), ("exit": 0x702fc44455f0 [Data]), ("close": 0x702fc4514fc0 [Data]), ("open": 0x702fc4514550 [Data]), ("ferror": 0x702fc4487450 [Data]), ("stat": 0x702fc4513d20 [Data]), ("fwrite": 0x702fc447ff20 [Data]), ("getenv": 0x702fc4444b70 [Data]), ("isatty": 0x702fc4515fa0 [Data]), ("utime": 0x702fc4513c70 [Data]), ("strncpy": 0x702fc45b3330 [Data]), ("__errno_location": 0x702fc442a250 [Data]) }
+Dispatching: Execute query complete callback for { ("strcpy": 0x702fc45b1cd0 [Data]), ("fdopen": 0x702fc447ee50 [Data]), ("strerror": 0x702fc44a8600 [Data]), ("fread": 0x702fc447fb30 [Data]), ("BZ2_bzRead": 0x702fcdf7ffd8 [Callable]), ("free": 0x702fc44a53e0 [Data]), ("fprintf": 0x702fc4460630 [Data]), ("fclose": 0x702fc447ec70 [Data]), ("stdout": 0x702fc461b868 [Data]), ("strcat": 0x702fc45b0c00 [Data]), ("remove": 0x702fc4461e60 [Data]), ("__ctype_b_loc": 0x702fc443a360 [Data]), ("open": 0x702fc4514550 [Data]), ("ferror": 0x702fc4487450 [Data]), ("BZ2_bzWrite": 0x702fcdf7ffc8 [Callable]), ("utime": 0x702fc4513c70 [Data]), ("BZ2_bzReadGetUnused": 0x702fcdf7ffb8 [Callable]), ("stdin": 0x702fc461b870 [Data]), ("BZ2_bzlibVersion": 0x702fcdf7ffe0 [Callable]), ("fopen": 0x702fc447f630 [Data]), ("signal": 0x702fc4442420 [Data]), ("fileno": 0x702fc4487520 [Data]), ("strstr": 0x702fc44c4180 [Data]), ("rewind": 0x702fc4487f20 [Data]), ("chmod": 0x702fc45142c0 [Data]), ("strlen": 0x702fc45b2120 [Data]), ("fflush": 0x702fc447f130 [Data]), ("lstat": 0x702fc4513d80 [Data]), ("ungetc": 0x702fc44817e0 [Data]), ("chown": 0x702fc4515ad0 [Data]), ("strncmp": 0x702fc45b2dc0 [Data]), ("fgetc": 0x702fc44879c0 [Data]), ("BZ2_bzWriteClose64": 0x702fcdf7ffd0 [Callable]), ("strcmp": 0x702fc45b1860 [Data]), ("BZ2_bzReadClose": 0x702fcdf7fff0 [Callable]), ("perror": 0x702fc4460e70 [Data]), ("BZ2_bzWriteOpen": 0x702fcdf7ffc0 [Callable]), ("stderr": 0x702fc461b860 [Data]), ("malloc": 0x702fc44a50a0 [Data]), ("isatty": 0x702fc4515fa0 [Data]), ("close": 0x702fc4514fc0 [Data]), ("exit": 0x702fc44455f0 [Data]), ("getenv": 0x702fc4444b70 [Data]), ("stat": 0x702fc4513d20 [Data]), ("fwrite": 0x702fc447ff20 [Data]), ("BZ2_bzReadOpen": 0x702fcdf7ffe8 [Callable]), ("__errno_location": 0x702fc442a250 [Data]), ("strncpy": 0x702fc45b3330 [Data]) }
+Section load-addresses in debug object for "tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll-jitted-objectbuffer":
+  0x0000702fcdf77bd0 .eh_frame
+  0x0000702fcdf76188 .rodata.str1.1
+  0x0000702fcdf79000 .data
+  0x0000702fcdf76160 .rodata.cst8
+  0x0000702fcdf7b000 .text
+  0x0000702fcdf76000 .rodata
+Adding debug object to GDB JIT interface ([0x0000702fc4664000 -- 0x0000702fc46795a0])
+In main.impl emitting { ("outputHandleJustInCase", [Data]), ("workFactor", [Data]), ("verbosity", [Data]), ("fopen_output_safely", [Callable]), ("unzFailsExist", [Data]), ("deleteOutputOnInterrupt", [Data]), ("forceOverwrite", [Data]), ("exitValue", [Data]), ("unzSuffix", [Data]), ("smallMode", [Data]), ("zSuffix", [Data]), ("progNameReally", [Data]), ("main", [Callable]), ("noisy", [Data]), ("opMode", [Data]), ("testFailsExist", [Data]), ("outName", [Data]), ("numFileNames", [Data]), ("inName", [Data]), ("srcMode", [Data]), ("blockSize100k", [Data]), ("tmpName", [Data]), ("numFilesProcessed", [Data]), ("longestFileName", [Data]), ("keepInputFiles", [Data]), ("progName", [Data]) }
+  Initial dependencies:
+    Symbols: { fopen_output_safely, main }, Dependencies: { (main.impl, { fopen_output_safely, unzSuffix, opMode }), (<Process Symbols>, { fdopen, strcpy, stdin, fopen, strerror, rewind, fileno, strstr, signal, chmod, fread, strlen, fflush, lstat, ungetc, chown, strncmp, fgetc, free, perror, fclose, fprintf, stdout, strcmp, stderr, strcat, remove, malloc, isatty, close, open, ferror, stat, exit, getenv, fwrite, __ctype_b_loc, utime, __errno_location, strncpy }), (main, { BZ2_bzlibVersion, BZ2_bzWriteClose64, BZ2_bzRead, BZ2_bzReadClose, BZ2_bzWriteOpen, BZ2_bzWrite, BZ2_bzReadOpen, BZ2_bzReadGetUnused }) }
+    Symbols: { outputHandleJustInCase, workFactor, verbosity, unzFailsExist, deleteOutputOnInterrupt, forceOverwrite, exitValue, opMode, smallMode, progNameReally, numFileNames, noisy, tmpName, testFailsExist, outName, srcMode, inName, blockSize100k, numFilesProcessed, longestFileName, keepInputFiles, progName }, Dependencies: { }
+    Symbols: { unzSuffix, zSuffix }, Dependencies: { }
+  Simplified dependencies:
+    Symbols: { fopen_output_safely main }, Dependencies: { (<Process Symbols>, { fdopen strcpy stdin fopen strerror rewind fileno strstr signal chmod fread strlen fflush lstat ungetc chown strncmp fgetc free perror fclose fprintf stdout strcmp stderr strcat remove malloc isatty close open ferror stat exit getenv fwrite __ctype_b_loc utime __errno_location strncpy }) (main, { BZ2_bzlibVersion BZ2_bzWriteClose64 BZ2_bzRead BZ2_bzReadClose BZ2_bzWriteOpen BZ2_bzWrite BZ2_bzReadOpen BZ2_bzReadGetUnused }) }
+    Symbols: { outputHandleJustInCase workFactor verbosity unzFailsExist deleteOutputOnInterrupt forceOverwrite exitValue unzSuffix smallMode zSuffix progNameReally testFailsExist noisy opMode numFileNames outName inName srcMode blockSize100k tmpName numFilesProcessed longestFileName keepInputFiles progName }, Dependencies: { }
+In <Process Symbols> emitting { ("strcpy", [Data]), ("fdopen", [Data]), ("stdin", [Data]), ("fopen", [Data]), ("strerror", [Data]), ("signal", [Data]), ("fileno", [Data]), ("strstr", [Data]), ("rewind", [Data]), ("chmod", [Data]), ("fread", [Data]), ("strlen", [Data]), ("fflush", [Data]), ("lstat", [Data]), ("ungetc", [Data]), ("chown", [Data]), ("strncmp", [Data]), ("fgetc", [Data]), ("free", [Data]), ("strcmp", [Data]), ("fprintf", [Data]), ("fclose", [Data]), ("stdout", [Data]), ("perror", [Data]), ("stderr", [Data]), ("strcat", [Data]), ("remove", [Data]), ("malloc", [Data]), ("__ctype_b_loc", [Data]), ("exit", [Data]), ("close", [Data]), ("open", [Data]), ("ferror", [Data]), ("stat", [Data]), ("fwrite", [Data]), ("getenv", [Data]), ("isatty", [Data]), ("utime", [Data]), ("strncpy", [Data]), ("__errno_location", [Data]) }
+  Simplified dependencies:
+    Symbols: { strcpy fdopen stdin fopen strerror signal fileno strstr rewind chmod fread strlen fflush lstat ungetc chown strncmp fgetc free strcmp fprintf fclose stdout perror stderr strcat remove malloc __ctype_b_loc exit close open ferror stat fwrite getenv isatty utime strncpy __errno_location }, Dependencies: { }
+Dispatching: Execute query complete callback for { ("main": 0x702fcdf7b070 [Callable]) }
+Done dispatching MaterializationUnits.
+  LookupState captured. Exiting phase1 for now.
+Finished emitting, for main.impl, MU@0x6040ab23d1c0 ("<null module>", { })
+Done dispatching MaterializationUnits.
+Looking up { (BZ2_bzWriteOpen, RequiredSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_bzWriteOpen, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_bzWriteOpen, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_bzWriteOpen, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (BZ2_bzWriteOpen, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_bzWriteOpen, RequiredSymbol) }:
+  Attempting to match "BZ2_bzWriteOpen" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aaf26e30 (tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll)
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main.impl: Adding 1 MUs.
+No dependencies to register
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll in main.impl
+Emitting, for main.impl, MU@0x6040aaf26e30 ("tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll", { })
+In main.impl replacing symbols with MU@0x6040aad95280 ("tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll", { ("BZ2_bzDecompressInit", [Callable]), ("BZ2_bz__AssertH__fail", [Callable]), ("BZ2_bzlibVersion", [Callable]), ("BZ2_bzCompressInit", [Callable]), ("BZ2_bzDecompress", [Callable]), ("BZ2_bzerror", [Callable]), ("BZ2_bzBuffToBuffCompress", [Callable]), ("BZ2_bzopen", [Callable]), ("BZ2_bzclose", [Callable]), ("BZ2_bzCompress", [Callable]), ("BZ2_bzBuffToBuffDecompress", [Callable]), ("BZ2_bzflush", [Callable]), ("BZ2_bzWriteClose", [Callable]), ("BZ2_bzWriteClose64", [Callable]), ("BZ2_bzCompressEnd", [Callable]), ("BZ2_bzRead", [Callable]), ("BZ2_bzReadClose", [Callable]), ("BZ2_bzWriteOpen", [Callable]), ("BZ2_indexIntoF", [Callable]), ("BZ2_bzWrite", [Callable]), ("BZ2_bzReadOpen", [Callable]), ("BZ2_bzwrite", [Callable]), ("BZ2_bzread", [Callable]), ("BZ2_bzDecompressEnd", [Callable]), ("BZ2_bzReadGetUnused", [Callable]), ("BZ2_bzdopen", [Callable]) })
+Dispatching: Materialization task: tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll in main.impl
+In main.impl defining materializing symbols { }
+In main.impl resolving { ("BZ2_bzDecompressInit": 0x702fcdf719c0 [Callable]), ("BZ2_bz__AssertH__fail": 0x702fcdf71000 [Callable]), ("BZ2_bzlibVersion": 0x702fcdf71070 [Callable]), ("BZ2_bzCompressInit": 0x702fcdf71080 [Callable]), ("BZ2_bzDecompress": 0x702fcdf71bc0 [Callable]), ("BZ2_bzerror": 0x702fcdf74b60 [Callable]), ("BZ2_bzopen": 0x702fcdf74730 [Callable]), ("BZ2_bzBuffToBuffCompress": 0x702fcdf744a0 [Callable]), ("BZ2_bzclose": 0x702fcdf74ac0 [Callable]), ("BZ2_bzBuffToBuffDecompress": 0x702fcdf745f0 [Callable]), ("BZ2_bzCompress": 0x702fcdf714d0 [Callable]), ("BZ2_bzflush": 0x702fcdf74ab0 [Callable]), ("BZ2_bzWriteClose": 0x702fcdf738e0 [Callable]), ("BZ2_bzWriteClose64": 0x702fcdf73930 [Callable]), ("BZ2_bzCompressEnd": 0x702fcdf718c0 [Callable]), ("BZ2_bzRead": 0x702fcdf73ff0 [Callable]), ("BZ2_bzReadClose": 0x702fcdf73f20 [Callable]), ("BZ2_bzWriteOpen": 0x702fcdf73420 [Callable]), ("BZ2_indexIntoF": 0x702fcdf71b60 [Callable]), ("BZ2_bzReadOpen": 0x702fcdf73c70 [Callable]), ("BZ2_bzWrite": 0x702fcdf73670 [Callable]), ("BZ2_bzwrite": 0x702fcdf74a60 [Callable]), ("BZ2_bzread": 0x702fcdf749f0 [Callable]), ("BZ2_bzDecompressEnd": 0x702fcdf73310 [Callable]), ("BZ2_bzReadGetUnused": 0x702fcdf74390 [Callable]), ("BZ2_bzdopen": 0x702fcdf749c0 [Callable]) }
+Looking up { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) } in [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ] (required state: Resolved)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) }
+  Definition generator candidates: { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) }:
+  First time visiting main, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (fwrite, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (fwrite, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) }:
+  First time visiting <Platform>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (fwrite, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) }:
+  First time visiting <Process Symbols>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (memset, RequiredSymbol) }
+  Running 1 remaining generators for 1 candidates
+  Attempting to generate { (memset, RequiredSymbol) }
+EPCDynamicLibrarySearchGenerator trying to generate { (memset, RequiredSymbol) }
+EPCDynamicLibrarySearchGenerator lookup returned { ("memset": 0x702fc45afa40 [Data]) }
+Defining MU <Absolute Symbols> for <Process Symbols> (tracker: 0x0, default will be used)
+  { ("memset", [Data]) }
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 3
+  Lookup set: { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) }
+  Definition generator candidates: { (memset, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) }:
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 4
+  Lookup set: { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (BZ2_compressBlock, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol), (fwrite, RequiredSymbol), (BZ2_rNums, RequiredSymbol), (BZ2_decompress, RequiredSymbol), (BZ2_crc32Table, RequiredSymbol) }:
+  Attempting to match "stdin" (RequiredSymbol)... skipping: not present
+  Attempting to match "fdopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "fopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "fread" (RequiredSymbol)... skipping: not present
+  Attempting to match "BZ2_compressBlock" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aaf2e330 (tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll)
+  Attempting to match "BZ2_crc32Table" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aac2fc60 (tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll)
+  Attempting to match "BZ2_decompress" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040ab2380f0 (tmp/autojit_f0812a417b5cdc8410f463180e95be2d_incoming.ll)
+  Attempting to match "BZ2_rNums" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aabe45f0 (tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll)
+  Attempting to match "fwrite" (RequiredSymbol)... skipping: not present
+  Attempting to match "fflush" (RequiredSymbol)... skipping: not present
+  Attempting to match "ungetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "fgetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcmp" (RequiredSymbol)... skipping: not present
+  Attempting to match "free" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+  Attempting to match "fclose" (RequiredSymbol)... skipping: not present
+  Attempting to match "stdout" (RequiredSymbol)... skipping: not present
+  Attempting to match "memset" (RequiredSymbol)... skipping: not present
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcat" (RequiredSymbol)... skipping: not present
+  Attempting to match "malloc" (RequiredSymbol)... skipping: not present
+  Attempting to match "__ctype_b_loc" (RequiredSymbol)... skipping: not present
+  Attempting to match "exit" (RequiredSymbol)... skipping: not present
+  Attempting to match "ferror" (RequiredSymbol)... skipping: not present
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (fwrite, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol) }:
+  Attempting to match "stdin" (RequiredSymbol)... skipping: not present
+  Attempting to match "fdopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "fopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "fread" (RequiredSymbol)... skipping: not present
+  Attempting to match "fwrite" (RequiredSymbol)... skipping: not present
+  Attempting to match "fflush" (RequiredSymbol)... skipping: not present
+  Attempting to match "ungetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "fgetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcmp" (RequiredSymbol)... skipping: not present
+  Attempting to match "free" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+  Attempting to match "fclose" (RequiredSymbol)... skipping: not present
+  Attempting to match "stdout" (RequiredSymbol)... skipping: not present
+  Attempting to match "memset" (RequiredSymbol)... skipping: not present
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcat" (RequiredSymbol)... skipping: not present
+  Attempting to match "malloc" (RequiredSymbol)... skipping: not present
+  Attempting to match "__ctype_b_loc" (RequiredSymbol)... skipping: not present
+  Attempting to match "exit" (RequiredSymbol)... skipping: not present
+  Attempting to match "ferror" (RequiredSymbol)... skipping: not present
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (fwrite, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol) }:
+  Attempting to match "stdin" (RequiredSymbol)... skipping: not present
+  Attempting to match "fdopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "fopen" (RequiredSymbol)... skipping: not present
+  Attempting to match "fread" (RequiredSymbol)... skipping: not present
+  Attempting to match "fwrite" (RequiredSymbol)... skipping: not present
+  Attempting to match "fflush" (RequiredSymbol)... skipping: not present
+  Attempting to match "ungetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "fgetc" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcmp" (RequiredSymbol)... skipping: not present
+  Attempting to match "free" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+  Attempting to match "fclose" (RequiredSymbol)... skipping: not present
+  Attempting to match "stdout" (RequiredSymbol)... skipping: not present
+  Attempting to match "memset" (RequiredSymbol)... skipping: not present
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "strcat" (RequiredSymbol)... skipping: not present
+  Attempting to match "malloc" (RequiredSymbol)... skipping: not present
+  Attempting to match "__ctype_b_loc" (RequiredSymbol)... skipping: not present
+  Attempting to match "exit" (RequiredSymbol)... skipping: not present
+  Attempting to match "ferror" (RequiredSymbol)... skipping: not present
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { (stdin, RequiredSymbol), (fdopen, RequiredSymbol), (fopen, RequiredSymbol), (fread, RequiredSymbol), (fwrite, RequiredSymbol), (fflush, RequiredSymbol), (ungetc, RequiredSymbol), (fgetc, RequiredSymbol), (strcmp, RequiredSymbol), (free, RequiredSymbol), (fprintf, RequiredSymbol), (fclose, RequiredSymbol), (stdout, RequiredSymbol), (memset, RequiredSymbol), (stderr, RequiredSymbol), (strcat, RequiredSymbol), (malloc, RequiredSymbol), (__ctype_b_loc, RequiredSymbol), (exit, RequiredSymbol), (ferror, RequiredSymbol) }:
+  Attempting to match "stdin" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "ferror" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "exit" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "__ctype_b_loc" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "malloc" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "strcat" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "stderr" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "memset" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aac72290 (<Absolute Symbols>)
+  Attempting to match "stdout" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "fclose" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "fprintf" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "free" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "strcmp" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "fgetc" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "ungetc" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "fflush" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "fwrite" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "fread" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "fopen" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "fdopen" (RequiredSymbol)... matched, symbol already in required state
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For <Process Symbols>: Adding 1 MUs.
+  For main: Adding 4 MUs.
+Registering dependencies
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll in main
+Emitting, for main, MU@0x6040aabe45f0 ("tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll", { })
+Defining MU tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll for main.impl (tracker: 0x0, default will be used)
+  { ("BZ2_rNums", [Data]) }
+In main replacing symbols with MU@0x6040aac2be70 ("<Reexports>", { ("BZ2_rNums", [Data]) })
+Dispatching: Materialization task: <Reexports> in main
+materializing reexports: target = main, source = main.impl { BZ2_rNums: BZ2_rNums [Data] }
+Looking up { (BZ2_rNums, RequiredSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Resolved)
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_f0812a417b5cdc8410f463180e95be2d_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_f0812a417b5cdc8410f463180e95be2d_incoming.ll in main
+Emitting, for main, MU@0x6040ab2380f0 ("tmp/autojit_f0812a417b5cdc8410f463180e95be2d_incoming.ll", { })
+Defining MU tmp/autojit_f0812a417b5cdc8410f463180e95be2d_incoming.ll for main.impl (tracker: 0x0, default will be used)
+  { ("BZ2_decompress", [Callable]) }
+In main replacing symbols with MU@0x6040aafac290 ("<Lazy Reexports>", { ("BZ2_decompress", [Callable]) })
+Dispatching: Materialization task: <Lazy Reexports> in main
+In main replacing symbols with MU@0x6040aac72330 ("RedirectableSymbolMaterializationUnit", { ("BZ2_decompress", [Callable]) })
+Dispatching: Materialization task: RedirectableSymbolMaterializationUnit in main
+In main resolving { ("BZ2_decompress": 0x702fcdf7ffb0 [Callable]) }
+In main emitting { ("BZ2_decompress", [Callable]) }
+  Simplified dependencies:
+    Symbols: { BZ2_decompress }, Dependencies: { }
+Finished emitting, for main, MU@0x6040ab2380f0 ("<null module>", { })
+  Dispatching "tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll in main
+Emitting, for main, MU@0x6040aac2fc60 ("tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll", { })
+Defining MU tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll for main.impl (tracker: 0x0, default will be used)
+  { ("BZ2_crc32Table", [Data]) }
+In main replacing symbols with MU@0x6040aac2dd20 ("<Reexports>", { ("BZ2_crc32Table", [Data]) })
+Dispatching: Materialization task: <Reexports> in main
+materializing reexports: target = main, source = main.impl { BZ2_crc32Table: BZ2_crc32Table [Data] }
+Looking up { (BZ2_crc32Table, RequiredSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Resolved)
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll in main
+Emitting, for main, MU@0x6040aaf2e330 ("tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll", { })
+Defining MU tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll for main.impl (tracker: 0x0, default will be used)
+  { ("BZ2_compressBlock", [Callable]), ("BZ2_bsInitWrite", [Callable]) }
+In main replacing symbols with MU@0x6040aafac290 ("<Lazy Reexports>", { ("BZ2_compressBlock", [Callable]), ("BZ2_bsInitWrite", [Callable]) })
+Dispatching: Materialization task: <Lazy Reexports> in main
+In main replacing symbols with MU@0x6040ab28a340 ("<Lazy Reexports>", { ("BZ2_bsInitWrite", [Callable]) })
+In main replacing symbols with MU@0x6040aabcfe40 ("RedirectableSymbolMaterializationUnit", { ("BZ2_compressBlock", [Callable]) })
+Dispatching: Materialization task: RedirectableSymbolMaterializationUnit in main
+In main resolving { ("BZ2_compressBlock": 0x702fcdf7ffa8 [Callable]) }
+In main emitting { ("BZ2_compressBlock", [Callable]) }
+  Simplified dependencies:
+    Symbols: { BZ2_compressBlock }, Dependencies: { }
+Finished emitting, for main, MU@0x6040aaf2e330 ("<null module>", { })
+  Dispatching "<Absolute Symbols>"
+Dispatching: Materialization task: <Absolute Symbols> in <Process Symbols>
+In <Process Symbols> resolving { ("memset": 0x702fc45afa40 [Data]) }
+In <Process Symbols> emitting { ("memset", [Data]) }
+  Simplified dependencies:
+    Symbols: { memset }, Dependencies: { }
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_crc32Table, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_crc32Table, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_crc32Table, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (BZ2_crc32Table, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_crc32Table, RequiredSymbol) }:
+  Attempting to match "BZ2_crc32Table" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040ab2380f0 (tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll)
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main.impl: Adding 1 MUs.
+Registering dependencies
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll in main.impl
+Emitting, for main.impl, MU@0x6040ab2380f0 ("tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll", { })
+In main.impl replacing symbols with MU@0x6040aaf227b0 ("tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll", { ("BZ2_crc32Table", [Data]) })
+Dispatching: Materialization task: tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll in main.impl
+In main.impl defining materializing symbols { }
+In main.impl resolving { ("BZ2_crc32Table": 0x702fcdf6e000 [Data]) }
+Dispatching: Execute query complete callback for { ("BZ2_crc32Table": 0x702fcdf6e000 [Data]) }
+In main resolving { ("BZ2_crc32Table": 0x702fcdf6e000 [Data]) }
+In main emitting { ("BZ2_crc32Table", [Data]) }
+  Initial dependencies:
+    Symbols: { BZ2_crc32Table }, Dependencies: { (main.impl, { BZ2_crc32Table }) }
+  Simplified dependencies:
+    Symbols: { BZ2_crc32Table }, Dependencies: { (main.impl, { BZ2_crc32Table }) }
+Section load-addresses in debug object for "tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll-jitted-objectbuffer":
+  0x0000702fcdf6e000 .data
+                     .text
+Adding debug object to GDB JIT interface ([0x0000702fcdf6d000 -- 0x0000702fcdf6dee8])
+In main.impl emitting { ("BZ2_crc32Table", [Data]) }
+  Initial dependencies:
+    Symbols: { BZ2_crc32Table }, Dependencies: { }
+  Simplified dependencies:
+    Symbols: { BZ2_crc32Table }, Dependencies: { }
+Finished emitting, for main.impl, MU@0x6040ab2380f0 ("<null module>", { })
+Done dispatching MaterializationUnits.
+Finished emitting, for main, MU@0x6040aac2fc60 ("<null module>", { })
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_rNums, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_rNums, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_rNums, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (BZ2_rNums, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_rNums, RequiredSymbol) }:
+  Attempting to match "BZ2_rNums" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aaff61a0 (tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll)
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main.impl: Adding 1 MUs.
+Registering dependencies
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll in main.impl
+Emitting, for main.impl, MU@0x6040aaff61a0 ("tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll", { })
+In main.impl replacing symbols with MU@0x6040ab242460 ("tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll", { ("BZ2_rNums", [Data]) })
+Dispatching: Materialization task: tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll in main.impl
+In main.impl defining materializing symbols { }
+In main.impl resolving { ("BZ2_rNums": 0x702fcdf6c000 [Data]) }
+Dispatching: Execute query complete callback for { ("BZ2_rNums": 0x702fcdf6c000 [Data]) }
+In main resolving { ("BZ2_rNums": 0x702fcdf6c000 [Data]) }
+Dispatching: Execute query complete callback for { ("stdin": 0x702fc461b870 [Data]), ("fdopen": 0x702fc447ee50 [Data]), ("fopen": 0x702fc447f630 [Data]), ("fread": 0x702fc447fb30 [Data]), ("BZ2_compressBlock": 0x702fcdf7ffa8 [Callable]), ("fflush": 0x702fc447f130 [Data]), ("ungetc": 0x702fc44817e0 [Data]), ("fgetc": 0x702fc44879c0 [Data]), ("strcmp": 0x702fc45b1860 [Data]), ("free": 0x702fc44a53e0 [Data]), ("fprintf": 0x702fc4460630 [Data]), ("fclose": 0x702fc447ec70 [Data]), ("stdout": 0x702fc461b868 [Data]), ("memset": 0x702fc45afa40 [Data]), ("stderr": 0x702fc461b860 [Data]), ("strcat": 0x702fc45b0c00 [Data]), ("malloc": 0x702fc44a50a0 [Data]), ("__ctype_b_loc": 0x702fc443a360 [Data]), ("exit": 0x702fc44455f0 [Data]), ("ferror": 0x702fc4487450 [Data]), ("fwrite": 0x702fc447ff20 [Data]), ("BZ2_rNums": 0x702fcdf6c000 [Data]), ("BZ2_decompress": 0x702fcdf7ffb0 [Callable]), ("BZ2_crc32Table": 0x702fcdf6e000 [Data]) }
+Section load-addresses in debug object for "tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll-jitted-objectbuffer":
+  0x0000702fcdf6f6d0 .eh_frame
+  0x0000702fcdf6f010 .rodata.str1.1
+  0x0000702fcdf70000 .data
+  0x0000702fcdf71000 .text
+  0x0000702fcdf6f000 .rodata
+Adding debug object to GDB JIT interface ([0x0000702fc4a70000 -- 0x0000702fc4a7e620])
+In main.impl emitting { ("BZ2_bzDecompressInit", [Callable]), ("BZ2_bz__AssertH__fail", [Callable]), ("BZ2_bzlibVersion", [Callable]), ("BZ2_bzCompressInit", [Callable]), ("BZ2_bzDecompress", [Callable]), ("BZ2_bzerror", [Callable]), ("BZ2_bzBuffToBuffCompress", [Callable]), ("BZ2_bzopen", [Callable]), ("BZ2_bzclose", [Callable]), ("BZ2_bzCompress", [Callable]), ("BZ2_bzBuffToBuffDecompress", [Callable]), ("BZ2_bzflush", [Callable]), ("BZ2_bzWriteClose", [Callable]), ("BZ2_bzWriteClose64", [Callable]), ("BZ2_bzCompressEnd", [Callable]), ("BZ2_bzRead", [Callable]), ("BZ2_bzReadClose", [Callable]), ("BZ2_bzWriteOpen", [Callable]), ("BZ2_indexIntoF", [Callable]), ("BZ2_bzWrite", [Callable]), ("BZ2_bzReadOpen", [Callable]), ("BZ2_bzwrite", [Callable]), ("BZ2_bzread", [Callable]), ("BZ2_bzDecompressEnd", [Callable]), ("BZ2_bzReadGetUnused", [Callable]), ("BZ2_bzdopen", [Callable]) }
+  Initial dependencies:
+    Symbols: { BZ2_bzDecompressInit, BZ2_bz__AssertH__fail, BZ2_bzlibVersion, BZ2_bzCompressInit, BZ2_bzDecompress, BZ2_bzerror, BZ2_bzBuffToBuffCompress, BZ2_bzclose, BZ2_bzopen, BZ2_bzBuffToBuffDecompress, BZ2_bzCompress, BZ2_bzflush, BZ2_bzWriteClose, BZ2_bzWriteClose64, BZ2_bzCompressEnd, BZ2_bzRead, BZ2_bzReadClose, BZ2_bzWriteOpen, BZ2_indexIntoF, BZ2_bzReadOpen, BZ2_bzWrite, BZ2_bzwrite, BZ2_bzread, BZ2_bzDecompressEnd, BZ2_bzReadGetUnused, BZ2_bzdopen }, Dependencies: { (main.impl, { BZ2_bzBuffToBuffDecompress }), (<Process Symbols>, { memset }), (main, { BZ2_compressBlock, BZ2_rNums, BZ2_decompress, BZ2_crc32Table }) }
+  Simplified dependencies:
+    Symbols: { BZ2_bzDecompressInit BZ2_bz__AssertH__fail BZ2_bzlibVersion BZ2_bzCompressInit BZ2_bzDecompress BZ2_bzerror BZ2_bzBuffToBuffCompress BZ2_bzclose BZ2_bzopen BZ2_bzBuffToBuffDecompress BZ2_bzCompress BZ2_bzflush BZ2_bzWriteClose BZ2_bzWriteClose64 BZ2_bzCompressEnd BZ2_bzRead BZ2_bzReadClose BZ2_bzWriteOpen BZ2_indexIntoF BZ2_bzReadOpen BZ2_bzWrite BZ2_bzwrite BZ2_bzread BZ2_bzDecompressEnd BZ2_bzReadGetUnused BZ2_bzdopen }, Dependencies: { (<Process Symbols>, { memset }) (main, { BZ2_compressBlock BZ2_rNums BZ2_decompress BZ2_crc32Table }) }
+In main emitting { ("BZ2_rNums", [Data]) }
+  Initial dependencies:
+    Symbols: { BZ2_rNums }, Dependencies: { (main.impl, { BZ2_rNums }) }
+  Simplified dependencies:
+    Symbols: { BZ2_rNums }, Dependencies: { (main.impl, { BZ2_rNums }) }
+Section load-addresses in debug object for "tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll-jitted-objectbuffer":
+  0x0000702fcdf6c000 .data
+                     .text
+Adding debug object to GDB JIT interface ([0x0000702fcdf6a000 -- 0x0000702fcdf6b2d0])
+In main.impl emitting { ("BZ2_rNums", [Data]) }
+  Initial dependencies:
+    Symbols: { BZ2_rNums }, Dependencies: { }
+  Simplified dependencies:
+    Symbols: { BZ2_rNums }, Dependencies: { }
+Dispatching: Execute query complete callback for { ("BZ2_bzWriteOpen": 0x702fcdf73420 [Callable]) }
+Finished emitting, for main.impl, MU@0x6040aaff61a0 ("<null module>", { })
+Done dispatching MaterializationUnits.
+Finished emitting, for main, MU@0x6040aabe45f0 ("<null module>", { })
+Done dispatching MaterializationUnits.
+  LookupState captured. Exiting phase1 for now.
+Finished emitting, for main.impl, MU@0x6040aaf26e30 ("<null module>", { })
+Done dispatching MaterializationUnits.
+Looking up { (BZ2_bzWrite, RequiredSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_bzWrite, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_bzWrite, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_bzWrite, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (BZ2_bzWrite, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_bzWrite, RequiredSymbol) }:
+  Attempting to match "BZ2_bzWrite" (RequiredSymbol)... matched, symbol already in required state
+Stripping unmatched weakly-referenced symbols
+Query successfully completed
+No MUs to dispatch.
+No dependencies to register
+Completing query
+Dispatching: Execute query complete callback for { ("BZ2_bzWrite": 0x702fcdf73670 [Callable]) }
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Looking up { (BZ2_compressBlock, RequiredSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_compressBlock, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_compressBlock, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_compressBlock, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (BZ2_compressBlock, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_compressBlock, RequiredSymbol) }:
+  Attempting to match "BZ2_compressBlock" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aadabb40 (tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll)
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main.impl: Adding 1 MUs.
+No dependencies to register
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll in main.impl
+Emitting, for main.impl, MU@0x6040aadabb40 ("tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll", { })
+In main.impl replacing symbols with MU@0x6040aac2c790 ("tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll", { ("BZ2_compressBlock", [Callable]), ("BZ2_bsInitWrite", [Callable]) })
+Dispatching: Materialization task: tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll in main.impl
+In main.impl defining materializing symbols { }
+In main.impl resolving { ("BZ2_compressBlock": 0x702fc469e030 [Callable]), ("BZ2_bsInitWrite": 0x702fc469e000 [Callable]) }
+Looking up { (BZ2_bz__AssertH__fail, RequiredSymbol), (BZ2_hbAssignCodes, RequiredSymbol), (BZ2_hbMakeCodeLengths, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol), (BZ2_blockSort, RequiredSymbol) } in [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ] (required state: Resolved)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_bz__AssertH__fail, RequiredSymbol), (BZ2_hbAssignCodes, RequiredSymbol), (BZ2_hbMakeCodeLengths, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol), (BZ2_blockSort, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_bz__AssertH__fail, RequiredSymbol), (BZ2_hbAssignCodes, RequiredSymbol), (BZ2_hbMakeCodeLengths, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol), (BZ2_blockSort, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol), (BZ2_hbAssignCodes, RequiredSymbol), (BZ2_hbMakeCodeLengths, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol), (BZ2_blockSort, RequiredSymbol) }:
+  First time visiting main, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol), (BZ2_hbAssignCodes, RequiredSymbol), (BZ2_hbMakeCodeLengths, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol), (BZ2_blockSort, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol), (BZ2_hbAssignCodes, RequiredSymbol), (BZ2_hbMakeCodeLengths, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol), (BZ2_blockSort, RequiredSymbol) }:
+  First time visiting <Platform>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol), (BZ2_hbAssignCodes, RequiredSymbol), (BZ2_hbMakeCodeLengths, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol), (BZ2_blockSort, RequiredSymbol) }:
+  First time visiting <Process Symbols>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No candidates to generate.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 4
+  Lookup set: { (BZ2_bz__AssertH__fail, RequiredSymbol), (BZ2_hbAssignCodes, RequiredSymbol), (BZ2_hbMakeCodeLengths, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol), (BZ2_blockSort, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol), (BZ2_hbAssignCodes, RequiredSymbol), (BZ2_hbMakeCodeLengths, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol), (BZ2_blockSort, RequiredSymbol) }:
+  Attempting to match "BZ2_bz__AssertH__fail" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aae7fac0 (<Lazy Reexports>)
+  Attempting to match "BZ2_blockSort" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aaedba50 (tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll)
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "BZ2_hbAssignCodes" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aaf6c760 (tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll)
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+  Attempting to match "BZ2_hbMakeCodeLengths" (RequiredSymbol)... matched, registering queryVisiting "main.impl" (MatchAllSymbols) with lookup set { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }:
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }:
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }:
+  Attempting to match "stderr" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "fprintf" (RequiredSymbol)... matched, symbol already in required state
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main: Adding 3 MUs.
+Registering dependencies
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll in main
+Emitting, for main, MU@0x6040aaf6c760 ("tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll", { })
+Defining MU tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll for main.impl (tracker: 0x0, default will be used)
+  { ("BZ2_hbAssignCodes", [Callable]), ("BZ2_hbMakeCodeLengths", [Callable]), ("BZ2_hbCreateDecodeTables", [Callable]) }
+In main replacing symbols with MU@0x6040aac73140 ("<Lazy Reexports>", { ("BZ2_hbAssignCodes", [Callable]), ("BZ2_hbMakeCodeLengths", [Callable]), ("BZ2_hbCreateDecodeTables", [Callable]) })
+Dispatching: Materialization task: <Lazy Reexports> in main
+In main replacing symbols with MU@0x6040aac70170 ("<Lazy Reexports>", { ("BZ2_hbCreateDecodeTables", [Callable]) })
+In main replacing symbols with MU@0x6040aac13620 ("RedirectableSymbolMaterializationUnit", { ("BZ2_hbAssignCodes", [Callable]), ("BZ2_hbMakeCodeLengths", [Callable]) })
+Dispatching: Materialization task: RedirectableSymbolMaterializationUnit in main
+In main resolving { ("BZ2_hbAssignCodes": 0x702fcdf7ff98 [Callable]), ("BZ2_hbMakeCodeLengths": 0x702fcdf7ffa0 [Callable]) }
+In main emitting { ("BZ2_hbAssignCodes", [Callable]), ("BZ2_hbMakeCodeLengths", [Callable]) }
+  Simplified dependencies:
+    Symbols: { BZ2_hbAssignCodes BZ2_hbMakeCodeLengths }, Dependencies: { }
+Finished emitting, for main, MU@0x6040aaf6c760 ("<null module>", { })
+  Dispatching "tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll in main
+Emitting, for main, MU@0x6040aaedba50 ("tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll", { })
+Defining MU tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll for main.impl (tracker: 0x0, default will be used)
+  { ("BZ2_blockSort", [Callable]) }
+In main replacing symbols with MU@0x6040aac73140 ("<Lazy Reexports>", { ("BZ2_blockSort", [Callable]) })
+Dispatching: Materialization task: <Lazy Reexports> in main
+In main replacing symbols with MU@0x6040aac13620 ("RedirectableSymbolMaterializationUnit", { ("BZ2_blockSort", [Callable]) })
+Dispatching: Materialization task: RedirectableSymbolMaterializationUnit in main
+In main resolving { ("BZ2_blockSort": 0x702fcdf7ff90 [Callable]) }
+In main emitting { ("BZ2_blockSort", [Callable]) }
+  Simplified dependencies:
+    Symbols: { BZ2_blockSort }, Dependencies: { }
+Finished emitting, for main, MU@0x6040aaedba50 ("<null module>", { })
+  Dispatching "<Lazy Reexports>"
+Dispatching: Materialization task: <Lazy Reexports> in main
+In main replacing symbols with MU@0x6040aac73140 ("<Lazy Reexports>", { ("BZ2_bzDecompressInit", [Callable]), ("BZ2_bzCompressInit", [Callable]), ("BZ2_bzDecompress", [Callable]), ("BZ2_bzerror", [Callable]), ("BZ2_bzBuffToBuffCompress", [Callable]), ("BZ2_bzopen", [Callable]), ("BZ2_bzclose", [Callable]), ("BZ2_bzCompress", [Callable]), ("BZ2_bzBuffToBuffDecompress", [Callable]), ("BZ2_bzflush", [Callable]), ("BZ2_bzWriteClose", [Callable]), ("BZ2_bzCompressEnd", [Callable]), ("BZ2_indexIntoF", [Callable]), ("BZ2_bzwrite", [Callable]), ("BZ2_bzread", [Callable]), ("BZ2_bzDecompressEnd", [Callable]), ("BZ2_bzdopen", [Callable]) })
+In main replacing symbols with MU@0x6040aac13620 ("RedirectableSymbolMaterializationUnit", { ("BZ2_bz__AssertH__fail", [Callable]) })
+Dispatching: Materialization task: RedirectableSymbolMaterializationUnit in main
+In main resolving { ("BZ2_bz__AssertH__fail": 0x702fcdf7ff88 [Callable]) }
+Dispatching: Execute query complete callback for { ("BZ2_bz__AssertH__fail": 0x702fcdf7ff88 [Callable]), ("BZ2_hbAssignCodes": 0x702fcdf7ff98 [Callable]), ("BZ2_hbMakeCodeLengths": 0x702fcdf7ffa0 [Callable]), ("fprintf": 0x702fc4460630 [Data]), ("stderr": 0x702fc461b860 [Data]), ("BZ2_blockSort": 0x702fcdf7ff90 [Callable]) }
+Section load-addresses in debug object for "tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll-jitted-objectbuffer":
+  0x0000702fc469d008 .rodata.str1.1
+  0x0000702fc469d000 .rodata.cst8
+  0x0000702fc469e000 .text
+  0x0000702fc469d160 .eh_frame
+Adding debug object to GDB JIT interface ([0x0000702fc4694000 -- 0x0000702fc469c7b8])
+In main.impl emitting { ("BZ2_compressBlock", [Callable]), ("BZ2_bsInitWrite", [Callable]) }
+  Initial dependencies:
+    Symbols: { BZ2_compressBlock, BZ2_bsInitWrite }, Dependencies: { (main.impl, { BZ2_bsInitWrite }), (main, { BZ2_bz__AssertH__fail, BZ2_hbAssignCodes, BZ2_hbMakeCodeLengths, BZ2_blockSort }) }
+  Simplified dependencies:
+    Symbols: { BZ2_compressBlock BZ2_bsInitWrite }, Dependencies: { (main, { BZ2_bz__AssertH__fail BZ2_hbAssignCodes BZ2_hbMakeCodeLengths BZ2_blockSort }) }
+In main emitting { ("BZ2_bz__AssertH__fail", [Callable]) }
+  Simplified dependencies:
+    Symbols: { BZ2_bz__AssertH__fail }, Dependencies: { }
+Dispatching: Execute query complete callback for { ("BZ2_compressBlock": 0x702fc469e030 [Callable]) }
+Done dispatching MaterializationUnits.
+Finished emitting, for main.impl, MU@0x6040aadabb40 ("<null module>", { })
+Done dispatching MaterializationUnits.
+Looking up { (BZ2_blockSort, RequiredSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_blockSort, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_blockSort, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_blockSort, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (BZ2_blockSort, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_blockSort, RequiredSymbol) }:
+  Attempting to match "BZ2_blockSort" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aaf6c760 (tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll)
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main.impl: Adding 1 MUs.
+No dependencies to register
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll in main.impl
+Emitting, for main.impl, MU@0x6040aaf6c760 ("tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll", { })
+In main.impl replacing symbols with MU@0x6040aabe6ea0 ("tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll", { ("BZ2_blockSort", [Callable]) })
+Dispatching: Materialization task: tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll in main.impl
+In main.impl defining materializing symbols { }
+In main.impl resolving { ("BZ2_blockSort": 0x702fc4691000 [Callable]) }
+Looking up { (BZ2_bz__AssertH__fail, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol) } in [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ] (required state: Resolved)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_bz__AssertH__fail, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_bz__AssertH__fail, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol) }:
+  First time visiting main, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol) }:
+  First time visiting <Platform>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol) }:
+  First time visiting <Process Symbols>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No candidates to generate.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 4
+  Lookup set: { (BZ2_bz__AssertH__fail, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol), (fprintf, RequiredSymbol), (stderr, RequiredSymbol) }:
+  Attempting to match "BZ2_bz__AssertH__fail" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }:
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }:
+  Attempting to match "stderr" (RequiredSymbol)... skipping: not present
+  Attempting to match "fprintf" (RequiredSymbol)... skipping: not present
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { (stderr, RequiredSymbol), (fprintf, RequiredSymbol) }:
+  Attempting to match "stderr" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "fprintf" (RequiredSymbol)... matched, symbol already in required state
+Stripping unmatched weakly-referenced symbols
+Query successfully completed
+No MUs to dispatch.
+No dependencies to register
+Completing query
+Dispatching: Execute query complete callback for { ("BZ2_bz__AssertH__fail": 0x702fcdf7ff88 [Callable]), ("fprintf": 0x702fc4460630 [Data]), ("stderr": 0x702fc461b860 [Data]) }
+Section load-addresses in debug object for "tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll-jitted-objectbuffer":
+  0x0000702fc468f000 .rodata.str1.1
+  0x0000702fc4690000 .data
+  0x0000702fc4691000 .text
+  0x0000702fc468f148 .eh_frame
+Adding debug object to GDB JIT interface ([0x0000702fc4686000 -- 0x0000702fc468e0f0])
+In main.impl emitting { ("BZ2_blockSort", [Callable]) }
+  Initial dependencies:
+    Symbols: { BZ2_blockSort }, Dependencies: { (main.impl, { BZ2_blockSort }) }
+  Simplified dependencies:
+    Symbols: { BZ2_blockSort }, Dependencies: { }
+Dispatching: Execute query complete callback for { ("BZ2_blockSort": 0x702fc4691000 [Callable]) }
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Finished emitting, for main.impl, MU@0x6040aaf6c760 ("<null module>", { })
+Done dispatching MaterializationUnits.
+Looking up { (BZ2_hbMakeCodeLengths, RequiredSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_hbMakeCodeLengths, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_hbMakeCodeLengths, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_hbMakeCodeLengths, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (BZ2_hbMakeCodeLengths, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_hbMakeCodeLengths, RequiredSymbol) }:
+  Attempting to match "BZ2_hbMakeCodeLengths" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aabf1ec0 (tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll)
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main.impl: Adding 1 MUs.
+No dependencies to register
+Dispatching MaterializationUnits...
+  Dispatching "tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll"
+Dispatching: Materialization task: tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll in main.impl
+Emitting, for main.impl, MU@0x6040aabf1ec0 ("tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll", { })
+In main.impl replacing symbols with MU@0x6040ab28a610 ("tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll", { ("BZ2_hbAssignCodes", [Callable]), ("BZ2_hbMakeCodeLengths", [Callable]), ("BZ2_hbCreateDecodeTables", [Callable]) })
+Dispatching: Materialization task: tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll in main.impl
+In main.impl defining materializing symbols { }
+In main.impl resolving { ("BZ2_hbAssignCodes": 0x702fc4a6f540 [Callable]), ("BZ2_hbMakeCodeLengths": 0x702fc4a6f000 [Callable]), ("BZ2_hbCreateDecodeTables": 0x702fc4a6f5d0 [Callable]) }
+Looking up { (BZ2_bz__AssertH__fail, RequiredSymbol) } in [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ] (required state: Resolved)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_bz__AssertH__fail, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_bz__AssertH__fail, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol) }:
+  First time visiting main, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 4
+  Lookup set: { (BZ2_bz__AssertH__fail, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (BZ2_bz__AssertH__fail, RequiredSymbol) }:
+  Attempting to match "BZ2_bz__AssertH__fail" (RequiredSymbol)... matched, symbol already in required state
+Visiting "main.impl" (MatchAllSymbols) with lookup set { }:
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { }:
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { }:
+Stripping unmatched weakly-referenced symbols
+Query successfully completed
+No MUs to dispatch.
+No dependencies to register
+Completing query
+Dispatching: Execute query complete callback for { ("BZ2_bz__AssertH__fail": 0x702fcdf7ff88 [Callable]) }
+Section load-addresses in debug object for "tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll-jitted-objectbuffer":
+  0x0000702fc4a6f000 .text
+  0x0000702fc4a6e000 .eh_frame
+Adding debug object to GDB JIT interface ([0x0000702fc4684000 -- 0x0000702fc4685ff0])
+In main.impl emitting { ("BZ2_hbAssignCodes", [Callable]), ("BZ2_hbMakeCodeLengths", [Callable]), ("BZ2_hbCreateDecodeTables", [Callable]) }
+  Initial dependencies:
+    Symbols: { BZ2_hbAssignCodes, BZ2_hbMakeCodeLengths, BZ2_hbCreateDecodeTables }, Dependencies: { (main.impl, { BZ2_hbAssignCodes }) }
+  Simplified dependencies:
+    Symbols: { BZ2_hbAssignCodes BZ2_hbMakeCodeLengths BZ2_hbCreateDecodeTables }, Dependencies: { }
+Dispatching: Execute query complete callback for { ("BZ2_hbMakeCodeLengths": 0x702fc4a6f000 [Callable]) }
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Finished emitting, for main.impl, MU@0x6040aabf1ec0 ("<null module>", { })
+Done dispatching MaterializationUnits.
+Looking up { (BZ2_hbAssignCodes, RequiredSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_hbAssignCodes, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_hbAssignCodes, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_hbAssignCodes, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (BZ2_hbAssignCodes, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_hbAssignCodes, RequiredSymbol) }:
+  Attempting to match "BZ2_hbAssignCodes" (RequiredSymbol)... matched, symbol already in required state
+Stripping unmatched weakly-referenced symbols
+Query successfully completed
+No MUs to dispatch.
+No dependencies to register
+Completing query
+Dispatching: Execute query complete callback for { ("BZ2_hbAssignCodes": 0x702fc4a6f540 [Callable]) }
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Looking up { (BZ2_bzWriteClose64, RequiredSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (BZ2_bzWriteClose64, RequiredSymbol) }
+  Definition generator candidates: { (BZ2_bzWriteClose64, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_bzWriteClose64, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (BZ2_bzWriteClose64, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (BZ2_bzWriteClose64, RequiredSymbol) }:
+  Attempting to match "BZ2_bzWriteClose64" (RequiredSymbol)... matched, symbol already in required state
+Stripping unmatched weakly-referenced symbols
+Query successfully completed
+No MUs to dispatch.
+No dependencies to register
+Completing query
+Dispatching: Execute query complete callback for { ("BZ2_bzWriteClose64": 0x702fcdf73930 [Callable]) }
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+LLJIT running deinitializers for JITDylib "main"
+GenericLLVMIRPlatformSupport getting deinitializers to run
+JITDylib deinit order is [ "main" "main.impl" "<Platform>" "<Process Symbols>" ]
+Looking up deinit functions:
+  "main.impl": { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  "<Process Symbols>": { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  "main": { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  "<Platform>": { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+Issuing init-symbol lookup:
+  main.impl: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  <Process Symbols>: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  main: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  <Platform>: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+Looking up { (__lljit_run_atexits, WeaklyReferencedSymbol) } in [ ("main.impl", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator candidates: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (__lljit_run_atexits, WeaklyReferencedSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main.impl", MatchAllSymbols) ], Current index = 1 (entering new JITDylib)
+  Lookup set: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (__lljit_run_atexits, WeaklyReferencedSymbol) }:
+  Attempting to match "__lljit_run_atexits" (WeaklyReferencedSymbol)... skipping: not present
+Stripping unmatched weakly-referenced symbols
+Query successfully completed
+No MUs to dispatch.
+No dependencies to register
+Completing query
+Dispatching: Execute query complete callback for { }
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Looking up { (__lljit_run_atexits, WeaklyReferencedSymbol) } in [ ("<Process Symbols>", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("<Process Symbols>", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator candidates: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator non-candidates: { }
+Visiting "<Process Symbols>" (MatchAllSymbols) with lookup set { (__lljit_run_atexits, WeaklyReferencedSymbol) }:
+  First time visiting <Process Symbols>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Running 1 remaining generators for 1 candidates
+  Attempting to generate { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+EPCDynamicLibrarySearchGenerator trying to generate { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+EPCDynamicLibrarySearchGenerator lookup returned { }
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("<Process Symbols>", MatchAllSymbols) ], Current index = 0
+  Lookup set: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator candidates: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator non-candidates: { }
+Visiting "<Process Symbols>" (MatchAllSymbols) with lookup set { (__lljit_run_atexits, WeaklyReferencedSymbol) }:
+  Updating candidate set...
+    Remaining candidates = { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("<Process Symbols>", MatchAllSymbols) ], Current index = 1 (entering new JITDylib)
+  Lookup set: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "<Process Symbols>" (MatchAllSymbols) with lookup set { (__lljit_run_atexits, WeaklyReferencedSymbol) }:
+  Attempting to match "__lljit_run_atexits" (WeaklyReferencedSymbol)... skipping: not present
+Stripping unmatched weakly-referenced symbols
+Query successfully completed
+No MUs to dispatch.
+No dependencies to register
+Completing query
+Dispatching: Execute query complete callback for { }
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+  LookupState captured. Exiting phase1 for now.
+Looking up { (__lljit_run_atexits, WeaklyReferencedSymbol) } in [ ("main", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator candidates: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (__lljit_run_atexits, WeaklyReferencedSymbol) }:
+  First time visiting main, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (__lljit_run_atexits, WeaklyReferencedSymbol) }:
+  Attempting to match "__lljit_run_atexits" (WeaklyReferencedSymbol)... matched, preparing to dispatch MU@0x6040aaba5340 (__standard_lib)
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main: Adding 1 MUs.
+No dependencies to register
+Dispatching MaterializationUnits...
+  Dispatching "__standard_lib"
+Dispatching: Materialization task: __standard_lib in main
+Emitting, for main, MU@0x6040aaba5340 ("__standard_lib", { })
+In main defining materializing symbols { }
+In main resolving { ("__lljit_run_atexits": 0x702fc4683000 [Callable][Hidden]), ("__dso_handle": 0x702fc4682000 [Data]), ("atexit": 0x702fc4683020 [Callable][Hidden]) }
+Looking up { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) } in [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ] (required state: Resolved)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }
+  Definition generator candidates: { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }:
+  First time visiting main, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (__lljit.platform_support_instance, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "main.impl" (MatchAllSymbols) with lookup set { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }:
+  First time visiting main.impl, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { (__lljit.platform_support_instance, RequiredSymbol) }
+  No generators to run for this JITDylib.
+Phase 1 moving to next JITDylib.
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }:
+  First time visiting <Platform>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("main", MatchAllSymbols), ("main.impl", MatchAllSymbols), ("<Platform>", MatchExportedSymbolsOnly), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 4
+  Lookup set: { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "main" (MatchAllSymbols) with lookup set { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }:
+  Attempting to match "__lljit.run_atexits_helper" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aad57ee0 (<Absolute Symbols>)
+  Attempting to match "__lljit.platform_support_instance" (RequiredSymbol)... skipping: not present
+  Attempting to match "__lljit.atexit_helper" (RequiredSymbol)... matched, registering queryVisiting "main.impl" (MatchAllSymbols) with lookup set { (__lljit.platform_support_instance, RequiredSymbol) }:
+  Attempting to match "__lljit.platform_support_instance" (RequiredSymbol)... skipping: not present
+Visiting "<Platform>" (MatchExportedSymbolsOnly) with lookup set { (__lljit.platform_support_instance, RequiredSymbol) }:
+  Attempting to match "__lljit.platform_support_instance" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aabae950 (<Absolute Symbols>)
+Visiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { }:
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For main: Adding 1 MUs.
+  For <Platform>: Adding 1 MUs.
+Registering dependencies
+Dispatching MaterializationUnits...
+  Dispatching "<Absolute Symbols>"
+Dispatching: Materialization task: <Absolute Symbols> in <Platform>
+In <Platform> resolving { ("__lljit.cxa_atexit_helper": 0x702fcd0bc670 [Data][Hidden]), ("__lljit.platform_support_instance": 0x6040aad63690 [Data]) }
+In <Platform> emitting { ("__lljit.cxa_atexit_helper", [Data][Hidden]), ("__lljit.platform_support_instance", [Data]) }
+  Simplified dependencies:
+    Symbols: { __lljit.cxa_atexit_helper __lljit.platform_support_instance }, Dependencies: { }
+  Dispatching "<Absolute Symbols>"
+Dispatching: Materialization task: <Absolute Symbols> in main
+In main resolving { ("__lljit.run_atexits_helper": 0x702fcd0bf190 [Data][Hidden]), ("__lljit.atexit_helper": 0x702fcd0bf220 [Data][Hidden]) }
+Dispatching: Execute query complete callback for { ("__lljit.run_atexits_helper": 0x702fcd0bf190 [Data][Hidden]), ("__lljit.atexit_helper": 0x702fcd0bf220 [Data][Hidden]), ("__lljit.platform_support_instance": 0x6040aad63690 [Data]) }
+Section load-addresses in debug object for "__standard_lib-jitted-objectbuffer":
+  0x0000702fc4682008 .eh_frame
+  0x0000702fc4683000 .text
+  0x0000702fc4682000 .rodata
+Adding debug object to GDB JIT interface ([0x0000702fc4a6d000 -- 0x0000702fc4a6d578])
+In main emitting { ("__lljit_run_atexits", [Callable][Hidden]), ("__dso_handle", [Data]), ("atexit", [Callable][Hidden]) }
+  Initial dependencies:
+    Symbols: { __lljit_run_atexits, atexit }, Dependencies: { (main, { __lljit_run_atexits, __dso_handle, __lljit.run_atexits_helper, __lljit.atexit_helper }), (<Platform>, { __lljit.platform_support_instance }) }
+    Symbols: { __dso_handle }, Dependencies: { }
+  Simplified dependencies:
+    Symbols: { __lljit_run_atexits atexit }, Dependencies: { (main, { __lljit.run_atexits_helper __lljit.atexit_helper }) (<Platform>, { __lljit.platform_support_instance }) }
+    Symbols: { __dso_handle }, Dependencies: { }
+In main emitting { ("__lljit.run_atexits_helper", [Data][Hidden]), ("__lljit.atexit_helper", [Data][Hidden]) }
+  Simplified dependencies:
+    Symbols: { __lljit.run_atexits_helper __lljit.atexit_helper }, Dependencies: { }
+Dispatching: Execute query complete callback for { ("__lljit_run_atexits": 0x702fc4683000 [Callable][Hidden]) }
+Done dispatching MaterializationUnits.
+Finished emitting, for main, MU@0x6040aaba5340 ("<null module>", { })
+Done dispatching MaterializationUnits.
+Looking up { (__lljit_run_atexits, WeaklyReferencedSymbol) } in [ ("<Platform>", MatchAllSymbols) ] (required state: Ready)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("<Platform>", MatchAllSymbols) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator candidates: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator non-candidates: { }
+Visiting "<Platform>" (MatchAllSymbols) with lookup set { (__lljit_run_atexits, WeaklyReferencedSymbol) }:
+  First time visiting <Platform>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("<Platform>", MatchAllSymbols) ], Current index = 1
+  Lookup set: { (__lljit_run_atexits, WeaklyReferencedSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "<Platform>" (MatchAllSymbols) with lookup set { (__lljit_run_atexits, WeaklyReferencedSymbol) }:
+  Attempting to match "__lljit_run_atexits" (WeaklyReferencedSymbol)... matched, preparing to dispatch MU@0x6040aad482e0 (__standard_lib)
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For <Platform>: Adding 1 MUs.
+No dependencies to register
+Dispatching MaterializationUnits...
+  Dispatching "__standard_lib"
+Dispatching: Materialization task: __standard_lib in <Platform>
+Emitting, for <Platform>, MU@0x6040aad482e0 ("__standard_lib", { })
+In <Platform> defining materializing symbols { }
+In <Platform> resolving { ("__lljit_run_atexits": 0x702fc4681000 [Callable][Hidden]), ("__dso_handle": 0x702fc4680000 [Data]), ("atexit": 0x702fc4681020 [Callable][Hidden]) }
+Looking up { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) } in [ ("<Platform>", MatchAllSymbols), ("<Process Symbols>", MatchExportedSymbolsOnly) ] (required state: Resolved)
+Dispatching MaterializationUnits...
+Done dispatching MaterializationUnits.
+Entering OL_applyQueryPhase1:
+  Lookup kind: Static
+  Search order: [ ("<Platform>", MatchAllSymbols), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 0 (entering new JITDylib)
+  Lookup set: { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }
+  Definition generator candidates: { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }
+  Definition generator non-candidates: { }
+Visiting "<Platform>" (MatchAllSymbols) with lookup set { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }:
+  First time visiting <Platform>, resetting candidate sets and building generator stack
+  Updating candidate set...
+    Remaining candidates = { }
+  No generators to run for this JITDylib.
+All symbols matched.
+Phase 1 succeeded.
+Entering OL_completeLookup:
+  Lookup kind: Static
+  Search order: [ ("<Platform>", MatchAllSymbols), ("<Process Symbols>", MatchExportedSymbolsOnly) ], Current index = 2
+  Lookup set: { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }
+  Definition generator candidates: { }
+  Definition generator non-candidates: { }
+Visiting "<Platform>" (MatchAllSymbols) with lookup set { (__lljit.run_atexits_helper, RequiredSymbol), (__lljit.atexit_helper, RequiredSymbol), (__lljit.platform_support_instance, RequiredSymbol) }:
+  Attempting to match "__lljit.run_atexits_helper" (RequiredSymbol)... matched, preparing to dispatch MU@0x6040aabae160 (<Absolute Symbols>)
+  Attempting to match "__lljit.platform_support_instance" (RequiredSymbol)... matched, symbol already in required state
+  Attempting to match "__lljit.atexit_helper" (RequiredSymbol)... matched, registering queryVisiting "<Process Symbols>" (MatchExportedSymbolsOnly) with lookup set { }:
+Stripping unmatched weakly-referenced symbols
+Query successfully lodged
+Adding MUs to dispatch:
+  For <Platform>: Adding 1 MUs.
+Registering dependencies
+Dispatching MaterializationUnits...
+  Dispatching "<Absolute Symbols>"
+Dispatching: Materialization task: <Absolute Symbols> in <Platform>
+In <Platform> resolving { ("__lljit.run_atexits_helper": 0x702fcd0bf190 [Data][Hidden]), ("__lljit.atexit_helper": 0x702fcd0bf220 [Data][Hidden]) }
+Dispatching: Execute query complete callback for { ("__lljit.run_atexits_helper": 0x702fcd0bf190 [Data][Hidden]), ("__lljit.atexit_helper": 0x702fcd0bf220 [Data][Hidden]), ("__lljit.platform_support_instance": 0x6040aad63690 [Data]) }
+Section load-addresses in debug object for "__standard_lib-jitted-objectbuffer":
+  0x0000702fc4680008 .eh_frame
+  0x0000702fc4681000 .text
+  0x0000702fc4680000 .rodata
+Adding debug object to GDB JIT interface ([0x0000702fc467f000 -- 0x0000702fc467f578])
+In <Platform> emitting { ("__lljit_run_atexits", [Callable][Hidden]), ("__dso_handle", [Data]), ("atexit", [Callable][Hidden]) }
+  Initial dependencies:
+    Symbols: { __lljit_run_atexits, atexit }, Dependencies: { (<Platform>, { __lljit_run_atexits, __dso_handle, __lljit.run_atexits_helper, __lljit.atexit_helper }) }
+    Symbols: { __dso_handle }, Dependencies: { }
+  Simplified dependencies:
+    Symbols: { __lljit_run_atexits atexit }, Dependencies: { (<Platform>, { __lljit.run_atexits_helper __lljit.atexit_helper }) }
+    Symbols: { __dso_handle }, Dependencies: { }
+In <Platform> emitting { ("__lljit.run_atexits_helper", [Data][Hidden]), ("__lljit.atexit_helper", [Data][Hidden]) }
+  Simplified dependencies:
+    Symbols: { __lljit.run_atexits_helper __lljit.atexit_helper }, Dependencies: { }
+Dispatching: Execute query complete callback for { ("__lljit_run_atexits": 0x702fc4681000 [Callable][Hidden]) }
+Done dispatching MaterializationUnits.
+Finished emitting, for <Platform>, MU@0x6040aad482e0 ("<null module>", { })
+Done dispatching MaterializationUnits.
+GenericLLVMIRPlatformSupport running deinitializers
+  Running deinit 0x702fc4683000...
+Running atexit functions for JD main
+  Running deinit 0x702fc4681000...
+Running atexit functions for JD <Platform>
+Ending ExecutionSession 0x6040aaca31e0
+In main.impl removing tracker 0x6040aaead9f0
+In main.impl destroying tracker 0x6040aaead9f0
+In main removing tracker 0x6040aab184e0
+In main destroying tracker 0x6040aab184e0
+In <Platform> removing tracker 0x6040aab16fd0
+In <Platform> destroying tracker 0x6040aab16fd0
+In <Process Symbols> removing tracker 0x6040ab1bdb00
+In <Process Symbols> destroying tracker 0x6040ab1bdb00
+Destroying JITDylib main.impl
+Destroying JITDylib main
+Destroying JITDylib <Platform>
+Destroying JITDylib <Process Symbols>

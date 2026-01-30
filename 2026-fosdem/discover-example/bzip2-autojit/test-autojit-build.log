@@ -1,0 +1,267 @@
+
+If compilation produces errors, or a large number of warnings, 
+please read README.COMPILATION.PROBLEMS -- you might be able to
+adjust the flags in this Makefile to improve matters.
+
+clang-21 -O0 -g -fpass-plugin=/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib/autojit.so -c blocksort.c
+autojit-plugin: /tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_incoming.ll (source: blocksort.c)
+autojit-plugin: Processing module blocksort.c
+autojit-plugin: Keep variable stderr
+autojit-plugin: Keep variable .str
+autojit-plugin: Keep variable .str.1
+autojit-plugin: Keep variable .str.2
+autojit-plugin: Keep variable .str.3
+autojit-plugin: Keep variable .str.4
+autojit-plugin: Keep variable .str.5
+autojit-plugin: Keep variable .str.6
+autojit-plugin: Keep variable .str.7
+autojit-plugin: Keep variable .str.8
+autojit-plugin: Promote variable incs as incs_autojit_module_2868f90adcbf0268b9c7bff1285a8ae9
+autojit-plugin: /tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9.ll (source: /tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9)
+autojit-plugin: Lazify function BZ2_blockSort as __autojit_fn_6629654963298571461
+autojit-plugin: /tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9_static.ll (source: /tmp/autojit_2868f90adcbf0268b9c7bff1285a8ae9)
+clang-21 -O0 -g -fpass-plugin=/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib/autojit.so -c huffman.c
+autojit-plugin: /tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_incoming.ll (source: huffman.c)
+autojit-plugin: Processing module huffman.c
+autojit-plugin: /tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d.ll (source: /tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d)
+autojit-plugin: Lazify function BZ2_hbMakeCodeLengths as __autojit_fn_9246276824078239321
+autojit-plugin: Lazify function BZ2_hbAssignCodes as __autojit_fn_4501320808800066321
+autojit-plugin: Lazify function BZ2_hbCreateDecodeTables as __autojit_fn_17332681578286304014
+autojit-plugin: /tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d_static.ll (source: /tmp/autojit_e0c23925ab8cd2b5abb37299b798c34d)
+clang-21 -O0 -g -fpass-plugin=/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib/autojit.so -c crctable.c
+autojit-plugin: /tmp/autojit_e4963078fa93dbec2187d7f95f963809_incoming.ll (source: crctable.c)
+autojit-plugin: Skipping module crctable.c (no functions to lazify)
+clang-21 -O0 -g -fpass-plugin=/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib/autojit.so -c randtable.c
+autojit-plugin: /tmp/autojit_0ff94dc47955112db15e0eac2aca9e53_incoming.ll (source: randtable.c)
+autojit-plugin: Skipping module randtable.c (no functions to lazify)
+clang-21 -O0 -g -fpass-plugin=/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib/autojit.so -c compress.c
+autojit-plugin: /tmp/autojit_4f0e030a358521399cbed216e6c35c26_incoming.ll (source: compress.c)
+autojit-plugin: Processing module compress.c
+autojit-plugin: Keep variable stderr
+autojit-plugin: Keep variable .str
+autojit-plugin: Keep variable .str.1
+autojit-plugin: Keep variable .str.2
+autojit-plugin: Keep variable .str.3
+autojit-plugin: Keep variable .str.4
+autojit-plugin: Keep variable .str.5
+autojit-plugin: Keep variable .str.6
+autojit-plugin: Keep variable .str.7
+autojit-plugin: Keep variable .str.8
+autojit-plugin: Keep variable .str.9
+autojit-plugin: Keep variable .str.10
+autojit-plugin: /tmp/autojit_4f0e030a358521399cbed216e6c35c26.ll (source: /tmp/autojit_4f0e030a358521399cbed216e6c35c26)
+autojit-plugin: Lazify function BZ2_bsInitWrite as __autojit_fn_2510588735418252777
+autojit-plugin: Lazify function BZ2_compressBlock as __autojit_fn_13853860483258788042
+autojit-plugin: /tmp/autojit_4f0e030a358521399cbed216e6c35c26_static.ll (source: /tmp/autojit_4f0e030a358521399cbed216e6c35c26)
+clang-21 -O0 -g -fpass-plugin=/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib/autojit.so -c decompress.c
+autojit-plugin: /tmp/autojit_f0812a417b5cdc8410f463180e95be2d_incoming.ll (source: decompress.c)
+autojit-plugin: Processing module decompress.c
+autojit-plugin: Keep variable stderr
+autojit-plugin: Keep variable .str
+autojit-plugin: Keep variable .str.1
+autojit-plugin: Keep variable BZ2_rNums
+autojit-plugin: /tmp/autojit_f0812a417b5cdc8410f463180e95be2d.ll (source: /tmp/autojit_f0812a417b5cdc8410f463180e95be2d)
+autojit-plugin: Lazify function BZ2_decompress as __autojit_fn_11502730063071858751
+autojit-plugin: /tmp/autojit_f0812a417b5cdc8410f463180e95be2d_static.ll (source: /tmp/autojit_f0812a417b5cdc8410f463180e95be2d)
+clang-21 -O0 -g -fpass-plugin=/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib/autojit.so -c bzlib.c
+autojit-plugin: /tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_incoming.ll (source: bzlib.c)
+autojit-plugin: Processing module bzlib.c
+autojit-plugin: Keep variable stderr
+autojit-plugin: Keep variable .str
+autojit-plugin: Keep variable .str.1
+autojit-plugin: Keep variable .str.2
+autojit-plugin: Keep variable .str.3
+autojit-plugin: Keep variable .str.4
+autojit-plugin: Keep variable .str.5
+autojit-plugin: Keep variable stdin
+autojit-plugin: Keep variable stdout
+autojit-plugin: Promote variable bzerrorstrings as bzerrorstrings_autojit_module_a67b8472f07710730b1a65a68ac67bd7
+autojit-plugin: Keep variable BZ2_crc32Table
+autojit-plugin: Keep variable BZ2_rNums
+autojit-plugin: Keep variable .str.6
+autojit-plugin: Keep variable .str.7
+autojit-plugin: Keep variable .str.8
+autojit-plugin: Keep variable .str.9
+autojit-plugin: Keep variable .str.10
+autojit-plugin: Keep variable .str.11
+autojit-plugin: Keep variable .str.12
+autojit-plugin: Keep variable .str.13
+autojit-plugin: Keep variable .str.14
+autojit-plugin: Keep variable .str.15
+autojit-plugin: Keep variable .str.16
+autojit-plugin: Keep variable .str.17
+autojit-plugin: Keep variable .str.18
+autojit-plugin: Keep variable .str.19
+autojit-plugin: Keep variable .str.20
+autojit-plugin: /tmp/autojit_a67b8472f07710730b1a65a68ac67bd7.ll (source: /tmp/autojit_a67b8472f07710730b1a65a68ac67bd7)
+autojit-plugin: Lazify function BZ2_bz__AssertH__fail as __autojit_fn_18443519768259505962
+autojit-plugin: Lazify function BZ2_bzlibVersion as __autojit_fn_4364279684691675085
+autojit-plugin: Lazify function BZ2_bzCompressInit as __autojit_fn_2955341414002248116
+autojit-plugin: Lazify function BZ2_bzCompress as __autojit_fn_18112044744406512933
+autojit-plugin: Lazify function BZ2_bzCompressEnd as __autojit_fn_7492901234580991795
+autojit-plugin: Lazify function BZ2_bzDecompressInit as __autojit_fn_8830962154303357271
+autojit-plugin: Lazify function BZ2_indexIntoF as __autojit_fn_14090018610010780571
+autojit-plugin: Lazify function BZ2_bzDecompress as __autojit_fn_11018070812236736101
+autojit-plugin: Lazify function BZ2_bzDecompressEnd as __autojit_fn_5896136371949372678
+autojit-plugin: Lazify function BZ2_bzWriteOpen as __autojit_fn_4284608645312911136
+autojit-plugin: Lazify function BZ2_bzWrite as __autojit_fn_4916840667439368584
+autojit-plugin: Lazify function BZ2_bzWriteClose as __autojit_fn_11437950937747539094
+autojit-plugin: Lazify function BZ2_bzWriteClose64 as __autojit_fn_1522661247684859730
+autojit-plugin: Lazify function BZ2_bzReadOpen as __autojit_fn_7338612040747971307
+autojit-plugin: Lazify function BZ2_bzReadClose as __autojit_fn_9640477245337809255
+autojit-plugin: Lazify function BZ2_bzRead as __autojit_fn_4880401171639127485
+autojit-plugin: Lazify function BZ2_bzReadGetUnused as __autojit_fn_2055401656495128884
+autojit-plugin: Lazify function BZ2_bzBuffToBuffCompress as __autojit_fn_4574284923786367950
+autojit-plugin: Lazify function BZ2_bzBuffToBuffDecompress as __autojit_fn_16638549454360825449
+autojit-plugin: Lazify function BZ2_bzopen as __autojit_fn_16778519136545410890
+autojit-plugin: Lazify function BZ2_bzdopen as __autojit_fn_14257543549432112478
+autojit-plugin: Lazify function BZ2_bzread as __autojit_fn_14593161937150225180
+autojit-plugin: Lazify function BZ2_bzwrite as __autojit_fn_4242229565524937818
+autojit-plugin: Lazify function BZ2_bzflush as __autojit_fn_15529528174571146467
+autojit-plugin: Lazify function BZ2_bzclose as __autojit_fn_11300387190488943409
+autojit-plugin: Lazify function BZ2_bzerror as __autojit_fn_14612142479893565889
+autojit-plugin: /tmp/autojit_a67b8472f07710730b1a65a68ac67bd7_static.ll (source: /tmp/autojit_a67b8472f07710730b1a65a68ac67bd7)
+rm -f libbz2.a
+llvm-ar-21 cq libbz2.a blocksort.o huffman.o crctable.o randtable.o compress.o decompress.o bzlib.o
+llvm-ranlib-21 libbz2.a
+clang-21 -O0 -g -fpass-plugin=/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib/autojit.so -c bzip2.c
+autojit-plugin: /tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_incoming.ll (source: bzip2.c)
+autojit-plugin: Processing module bzip2.c
+autojit-plugin: Keep variable .str
+autojit-plugin: Keep variable .str.1
+autojit-plugin: Keep variable .str.2
+autojit-plugin: Keep variable .str.3
+autojit-plugin: Keep variable zSuffix
+autojit-plugin: Keep variable .str.4
+autojit-plugin: Keep variable .str.5
+autojit-plugin: Keep variable unzSuffix
+autojit-plugin: Keep variable outputHandleJustInCase
+autojit-plugin: Keep variable smallMode
+autojit-plugin: Keep variable keepInputFiles
+autojit-plugin: Keep variable forceOverwrite
+autojit-plugin: Keep variable noisy
+autojit-plugin: Keep variable verbosity
+autojit-plugin: Keep variable blockSize100k
+autojit-plugin: Keep variable testFailsExist
+autojit-plugin: Keep variable unzFailsExist
+autojit-plugin: Keep variable numFileNames
+autojit-plugin: Keep variable numFilesProcessed
+autojit-plugin: Keep variable workFactor
+autojit-plugin: Keep variable deleteOutputOnInterrupt
+autojit-plugin: Keep variable exitValue
+autojit-plugin: Keep variable inName
+autojit-plugin: Keep variable .str.6
+autojit-plugin: Keep variable outName
+autojit-plugin: Keep variable progNameReally
+autojit-plugin: Keep variable progName
+autojit-plugin: Keep variable .str.7
+autojit-plugin: Keep variable .str.8
+autojit-plugin: Keep variable longestFileName
+autojit-plugin: Keep variable .str.9
+autojit-plugin: Keep variable srcMode
+autojit-plugin: Keep variable opMode
+autojit-plugin: Keep variable .str.10
+autojit-plugin: Keep variable .str.11
+autojit-plugin: Keep variable .str.12
+autojit-plugin: Keep variable .str.13
+autojit-plugin: Keep variable .str.14
+autojit-plugin: Keep variable .str.15
+autojit-plugin: Keep variable stderr
+autojit-plugin: Keep variable .str.16
+autojit-plugin: Keep variable .str.17
+autojit-plugin: Keep variable .str.18
+autojit-plugin: Keep variable .str.19
+autojit-plugin: Keep variable .str.20
+autojit-plugin: Keep variable .str.21
+autojit-plugin: Keep variable .str.22
+autojit-plugin: Keep variable .str.23
+autojit-plugin: Keep variable .str.24
+autojit-plugin: Keep variable .str.25
+autojit-plugin: Keep variable .str.26
+autojit-plugin: Keep variable .str.27
+autojit-plugin: Keep variable .str.28
+autojit-plugin: Keep variable .str.29
+autojit-plugin: Keep variable .str.30
+autojit-plugin: Keep variable .str.31
+autojit-plugin: Keep variable .str.32
+autojit-plugin: Keep variable .str.33
+autojit-plugin: Keep variable .str.34
+autojit-plugin: Keep variable .str.35
+autojit-plugin: Keep variable tmpName
+autojit-plugin: Keep variable .str.36
+autojit-plugin: Keep variable .str.37
+autojit-plugin: Keep variable .str.38
+autojit-plugin: Keep variable .str.39
+autojit-plugin: Keep variable .str.40
+autojit-plugin: Keep variable .str.41
+autojit-plugin: Keep variable .str.42
+autojit-plugin: Keep variable .str.43
+autojit-plugin: Keep variable .str.44
+autojit-plugin: Keep variable .str.45
+autojit-plugin: Keep variable .str.46
+autojit-plugin: Keep variable .str.47
+autojit-plugin: Keep variable .str.48
+autojit-plugin: Keep variable .str.49
+autojit-plugin: Keep variable .str.50
+autojit-plugin: Keep variable .str.51
+autojit-plugin: Keep variable .str.52
+autojit-plugin: Keep variable .str.53
+autojit-plugin: Keep variable .str.54
+autojit-plugin: Keep variable .str.55
+autojit-plugin: Keep variable .str.56
+autojit-plugin: Keep variable .str.57
+autojit-plugin: Keep variable .str.58
+autojit-plugin: Keep variable .str.59
+autojit-plugin: Keep variable .str.60
+autojit-plugin: Keep variable .str.61
+autojit-plugin: Keep variable .str.62
+autojit-plugin: Keep variable .str.63
+autojit-plugin: Keep variable stdin
+autojit-plugin: Keep variable stdout
+autojit-plugin: Keep variable .str.64
+autojit-plugin: Keep variable .str.65
+autojit-plugin: Keep variable .str.66
+autojit-plugin: Keep variable .str.67
+autojit-plugin: Keep variable .str.68
+autojit-plugin: Keep variable .str.69
+autojit-plugin: Keep variable .str.70
+autojit-plugin: Keep variable .str.71
+autojit-plugin: Promote variable fileMetaInfo as fileMetaInfo_autojit_module_2d1387ca92e7b83c7aa238c36b76c79a
+autojit-plugin: Keep variable .str.72
+autojit-plugin: Keep variable .str.73
+autojit-plugin: Keep variable .str.74
+autojit-plugin: Keep variable .str.75
+autojit-plugin: Keep variable .str.76
+autojit-plugin: Keep variable .str.77
+autojit-plugin: Keep variable .str.78
+autojit-plugin: Keep variable .str.79
+autojit-plugin: Keep variable .str.80
+autojit-plugin: Keep variable .str.81
+autojit-plugin: Keep variable .str.82
+autojit-plugin: Keep variable .str.83
+autojit-plugin: Keep variable .str.84
+autojit-plugin: Keep variable .str.85
+autojit-plugin: Keep variable .str.86
+autojit-plugin: Keep variable .str.87
+autojit-plugin: Keep variable .str.88
+autojit-plugin: Keep variable .str.89
+autojit-plugin: Keep variable .str.90
+autojit-plugin: Keep variable .str.91
+autojit-plugin: Keep variable .str.92
+autojit-plugin: Keep variable .str.93
+autojit-plugin: Keep variable .str.94
+autojit-plugin: Keep variable .str.95
+autojit-plugin: Keep variable .str.96
+autojit-plugin: Keep variable .str.97
+autojit-plugin: Keep variable .str.98
+autojit-plugin: Keep variable .str.99
+autojit-plugin: Keep variable .str.100
+autojit-plugin: Keep variable .str.101
+autojit-plugin: Keep variable .str.102
+autojit-plugin: Keep variable .str.103
+autojit-plugin: Keep variable .str.104
+autojit-plugin: /tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a.ll (source: /tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a)
+autojit-plugin: Lazify function fopen_output_safely as __autojit_fn_4347410223156403214
+autojit-plugin: Lazify function main as __autojit_fn_15718096533338779913
+autojit-plugin: /tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a_static.ll (source: /tmp/autojit_2d1387ca92e7b83c7aa238c36b76c79a)
+clang-21 -O0 -g -fpass-plugin=/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib/autojit.so -Wl,-rpath=/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib -L/home/ez/Develop/llvm-project-main/build-external-llvm21/install/lib -lautojit-runtime -rdynamic -o bzip2 bzip2.o -L. -Wl,--whole-archive -lbz2 -Wl,--no-whole-archive
