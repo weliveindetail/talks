@@ -1,0 +1,185 @@
+52°North Spatial Information Research GmbH      Innovative ideas & technologies in geoinformatics
+AboutCode                                       Scan code for origin, license and vulnerabilities
+Accord Project                                  Open source software for smart legal contracts
+AFLplusplus                                     State of the art fuzzing for better security
+Alaska                                          Many Traditions, One Alaska
+AnkiDroid                                       AnkiDroid makes remembering things easy
+AOSSIE                                          Australian Umbrella Org for Open-Source Projects
+Apache DataFusion                               Foundational library for DBs and compute engines
+Apache Software Foundation                      Open source software to the public free of charge
+API Dash                                        Next-gen Open Source API DevTool powered by AI
+ArduPilot                                       World's most advanced autonomous vehicle software
+AsyncAPI                                        Building the future of Event-Driven Architectures
+BeagleBoard.org                                 Open hardware computing for educators and makers
+Blender Foundation                              The Freedom to Create
+BRL-CAD                                         3D CAD & other computer-aided tech (CAx)
+cBioPortal for Cancer Genomics                  Aid discovery in complex cancer genomics data
+CCExtractor Development                         TV, Rust, Flutter, Linux, VR and C. In any order.
+Center for Translational Data Science           Develop translational data science.
+Ceph                                            The Future of Storage
+CERN-HSF                                        Umbrella for Particle Physics-related projects
+CGAL Project                                    C++ library of computational geometry
+CHAOSS                                          Community Health Analytics Open Source Software
+Checker Framework                               Prevent programming errors via simple verification
+checkstyle                                      Helps to adheres of Java coding standard
+Chromium                                        Fast, seamless, safe, and reliable web for all
+CircuitVerse.org                                Build and learn logic circuits in the cloud!
+CloudCV                                         Building platforms for reproducible AI Research
+CNCF                                            Building sustainable ecosystems for cloud native
+CRIU                                            Chekpoint/Restore for Linux tasks and containers
+D Language Foundation                           Write fast, read fast, and run fast.
+Dart                                            Dart is a client language for apps on any platform
+Data for the Common Good                        Connect. Share. Discover.
+DBpedia                                         Global and Unified Access to Knowledge Graphs.
+Debian                                          The Universal Operating System
+DeepChem                                        Democratize AI for drug discovery.
+Emory University                                Biomedical research to advance healthcare
+Django Software Foundation                      Web framework for perfectionists with deadlines
+dora-rs                                         Simplify robotic apps with AI
+Drupal Association                              Build Bold Digital Experiences on Best Open Source
+Eclipse Foundation                              The Global Open Source Foundation
+Electron                                        Cross-platform desktop apps with web technologies
+Fedora Project                                  Freedom, Friends, Features, and First.
+FFmpeg                                          Record, convert and stream audio & video
+FLARE                                           Industry leading malware analysis
+Fortran-lang                                    High-performance parallel programming language
+FOSSASIA                                        Free and Open Source Software in Asia
+FOSSology                                       Open Source License Compliance by OSS
+Free and Open Source Silicon Foundation         Working together for Free and Open Source Silicon
+FreeCAD                                         Cross-platform 3D parametric modeler
+freifunk                                        Free and open wireless networks
+GeomScale                                       Scalable geometric and statistical software
+Git                                             Fast,Scalable,Distributed revision control system
+GitLab                                          Everyone can contribute
+GNOME Foundation                                A diverse and sustainable free software desktop.
+GNSS-SDR                                        An open source GNSS software-defined receiver
+GNU Compiler Collection (GCC)                   GNU compilers
+GNU Image Manipulation Program                  GIMP is a cross-platform image editor
+GNU Octave                                      Free Your Numbers
+GNU Radio                                       The free & open software radio ecosystem
+Google DeepMind                                 Google DeepMind's open-source projects
+gprMax                                          Simulating electromagnetic wave propagation
+GRAME                                           Domain specific language for audio
+Graphite                                        Multimedia art/design editor and graphics engine
+Haskell.org                                     Purely functional programming language
+HumanAI                                         AI for the Arts and the Humanities
+INCF                                            An open & FAIR neuroscience standards organization
+Inkscape                                        Draw freely!
+International Catrobat Association              Free visual coding apps for computational thinking
+Internet Archive                                Universal Access to All Knowledge
+Internet Health Report                          Monitoring the Internet
+Invesalius                                      3D Medical visualization and neuronavigation tool
+IOOS                                            Our eyes on the ocean, coasts, and Great Lakes
+JabRef e.V.                                     Stay on top of your Literature
+JAX and Keras                                   Python libraries for large-scale machine learning
+JdeRobot                                        Toolkit for developing Robotics applications
+Jenkins                                         Jenkins, build great things at any scale
+Jitsi                                           State-of-the-art video conferencing
+Joomla!                                         The flexible platform empowering website creators.
+JSON Schema                                     We enable the reliable use of JSON data format.
+KDE Community                                   Control your digital life
+Keploy                                          Unit, API test generation agent using AI & EBPF
+Kiwix                                           Internet content available offline.
+Kornia                                          Advancing Computer Vision & Spatial AI, Openly
+Kotlin Foundation                               Advance the Kotlin programming language
+kro | Kube Resource Orchestrator                Simplify Kubernetes API and resource management.
+Kubeflow                                        The Machine Learning Toolkit for Kubernetes (AI)
+KubeVirt                                        Building a virtualization API for Kubernetes
+LabLua                                          Programming Language Research with emphasis on Lua
+Learning Equality                               Building equity in education to transform lives
+LibreOffice                                     LibreOffice is a free and open source office suite
+libssh                                          The SSH library
+Liquid Galaxy project                           We code immersive and interactive apps with GEarth
+LLVM Compiler Infrastructure                    LLVM Compiler Infrastructure
+Machine Learning for Science (ML4SCI)           Machine learning applications in science
+MariaDB                                         The fastest growing Open Source Database
+MBDyn                                           Open Source Multibody Simulation
+MDAnalysis                                      Analysis of molecular simulations data with Python
+Meshery                                         the extensible, collaborative, Kubernetes manager
+MetaBrainz Foundation Inc                       Open music / book metadata, music recommendations
+Micro Electronics Research Lab - UITU           Accelerating Engineering Innovation
+ MIT App Inventor                               Anyone can build apps with global impact
+Mixxx                                           DJ Mixing App With Powerful Features For All DJs
+National Resource for Network Biology           Developing open source tools for network biology
+Neovim                                          hyperextensible Vim-based text editor
+Neuroinformatics Unit                           Open-source tools for neuroscience and ML
+NumFOCUS                                        NumFOCUS promotes open source scientific software.
+omegaUp                                         Open CS Education as a catalyst for social change
+Open Climate Fix                                Using Computers to Fix Climate Change
+Open Food Facts                                 Better food choices for your health & the planet
+Open HealthCare Network                         Reimagining Healthcare Delivery
+Open Robotics                                   Open source robotics and a whole lot more!
+Open Science Initiative for Perfusion Imaging   Open access resources for perfusion imaging
+Open Science Labs                               The community open to science and technology.
+Open Technologies Alliance - GFOSS              Promote Open Standards and Open Source
+Open Transit Software Foundation                Help make public transit better
+OpenAFS                                         An open source distributed filesystem.
+OpenAstronomy                                   Look at the Universe with the power of Open Source
+OpenCV                                          ++ beneficial uses of computer vision in society
+OpenELIS Global                                 Empowering labs to Ensure Quality Health Care
+OpenMRS                                         Write Code, Save Lives.
+OpenMS                                          OpenMS GSoC: Advancing Algorithms & AI for Biomedical Insights
+OpenStreetMap                                   Create and distribute free geodata for the world
+openSUSE Project                                Makers' choice for sysadmins, developers & users
+OpenVINO Toolkit                                Make AI inference faster and easier to deploy!
+OpenWISP                                        The Hackable Network Management System
+Oppia Foundation                                Free platform for interactive, tutor-like lessons
+Organic Maps                                    Offline maps app for tourists, cyclers, hikers and drivers
+OSGeo (Open Source Geospatial Foundation)       The Open Source Geospatial Foundation
+OWASP Foundation                                No more insecure software.
+PAL Robotics                                    Enhance people’s quality of life through Robotics
+PEcAn Project                                   Develop and promote tools for ecosystem modeling
+Pharo Consortium                                Modern and immersive programming language
+Plone Foundation                                Python-based CMS, with React front-end.
+PostgreSQL                                      The Most Advanced Open Source Relational Database
+Processing Foundation                           To empower all people to learn to program
+Project Mesa                                    Mesa: Agent-based modeling in Python 3+
+Prometheus-Operator                             Managing Prometheus atop Kubernetes
+Python Software Foundation                      A programming language used for science & more
+QC-Devs                                         Sustainable software for quantum chemistry & more
+QEMU                                            Open source machine emulator and virtualizer
+R project for statistical computing             R software for statistical computing & graphics
+Rizin                                           Rizin reverse engineering framework and toolset
+rocket.chat                                     Open source communications platform for the AI age
+Rspamd                                          Rspamd is an email framework and spam filter
+RTEMS Project                                   A real-time operating system for Earth & Space
+SageMath                                        Open-source mathematics software system
+Scala Center                                    Guide and support the Scala community
+ScummVM                                         Adventure and RPG preservation project
+Society for Arts and Technology (SAT)           Technological tools for creativity and industry
+LMU Munich                                      Algorithms and Tooling for Software Verification
+SQLancer                                        Automatically testing database systems
+St. Jude Children's Research Hospital           Find cures. Saving children.
+stdlib                                          The fundamental numerical library for JavaScript
+Ste||ar group                                   Shaping a Scalable Future
+Stichting SU2                                   Computational Fluid Dynamics and Optimization
+Sugar Labs                                      Learning software for children
+SW360                                           Software supply chain management done right !
+Swift                                           Fast, safe, and expressive programming language
+SymPy                                           SymPy is a Python library for symbolic mathematics
+Synfig                                          Open-source 2D animation software
+TARDIS RT Collaboration                         Exploring supernovae made easy
+The FreeBSD Project                             An OS for servers to embedded devices
+The Honeynet Project                            Honeypots and Threat Intelligence R&D
+The JPF team                                    JPF is a Java VM used to verify and debug software
+The Julia Language                              A fresh approach to technical computing
+The Linux Foundation                            Non-profit consortium fostering growth of Linux
+The Mifos Initiative                            End Poverty One Line of Code at a Time
+The NetBSD Foundation                           Of course it runs NetBSD
+The ns-3 Network Simulator Project              ns-3 is a simulation tool for computer networks.
+The P4 Language Consortium                      Evolve the programmable data plane ecosystem!
+The Palisadoes Foundation                       Social media and member management for non-profits
+The Rust Foundation                             A language empowering everyone
+The Tor Project                                 Defend yourself against tracking and surveillance.
+Typelevel                                       We do functional programming together
+UC OSPO                                         Amplifying Research Impact through Open Source
+Unicode, Inc.                                   Bringing internationalization to software!
+Unikraft                                        A Fast and Secure Unikernel SDK
+Uramaki LAB                                     The User Experience LAB based on IA
+VideoLAN                                        Open Source Multimedia for everyone!
+Wagtail                                         The powerful Python CMS for modern websites
+Waycrate                                        Writing robust tools for the Wayland protocol
+webpack                                         webpack is the module bundler for web projects
+Wellcome Sanger Tree of Life                    Genome analysis for all species
+Zendalona                                       FOSS accessibility solutions for visually impaired
+Zulip                                           Organized chat for distributed teams
