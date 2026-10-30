@@ -1,0 +1,64 @@
+/* Excalidraw-like look: Nunito (Excalidraw's "normal" font) for text, hand-drawn Virgil for titles,
+   Excalidraw palette, sketchy boxes. */
+@font-face {
+  font-family: 'Virgil';
+  src: url('/fonts/Virgil-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+:root {
+  --xd-stroke: #1e1e1e;
+  --xd-blue: #1971c2;
+  --xd-blue-fill: #a5d8ff;
+  --xd-yellow-fill: #ffec99;
+  --xd-green-fill: #b2f2bb;
+  --xd-red: #e03131;
+  --slidev-theme-primary: var(--xd-blue);
+}
+
+.slidev-layout {
+  font-family: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  color: var(--xd-stroke);
+  background: #ffffff;
+}
+
+.slidev-layout h1 {
+  font-family: 'Virgil', 'Nunito', sans-serif;
+  font-size: 2.2rem;
+  color: var(--xd-stroke);
+  margin-bottom: 1.2rem;
+}
+
+.slidev-layout code,
+.slidev-layout pre {
+  font-family: 'Fira Code', ui-monospace, monospace;
+}
+
+/* Hand-drawn box: irregular border radii fake a sketched outline. */
+.sketch-box {
+  border: 2px solid var(--xd-stroke);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+.sticky {
+  background: var(--xd-yellow-fill);
+  padding: 0.6rem 0.9rem;
+  border: 2px solid var(--xd-stroke);
+  border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
+  transform: rotate(-1.5deg);
+}
+
+/* Minimum text size on all slides: code blocks are the smallest text. */
+.slidev-layout .slidev-code {
+  font-size: 0.85rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Links (PRs, talks): a slight dashed underline instead of the theme's full-strength one. */
+.slidev-layout a {
+  border-bottom: 1px dashed color-mix(in srgb, currentColor 35%, transparent);
+}
+.slidev-layout a:hover {
+  border-bottom-style: solid;
+  border-bottom-color: currentColor;
+}
